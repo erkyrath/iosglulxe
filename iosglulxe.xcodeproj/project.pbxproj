@@ -361,6 +361,9 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iosglulxe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -463,6 +466,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iosglulxe_Prefix.pch;
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "iosglulxe-Info.plist";
 				PRODUCT_NAME = iosglulxe;
 			};
@@ -475,6 +479,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iosglulxe_Prefix.pch;
+				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "iosglulxe-Info.plist";
 				PRODUCT_NAME = iosglulxe;
 				VALIDATE_PRODUCT = YES;
@@ -490,7 +495,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6F4CEA2-5D13-45E5-A6B3-D8C96773E4C2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -507,7 +511,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6F4CEA2-5D13-45E5-A6B3-D8C96773E4C2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
