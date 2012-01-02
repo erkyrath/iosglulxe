@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
+		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
+		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
+		DF4B9E4B13691DC300AC9A95 /* iosstart.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9E4A13691DC300AC9A95 /* iosstart.m */; };
+		DF4CB9B41368FF1800CED834 /* GlkFileSelectLoad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4CB9B01368FF1800CED834 /* GlkFileSelectLoad.xib */; };
+		DF4CB9B51368FF1800CED834 /* GlkFileSelectStore.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4CB9B11368FF1800CED834 /* GlkFileSelectStore.xib */; };
+		DF4CB9B61368FF1800CED834 /* IosGlkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4CB9B21368FF1800CED834 /* IosGlkViewController.xib */; };
+		DF4CB9B71368FF1800CED834 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4CB9B31368FF1800CED834 /* MainWindow.xib */; };
+		DF4CB9D11368FF9800CED834 /* GlkAppWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */; };
+		DF4CB9D21368FF9800CED834 /* GlkFileSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C01368FF9800CED834 /* GlkFileSelectViewController.m */; };
+		DF4CB9D31368FF9800CED834 /* GlkFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C21368FF9800CED834 /* GlkFrameView.m */; };
+		DF4CB9D41368FF9800CED834 /* GlkWinBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C41368FF9800CED834 /* GlkWinBufferView.m */; };
+		DF4CB9D51368FF9800CED834 /* GlkWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C61368FF9800CED834 /* GlkWindowView.m */; };
+		DF4CB9D61368FF9800CED834 /* GlkWinGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C81368FF9800CED834 /* GlkWinGridView.m */; };
+		DF4CB9D71368FF9800CED834 /* IosGlkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */; };
+		DF4CB9D81368FF9800CED834 /* IosGlkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */; };
+		DF4CB9D91368FF9800CED834 /* RelDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */; };
+		DF4CB9DA1368FF9800CED834 /* StyledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9D01368FF9800CED834 /* StyledTextView.m */; };
+		DF4CB9DF1368FFBE00CED834 /* gi_dispa.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9DC1368FFBE00CED834 /* gi_dispa.c */; };
+		DF4CB9E91368FFF000CED834 /* GlkEventLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E11368FFF000CED834 /* GlkEventLayer.m */; };
+		DF4CB9EA1368FFF000CED834 /* GlkFileRefLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E21368FFF000CED834 /* GlkFileRefLayer.m */; };
+		DF4CB9EB1368FFF000CED834 /* GlkMiscLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E31368FFF000CED834 /* GlkMiscLayer.m */; };
+		DF4CB9EC1368FFF000CED834 /* GlkStreamLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E41368FFF000CED834 /* GlkStreamLayer.m */; };
+		DF4CB9ED1368FFF000CED834 /* GlkUnicodeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E51368FFF000CED834 /* GlkUnicodeLayer.m */; };
+		DF4CB9EE1368FFF000CED834 /* GlkUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E71368FFF000CED834 /* GlkUtilities.m */; };
+		DF4CB9EF1368FFF000CED834 /* GlkWindowLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E81368FFF000CED834 /* GlkWindowLayer.m */; };
+		DF4CBA011369003600CED834 /* Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9F21369003600CED834 /* Geometry.m */; };
+		DF4CBA021369003600CED834 /* GlkFileRef.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9F41369003600CED834 /* GlkFileRef.m */; };
+		DF4CBA031369003600CED834 /* GlkFileTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9F61369003600CED834 /* GlkFileTypes.m */; };
+		DF4CBA041369003600CED834 /* GlkLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9F81369003600CED834 /* GlkLibrary.m */; };
+		DF4CBA051369003600CED834 /* GlkStream.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9FA1369003600CED834 /* GlkStream.m */; };
+		DF4CBA061369003600CED834 /* GlkUtilTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9FC1369003600CED834 /* GlkUtilTypes.m */; };
+		DF4CBA071369003600CED834 /* GlkWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9FE1369003600CED834 /* GlkWindow.m */; };
+		DF4CBA081369003600CED834 /* StyleSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA001369003600CED834 /* StyleSet.m */; };
+		DF4CBA201369009500CED834 /* accel.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA0D1369009500CED834 /* accel.c */; };
+		DF4CBA211369009500CED834 /* exec.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA0E1369009500CED834 /* exec.c */; };
+		DF4CBA221369009500CED834 /* files.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA0F1369009500CED834 /* files.c */; };
+		DF4CBA231369009500CED834 /* float.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA101369009500CED834 /* float.c */; };
+		DF4CBA241369009500CED834 /* funcs.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA111369009500CED834 /* funcs.c */; };
+		DF4CBA251369009500CED834 /* gestalt.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA121369009500CED834 /* gestalt.c */; };
+		DF4CBA261369009500CED834 /* glkop.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA141369009500CED834 /* glkop.c */; };
+		DF4CBA281369009500CED834 /* heap.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA171369009500CED834 /* heap.c */; };
+		DF4CBA291369009500CED834 /* operand.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA191369009500CED834 /* operand.c */; };
+		DF4CBA2A1369009500CED834 /* osdepend.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1A1369009500CED834 /* osdepend.c */; };
+		DF4CBA2B1369009500CED834 /* profile.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1B1369009500CED834 /* profile.c */; };
+		DF4CBA2C1369009500CED834 /* search.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1C1369009500CED834 /* search.c */; };
+		DF4CBA2D1369009500CED834 /* serial.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1D1369009500CED834 /* serial.c */; };
+		DF4CBA2E1369009500CED834 /* string.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1E1369009500CED834 /* string.c */; };
+		DF4CBA2F1369009500CED834 /* vm.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1F1369009500CED834 /* vm.c */; };
+		DF6BCEBF1369062600442D6F /* gi_blorb.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCEBD1369062600442D6F /* gi_blorb.c */; };
+		DF6BCEDA13690BA400442D6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCED913690BA400442D6F /* main.c */; };
+		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D6058910D05DD3D006BFB54 /* iosglulxe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosglulxe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* iosglulxe_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglulxe_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* iosglulxe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iosglulxe-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
+		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
+		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
+		DF4B9E3F13691A0600AC9A95 /* Game.ulx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Game.ulx; sourceTree = "<group>"; };
+		DF4B9E4A13691DC300AC9A95 /* iosstart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iosstart.m; sourceTree = "<group>"; };
+		DF4CB9B01368FF1800CED834 /* GlkFileSelectLoad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GlkFileSelectLoad.xib; path = ../iosglk/GlkFileSelectLoad.xib; sourceTree = SOURCE_ROOT; };
+		DF4CB9B11368FF1800CED834 /* GlkFileSelectStore.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GlkFileSelectStore.xib; path = ../iosglk/GlkFileSelectStore.xib; sourceTree = SOURCE_ROOT; };
+		DF4CB9B21368FF1800CED834 /* IosGlkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IosGlkViewController.xib; path = ../iosglk/IosGlkViewController.xib; sourceTree = SOURCE_ROOT; };
+		DF4CB9B31368FF1800CED834 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow.xib; path = ../iosglk/MainWindow.xib; sourceTree = SOURCE_ROOT; };
+		DF4CB9BD1368FF9800CED834 /* GlkAppWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkAppWrapper.h; sourceTree = "<group>"; };
+		DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkAppWrapper.m; sourceTree = "<group>"; };
+		DF4CB9BF1368FF9800CED834 /* GlkFileSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkFileSelectViewController.h; sourceTree = "<group>"; };
+		DF4CB9C01368FF9800CED834 /* GlkFileSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkFileSelectViewController.m; sourceTree = "<group>"; };
+		DF4CB9C11368FF9800CED834 /* GlkFrameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkFrameView.h; sourceTree = "<group>"; };
+		DF4CB9C21368FF9800CED834 /* GlkFrameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkFrameView.m; sourceTree = "<group>"; };
+		DF4CB9C31368FF9800CED834 /* GlkWinBufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkWinBufferView.h; sourceTree = "<group>"; };
+		DF4CB9C41368FF9800CED834 /* GlkWinBufferView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWinBufferView.m; sourceTree = "<group>"; };
+		DF4CB9C51368FF9800CED834 /* GlkWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkWindowView.h; sourceTree = "<group>"; };
+		DF4CB9C61368FF9800CED834 /* GlkWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWindowView.m; sourceTree = "<group>"; };
+		DF4CB9C71368FF9800CED834 /* GlkWinGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkWinGridView.h; sourceTree = "<group>"; };
+		DF4CB9C81368FF9800CED834 /* GlkWinGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWinGridView.m; sourceTree = "<group>"; };
+		DF4CB9C91368FF9800CED834 /* IosGlkAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IosGlkAppDelegate.h; sourceTree = "<group>"; };
+		DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IosGlkAppDelegate.m; sourceTree = "<group>"; };
+		DF4CB9CB1368FF9800CED834 /* IosGlkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IosGlkViewController.h; sourceTree = "<group>"; };
+		DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IosGlkViewController.m; sourceTree = "<group>"; };
+		DF4CB9CD1368FF9800CED834 /* RelDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelDateFormatter.h; sourceTree = "<group>"; };
+		DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelDateFormatter.m; sourceTree = "<group>"; };
+		DF4CB9CF1368FF9800CED834 /* StyledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledTextView.h; sourceTree = "<group>"; };
+		DF4CB9D01368FF9800CED834 /* StyledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledTextView.m; sourceTree = "<group>"; };
+		DF4CB9DC1368FFBE00CED834 /* gi_dispa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gi_dispa.c; sourceTree = "<group>"; };
+		DF4CB9DD1368FFBE00CED834 /* gi_dispa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gi_dispa.h; sourceTree = "<group>"; };
+		DF4CB9DE1368FFBE00CED834 /* glk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glk.h; sourceTree = "<group>"; };
+		DF4CB9E11368FFF000CED834 /* GlkEventLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkEventLayer.m; sourceTree = "<group>"; };
+		DF4CB9E21368FFF000CED834 /* GlkFileRefLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkFileRefLayer.m; sourceTree = "<group>"; };
+		DF4CB9E31368FFF000CED834 /* GlkMiscLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkMiscLayer.m; sourceTree = "<group>"; };
+		DF4CB9E41368FFF000CED834 /* GlkStreamLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkStreamLayer.m; sourceTree = "<group>"; };
+		DF4CB9E51368FFF000CED834 /* GlkUnicodeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkUnicodeLayer.m; sourceTree = "<group>"; };
+		DF4CB9E61368FFF000CED834 /* GlkUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkUtilities.h; sourceTree = "<group>"; };
+		DF4CB9E71368FFF000CED834 /* GlkUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkUtilities.m; sourceTree = "<group>"; };
+		DF4CB9E81368FFF000CED834 /* GlkWindowLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWindowLayer.m; sourceTree = "<group>"; };
+		DF4CB9F11369003600CED834 /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		DF4CB9F21369003600CED834 /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
+		DF4CB9F31369003600CED834 /* GlkFileRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkFileRef.h; sourceTree = "<group>"; };
+		DF4CB9F41369003600CED834 /* GlkFileRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkFileRef.m; sourceTree = "<group>"; };
+		DF4CB9F51369003600CED834 /* GlkFileTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkFileTypes.h; sourceTree = "<group>"; };
+		DF4CB9F61369003600CED834 /* GlkFileTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkFileTypes.m; sourceTree = "<group>"; };
+		DF4CB9F71369003600CED834 /* GlkLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkLibrary.h; sourceTree = "<group>"; };
+		DF4CB9F81369003600CED834 /* GlkLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkLibrary.m; sourceTree = "<group>"; };
+		DF4CB9F91369003600CED834 /* GlkStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkStream.h; sourceTree = "<group>"; };
+		DF4CB9FA1369003600CED834 /* GlkStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkStream.m; sourceTree = "<group>"; };
+		DF4CB9FB1369003600CED834 /* GlkUtilTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkUtilTypes.h; sourceTree = "<group>"; };
+		DF4CB9FC1369003600CED834 /* GlkUtilTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkUtilTypes.m; sourceTree = "<group>"; };
+		DF4CB9FD1369003600CED834 /* GlkWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkWindow.h; sourceTree = "<group>"; };
+		DF4CB9FE1369003600CED834 /* GlkWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWindow.m; sourceTree = "<group>"; };
+		DF4CB9FF1369003600CED834 /* StyleSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleSet.h; sourceTree = "<group>"; };
+		DF4CBA001369003600CED834 /* StyleSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleSet.m; sourceTree = "<group>"; };
+		DF4CBA0D1369009500CED834 /* accel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = accel.c; sourceTree = "<group>"; };
+		DF4CBA0E1369009500CED834 /* exec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = exec.c; sourceTree = "<group>"; };
+		DF4CBA0F1369009500CED834 /* files.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = files.c; sourceTree = "<group>"; };
+		DF4CBA101369009500CED834 /* float.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = float.c; sourceTree = "<group>"; };
+		DF4CBA111369009500CED834 /* funcs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = funcs.c; sourceTree = "<group>"; };
+		DF4CBA121369009500CED834 /* gestalt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gestalt.c; sourceTree = "<group>"; };
+		DF4CBA131369009500CED834 /* gestalt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gestalt.h; sourceTree = "<group>"; };
+		DF4CBA141369009500CED834 /* glkop.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glkop.c; sourceTree = "<group>"; };
+		DF4CBA161369009500CED834 /* glulxe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glulxe.h; sourceTree = "<group>"; };
+		DF4CBA171369009500CED834 /* heap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = heap.c; sourceTree = "<group>"; };
+		DF4CBA181369009500CED834 /* opcodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opcodes.h; sourceTree = "<group>"; };
+		DF4CBA191369009500CED834 /* operand.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operand.c; sourceTree = "<group>"; };
+		DF4CBA1A1369009500CED834 /* osdepend.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = osdepend.c; sourceTree = "<group>"; };
+		DF4CBA1B1369009500CED834 /* profile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = profile.c; sourceTree = "<group>"; };
+		DF4CBA1C1369009500CED834 /* search.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = search.c; sourceTree = "<group>"; };
+		DF4CBA1D1369009500CED834 /* serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = serial.c; sourceTree = "<group>"; };
+		DF4CBA1E1369009500CED834 /* string.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = string.c; sourceTree = "<group>"; };
+		DF4CBA1F1369009500CED834 /* vm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm.c; sourceTree = "<group>"; };
+		DF6BCEBD1369062600442D6F /* gi_blorb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gi_blorb.c; sourceTree = "<group>"; };
+		DF6BCEBE1369062600442D6F /* gi_blorb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gi_blorb.h; sourceTree = "<group>"; };
+		DF6BCED913690BA400442D6F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* iosglulxe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9DB1368FF9D00CED834 /* GenSrc */,
+				DF4CB9BC1368FF6600CED834 /* AppSrc */,
+				DF4CB9F01368FFF400CED834 /* LibSrc */,
+				DF4CB9E01368FFC900CED834 /* LayerSrc */,
+				DF4CBA0C1369005000CED834 /* Glulxe */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* iosglulxe_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9B31368FF1800CED834 /* MainWindow.xib */,
+				DF4CB9B01368FF1800CED834 /* GlkFileSelectLoad.xib */,
+				DF4CB9B11368FF1800CED834 /* GlkFileSelectStore.xib */,
+				DF4CB9B21368FF1800CED834 /* IosGlkViewController.xib */,
+				8D1107310486CEB800E47090 /* iosglulxe-Info.plist */,
+				DF4B9E3F13691A0600AC9A95 /* Game.ulx */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF4CB9BC1368FF6600CED834 /* AppSrc */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9C91368FF9800CED834 /* IosGlkAppDelegate.h */,
+				DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */,
+				DF4CB9CB1368FF9800CED834 /* IosGlkViewController.h */,
+				DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */,
+				DF4CB9BF1368FF9800CED834 /* GlkFileSelectViewController.h */,
+				DF4CB9C01368FF9800CED834 /* GlkFileSelectViewController.m */,
+				DF4CB9BD1368FF9800CED834 /* GlkAppWrapper.h */,
+				DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */,
+				DF4CB9C11368FF9800CED834 /* GlkFrameView.h */,
+				DF4CB9C21368FF9800CED834 /* GlkFrameView.m */,
+				DF4CB9C31368FF9800CED834 /* GlkWinBufferView.h */,
+				DF4CB9C41368FF9800CED834 /* GlkWinBufferView.m */,
+				DF4CB9C51368FF9800CED834 /* GlkWindowView.h */,
+				DF4CB9C61368FF9800CED834 /* GlkWindowView.m */,
+				DF4CB9C71368FF9800CED834 /* GlkWinGridView.h */,
+				DF4CB9C81368FF9800CED834 /* GlkWinGridView.m */,
+				DF4CB9CD1368FF9800CED834 /* RelDateFormatter.h */,
+				DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */,
+				DF4CB9CF1368FF9800CED834 /* StyledTextView.h */,
+				DF4CB9D01368FF9800CED834 /* StyledTextView.m */,
+			);
+			name = AppSrc;
+			path = iosglk/AppSrc;
+			sourceTree = "<group>";
+		};
+		DF4CB9DB1368FF9D00CED834 /* GenSrc */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9DE1368FFBE00CED834 /* glk.h */,
+				DF6BCEBD1369062600442D6F /* gi_blorb.c */,
+				DF6BCEBE1369062600442D6F /* gi_blorb.h */,
+				DF4CB9DC1368FFBE00CED834 /* gi_dispa.c */,
+				DF4CB9DD1368FFBE00CED834 /* gi_dispa.h */,
+				DF4B9E281369196000AC9A95 /* iosglk_startup.h */,
+			);
+			name = GenSrc;
+			path = iosglk/GenSrc;
+			sourceTree = "<group>";
+		};
+		DF4CB9E01368FFC900CED834 /* LayerSrc */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9E11368FFF000CED834 /* GlkEventLayer.m */,
+				DF4CB9E31368FFF000CED834 /* GlkMiscLayer.m */,
+				DF4CB9E81368FFF000CED834 /* GlkWindowLayer.m */,
+				DF4CB9E41368FFF000CED834 /* GlkStreamLayer.m */,
+				DF4CB9E21368FFF000CED834 /* GlkFileRefLayer.m */,
+				DF4CB9E51368FFF000CED834 /* GlkUnicodeLayer.m */,
+				DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */,
+				DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */,
+				DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */,
+				DF4CB9E61368FFF000CED834 /* GlkUtilities.h */,
+				DF4CB9E71368FFF000CED834 /* GlkUtilities.m */,
+			);
+			name = LayerSrc;
+			path = iosglk/LayerSrc;
+			sourceTree = "<group>";
+		};
+		DF4CB9F01368FFF400CED834 /* LibSrc */ = {
+			isa = PBXGroup;
+			children = (
+				DF4CB9F11369003600CED834 /* Geometry.h */,
+				DF4CB9F21369003600CED834 /* Geometry.m */,
+				DF4CB9F31369003600CED834 /* GlkFileRef.h */,
+				DF4CB9F41369003600CED834 /* GlkFileRef.m */,
+				DF4CB9F51369003600CED834 /* GlkFileTypes.h */,
+				DF4CB9F61369003600CED834 /* GlkFileTypes.m */,
+				DF4CB9F71369003600CED834 /* GlkLibrary.h */,
+				DF4CB9F81369003600CED834 /* GlkLibrary.m */,
+				DF4CB9F91369003600CED834 /* GlkStream.h */,
+				DF4CB9FA1369003600CED834 /* GlkStream.m */,
+				DF4CB9FB1369003600CED834 /* GlkUtilTypes.h */,
+				DF4CB9FC1369003600CED834 /* GlkUtilTypes.m */,
+				DF4CB9FD1369003600CED834 /* GlkWindow.h */,
+				DF4CB9FE1369003600CED834 /* GlkWindow.m */,
+				DF4CB9FF1369003600CED834 /* StyleSet.h */,
+				DF4CBA001369003600CED834 /* StyleSet.m */,
+			);
+			name = LibSrc;
+			path = iosglk/LibSrc;
+			sourceTree = "<group>";
+		};
+		DF4CBA0C1369005000CED834 /* Glulxe */ = {
+			isa = PBXGroup;
+			children = (
+				DF4B9E4A13691DC300AC9A95 /* iosstart.m */,
+				DF6BCED913690BA400442D6F /* main.c */,
+				DF4CBA161369009500CED834 /* glulxe.h */,
+				DF4CBA0D1369009500CED834 /* accel.c */,
+				DF4CBA0E1369009500CED834 /* exec.c */,
+				DF4CBA0F1369009500CED834 /* files.c */,
+				DF4CBA101369009500CED834 /* float.c */,
+				DF4CBA111369009500CED834 /* funcs.c */,
+				DF4CBA121369009500CED834 /* gestalt.c */,
+				DF4CBA131369009500CED834 /* gestalt.h */,
+				DF4CBA141369009500CED834 /* glkop.c */,
+				DF4CBA171369009500CED834 /* heap.c */,
+				DF4CBA181369009500CED834 /* opcodes.h */,
+				DF4CBA191369009500CED834 /* operand.c */,
+				DF4CBA1A1369009500CED834 /* osdepend.c */,
+				DF4CBA1B1369009500CED834 /* profile.c */,
+				DF4CBA1C1369009500CED834 /* search.c */,
+				DF4CBA1D1369009500CED834 /* serial.c */,
+				DF4CBA1E1369009500CED834 /* string.c */,
+				DF4CBA1F1369009500CED834 /* vm.c */,
+			);
+			name = Glulxe;
+			path = glulxe;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* iosglulxe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iosglulxe" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iosglulxe;
+			productName = iosglulxe;
+			productReference = 1D6058910D05DD3D006BFB54 /* iosglulxe.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iosglulxe" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* iosglulxe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF4CB9B41368FF1800CED834 /* GlkFileSelectLoad.xib in Resources */,
+				DF4CB9B51368FF1800CED834 /* GlkFileSelectStore.xib in Resources */,
+				DF4CB9B61368FF1800CED834 /* IosGlkViewController.xib in Resources */,
+				DF4CB9B71368FF1800CED834 /* MainWindow.xib in Resources */,
+				DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				DF4CB9D11368FF9800CED834 /* GlkAppWrapper.m in Sources */,
+				DF4CB9D21368FF9800CED834 /* GlkFileSelectViewController.m in Sources */,
+				DF4CB9D31368FF9800CED834 /* GlkFrameView.m in Sources */,
+				DF4CB9D41368FF9800CED834 /* GlkWinBufferView.m in Sources */,
+				DF4CB9D51368FF9800CED834 /* GlkWindowView.m in Sources */,
+				DF4CB9D61368FF9800CED834 /* GlkWinGridView.m in Sources */,
+				DF4CB9D71368FF9800CED834 /* IosGlkAppDelegate.m in Sources */,
+				DF4CB9D81368FF9800CED834 /* IosGlkViewController.m in Sources */,
+				DF4CB9D91368FF9800CED834 /* RelDateFormatter.m in Sources */,
+				DF4CB9DA1368FF9800CED834 /* StyledTextView.m in Sources */,
+				DF4CB9DF1368FFBE00CED834 /* gi_dispa.c in Sources */,
+				DF4CB9E91368FFF000CED834 /* GlkEventLayer.m in Sources */,
+				DF4CB9EA1368FFF000CED834 /* GlkFileRefLayer.m in Sources */,
+				DF4CB9EB1368FFF000CED834 /* GlkMiscLayer.m in Sources */,
+				DF4CB9EC1368FFF000CED834 /* GlkStreamLayer.m in Sources */,
+				DF4CB9ED1368FFF000CED834 /* GlkUnicodeLayer.m in Sources */,
+				DF4CB9EE1368FFF000CED834 /* GlkUtilities.m in Sources */,
+				DF4CB9EF1368FFF000CED834 /* GlkWindowLayer.m in Sources */,
+				DF4CBA011369003600CED834 /* Geometry.m in Sources */,
+				DF4CBA021369003600CED834 /* GlkFileRef.m in Sources */,
+				DF4CBA031369003600CED834 /* GlkFileTypes.m in Sources */,
+				DF4CBA041369003600CED834 /* GlkLibrary.m in Sources */,
+				DF4CBA051369003600CED834 /* GlkStream.m in Sources */,
+				DF4CBA061369003600CED834 /* GlkUtilTypes.m in Sources */,
+				DF4CBA071369003600CED834 /* GlkWindow.m in Sources */,
+				DF4CBA081369003600CED834 /* StyleSet.m in Sources */,
+				DF4CBA201369009500CED834 /* accel.c in Sources */,
+				DF4CBA211369009500CED834 /* exec.c in Sources */,
+				DF4CBA221369009500CED834 /* files.c in Sources */,
+				DF4CBA231369009500CED834 /* float.c in Sources */,
+				DF4CBA241369009500CED834 /* funcs.c in Sources */,
+				DF4CBA251369009500CED834 /* gestalt.c in Sources */,
+				DF4CBA261369009500CED834 /* glkop.c in Sources */,
+				DF4CBA281369009500CED834 /* heap.c in Sources */,
+				DF4CBA291369009500CED834 /* operand.c in Sources */,
+				DF4CBA2A1369009500CED834 /* osdepend.c in Sources */,
+				DF4CBA2B1369009500CED834 /* profile.c in Sources */,
+				DF4CBA2C1369009500CED834 /* search.c in Sources */,
+				DF4CBA2D1369009500CED834 /* serial.c in Sources */,
+				DF4CBA2E1369009500CED834 /* string.c in Sources */,
+				DF4CBA2F1369009500CED834 /* vm.c in Sources */,
+				DF6BCEBF1369062600442D6F /* gi_blorb.c in Sources */,
+				DF6BCEDA13690BA400442D6F /* main.c in Sources */,
+				DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */,
+				DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */,
+				DF4B9E4B13691DC300AC9A95 /* iosstart.m in Sources */,
+				DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iosglulxe_Prefix.pch;
+				INFOPLIST_FILE = "iosglulxe-Info.plist";
+				PRODUCT_NAME = iosglulxe;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iosglulxe_Prefix.pch;
+				INFOPLIST_FILE = "iosglulxe-Info.plist";
+				PRODUCT_NAME = iosglulxe;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Plotkin (W5DXF3X776)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6F4CEA2-5D13-45E5-A6B3-D8C96773E4C2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Plotkin (W5DXF3X776)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6F4CEA2-5D13-45E5-A6B3-D8C96773E4C2";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "iosglulxe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iosglulxe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
