@@ -8,7 +8,7 @@ left/right pages for notes/map/etc
 
 Gotta buffer GlkStream!
 
-glulxercise failures: strings, glk (and 'all' doesn't come back)
+glulxercise failures: "all" doesn't come back -- too many lines in buf?
 
 Make sure that @quit and VM-loop-exit wind up in the same state as glk_exit().
 
