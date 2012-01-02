@@ -1,0 +1,12 @@
+Scrolling seems inadequate (try "look" in Advent)
+
+Need a navbar with a "close keyboard" button
+
+left/right pages for notes/map/etc
+
+Gotta buffer GlkStream!
+
+glulxercise failures: strings, glk (and 'all' doesn't come back)
+
+Make sure that @quit and VM-loop-exit wind up in the same state as glk_exit().
+
