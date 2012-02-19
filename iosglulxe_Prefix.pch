@@ -5,6 +5,8 @@
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
 	#import <UIKit/UIKit.h>
+
+	#import <QuartzCore/CALayer.h>
 #else
 	#define OS_UNIX // The Glulxe source likes this defined.
 #endif
