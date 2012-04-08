@@ -16,6 +16,11 @@
 		DF19DE0914F18C98007DCB29 /* IosGlkLibDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0614F18C98007DCB29 /* IosGlkLibDelegate.m */; };
 		DF19DE1114F18DB9007DCB29 /* TerpGlkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */; };
 		DF19DE1214F18DB9007DCB29 /* TerpGlkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */; };
+		DF41DAA11531F63F000B5D00 /* HistoryMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */; };
+		DF41DAA21531F63F000B5D00 /* InputMenuDecor.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */; };
+		DF41DAA31531F63F000B5D00 /* MoreBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */; };
+		DF41DAA41531F63F000B5D00 /* PaletteMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */; };
+		DF41DAA51531F63F000B5D00 /* PopBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DAA01531F63F000B5D00 /* PopBoxView.xib */; };
 		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
@@ -88,6 +93,11 @@
 		DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkDelegate.m; sourceTree = "<group>"; };
 		DF19DE0F14F18DB9007DCB29 /* TerpGlkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerpGlkViewController.h; sourceTree = "<group>"; };
 		DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkViewController.m; sourceTree = "<group>"; };
+		DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryMenuView.xib; path = iosglk/Resources/HistoryMenuView.xib; sourceTree = SOURCE_ROOT; };
+		DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputMenuDecor.xib; path = iosglk/Resources/InputMenuDecor.xib; sourceTree = SOURCE_ROOT; };
+		DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreBoxView.xib; path = iosglk/Resources/MoreBoxView.xib; sourceTree = SOURCE_ROOT; };
+		DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaletteMenuView.xib; path = iosglk/Resources/PaletteMenuView.xib; sourceTree = SOURCE_ROOT; };
+		DF41DAA01531F63F000B5D00 /* PopBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopBoxView.xib; path = iosglk/Resources/PopBoxView.xib; sourceTree = SOURCE_ROOT; };
 		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
 		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
 		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
@@ -225,6 +235,11 @@
 				DF4CB9B21368FF1800CED834 /* IosGlkViewController.xib */,
 				DF4CB9B01368FF1800CED834 /* GlkFileSelectLoad.xib */,
 				DF4CB9B11368FF1800CED834 /* GlkFileSelectStore.xib */,
+				DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */,
+				DF41DAA01531F63F000B5D00 /* PopBoxView.xib */,
+				DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */,
+				DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */,
+				DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -426,6 +441,11 @@
 				DF4CB9B61368FF1800CED834 /* IosGlkViewController.xib in Resources */,
 				DF4CB9B71368FF1800CED834 /* MainWindow.xib in Resources */,
 				DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */,
+				DF41DAA11531F63F000B5D00 /* HistoryMenuView.xib in Resources */,
+				DF41DAA21531F63F000B5D00 /* InputMenuDecor.xib in Resources */,
+				DF41DAA31531F63F000B5D00 /* MoreBoxView.xib in Resources */,
+				DF41DAA41531F63F000B5D00 /* PaletteMenuView.xib in Resources */,
+				DF41DAA51531F63F000B5D00 /* PopBoxView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
