@@ -83,6 +83,7 @@
 		DF41DB38153200D1000B5D00 /* fader-popbox.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB31153200D1000B5D00 /* fader-popbox.png */; };
 		DF41DB39153200D1000B5D00 /* selecthandle.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB32153200D1000B5D00 /* selecthandle.png */; };
 		DF41DB3A153200D1000B5D00 /* selecthandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB33153200D1000B5D00 /* selecthandle@2x.png */; };
+		DF41DB3C153230AA000B5D00 /* WebSite in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB3B153230AA000B5D00 /* WebSite */; };
 		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
@@ -236,6 +237,7 @@
 		DF41DB31153200D1000B5D00 /* fader-popbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fader-popbox.png"; path = "iosglk/Media/fader-popbox.png"; sourceTree = SOURCE_ROOT; };
 		DF41DB32153200D1000B5D00 /* selecthandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selecthandle.png; path = iosglk/Media/selecthandle.png; sourceTree = SOURCE_ROOT; };
 		DF41DB33153200D1000B5D00 /* selecthandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selecthandle@2x.png"; path = "iosglk/Media/selecthandle@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB3B153230AA000B5D00 /* WebSite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = WebSite; sourceTree = "<group>"; };
 		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
 		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
 		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				DF41DAA71531F67D000B5D00 /* Media */,
+				DF41DB3B153230AA000B5D00 /* WebSite */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -716,6 +719,7 @@
 				DF41DB38153200D1000B5D00 /* fader-popbox.png in Resources */,
 				DF41DB39153200D1000B5D00 /* selecthandle.png in Resources */,
 				DF41DB3A153200D1000B5D00 /* selecthandle@2x.png in Resources */,
+				DF41DB3C153230AA000B5D00 /* WebSite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
