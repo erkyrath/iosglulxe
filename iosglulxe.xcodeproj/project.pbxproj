@@ -66,6 +66,8 @@
 		DF41DB0C1531F7BF000B5D00 /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB031531F7BE000B5D00 /* NotesViewController.m */; };
 		DF41DB0D1531F7BF000B5D00 /* PrefsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB051531F7BE000B5D00 /* PrefsMenuView.m */; };
 		DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */; };
+		DF41DB101531FADE000B5D00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */; };
+		DF41DB161531FB43000B5D00 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB151531FB43000B5D00 /* MessageUI.framework */; };
 		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
@@ -201,6 +203,8 @@
 		DF41DB051531F7BE000B5D00 /* PrefsMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsMenuView.m; sourceTree = "<group>"; };
 		DF41DB061531F7BE000B5D00 /* TranscriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranscriptViewController.h; sourceTree = "<group>"; };
 		DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranscriptViewController.m; sourceTree = "<group>"; };
+		DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DF41DB151531FB43000B5D00 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
 		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
 		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				DF41DB101531FADE000B5D00 /* QuartzCore.framework in Frameworks */,
+				DF41DB161531FB43000B5D00 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +360,8 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */,
+				DF41DB151531FB43000B5D00 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
