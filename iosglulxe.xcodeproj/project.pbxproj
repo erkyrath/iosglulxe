@@ -69,6 +69,20 @@
 		DF41DB101531FADE000B5D00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */; };
 		DF41DB161531FB43000B5D00 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB151531FB43000B5D00 /* MessageUI.framework */; };
 		DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */; };
+		DF41DB251532005E000B5D00 /* DisplayTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB1E1532005E000B5D00 /* DisplayTextVC.xib */; };
+		DF41DB261532005E000B5D00 /* HelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB1F1532005E000B5D00 /* HelpVC.xib */; };
+		DF41DB271532005E000B5D00 /* NotesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB201532005E000B5D00 /* NotesVC.xib */; };
+		DF41DB281532005E000B5D00 /* NotesVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB211532005E000B5D00 /* NotesVC~ipad.xib */; };
+		DF41DB291532005E000B5D00 /* PrefsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB221532005E000B5D00 /* PrefsMenuView.xib */; };
+		DF41DB2A1532005E000B5D00 /* PrefsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB231532005E000B5D00 /* PrefsMenuView~ipad.xib */; };
+		DF41DB2B1532005E000B5D00 /* TranscriptVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB241532005E000B5D00 /* TranscriptVC.xib */; };
+		DF41DB34153200D1000B5D00 /* background-popbox.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB2D153200D1000B5D00 /* background-popbox.png */; };
+		DF41DB35153200D1000B5D00 /* background-popbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB2E153200D1000B5D00 /* background-popbox@2x.png */; };
+		DF41DB36153200D1000B5D00 /* button-tab-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB2F153200D1000B5D00 /* button-tab-sel.png */; };
+		DF41DB37153200D1000B5D00 /* button-tab-sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB30153200D1000B5D00 /* button-tab-sel@2x.png */; };
+		DF41DB38153200D1000B5D00 /* fader-popbox.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB31153200D1000B5D00 /* fader-popbox.png */; };
+		DF41DB39153200D1000B5D00 /* selecthandle.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB32153200D1000B5D00 /* selecthandle.png */; };
+		DF41DB3A153200D1000B5D00 /* selecthandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF41DB33153200D1000B5D00 /* selecthandle@2x.png */; };
 		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
@@ -208,6 +222,20 @@
 		DF41DB151531FB43000B5D00 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerpGlkWindows.h; sourceTree = "<group>"; };
 		DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkWindows.m; sourceTree = "<group>"; };
+		DF41DB1E1532005E000B5D00 /* DisplayTextVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayTextVC.xib; sourceTree = "<group>"; };
+		DF41DB1F1532005E000B5D00 /* HelpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpVC.xib; sourceTree = "<group>"; };
+		DF41DB201532005E000B5D00 /* NotesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotesVC.xib; sourceTree = "<group>"; };
+		DF41DB211532005E000B5D00 /* NotesVC~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "NotesVC~ipad.xib"; sourceTree = "<group>"; };
+		DF41DB221532005E000B5D00 /* PrefsMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefsMenuView.xib; sourceTree = "<group>"; };
+		DF41DB231532005E000B5D00 /* PrefsMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "PrefsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		DF41DB241532005E000B5D00 /* TranscriptVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TranscriptVC.xib; sourceTree = "<group>"; };
+		DF41DB2D153200D1000B5D00 /* background-popbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-popbox.png"; path = "iosglk/Media/background-popbox.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB2E153200D1000B5D00 /* background-popbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-popbox@2x.png"; path = "iosglk/Media/background-popbox@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB2F153200D1000B5D00 /* button-tab-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-tab-sel.png"; path = "iosglk/Media/button-tab-sel.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB30153200D1000B5D00 /* button-tab-sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-tab-sel@2x.png"; path = "iosglk/Media/button-tab-sel@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB31153200D1000B5D00 /* fader-popbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fader-popbox.png"; path = "iosglk/Media/fader-popbox.png"; sourceTree = SOURCE_ROOT; };
+		DF41DB32153200D1000B5D00 /* selecthandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selecthandle.png; path = iosglk/Media/selecthandle.png; sourceTree = SOURCE_ROOT; };
+		DF41DB33153200D1000B5D00 /* selecthandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selecthandle@2x.png"; path = "iosglk/Media/selecthandle@2x.png"; sourceTree = SOURCE_ROOT; };
 		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
 		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
 		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
@@ -353,6 +381,13 @@
 				DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */,
 				DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */,
 				DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */,
+				DF41DB1E1532005E000B5D00 /* DisplayTextVC.xib */,
+				DF41DB1F1532005E000B5D00 /* HelpVC.xib */,
+				DF41DB201532005E000B5D00 /* NotesVC.xib */,
+				DF41DB211532005E000B5D00 /* NotesVC~ipad.xib */,
+				DF41DB221532005E000B5D00 /* PrefsMenuView.xib */,
+				DF41DB231532005E000B5D00 /* PrefsMenuView~ipad.xib */,
+				DF41DB241532005E000B5D00 /* TranscriptVC.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -399,6 +434,13 @@
 		DF41DAA71531F67D000B5D00 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				DF41DB2D153200D1000B5D00 /* background-popbox.png */,
+				DF41DB2E153200D1000B5D00 /* background-popbox@2x.png */,
+				DF41DB2F153200D1000B5D00 /* button-tab-sel.png */,
+				DF41DB30153200D1000B5D00 /* button-tab-sel@2x.png */,
+				DF41DB31153200D1000B5D00 /* fader-popbox.png */,
+				DF41DB32153200D1000B5D00 /* selecthandle.png */,
+				DF41DB33153200D1000B5D00 /* selecthandle@2x.png */,
 				DF41DAA81531F6AF000B5D00 /* background-notes-s.png */,
 				DF41DAA91531F6AF000B5D00 /* background-notes.png */,
 				DF41DAAA1531F6AF000B5D00 /* background-notesopaque-s.png */,
@@ -660,6 +702,20 @@
 				DF41DAE51531F6AF000B5D00 /* tabicon-help@2x.png in Resources */,
 				DF41DAE61531F6AF000B5D00 /* tabicon-notes.png in Resources */,
 				DF41DAE71531F6AF000B5D00 /* tabicon-notes@2x.png in Resources */,
+				DF41DB251532005E000B5D00 /* DisplayTextVC.xib in Resources */,
+				DF41DB261532005E000B5D00 /* HelpVC.xib in Resources */,
+				DF41DB271532005E000B5D00 /* NotesVC.xib in Resources */,
+				DF41DB281532005E000B5D00 /* NotesVC~ipad.xib in Resources */,
+				DF41DB291532005E000B5D00 /* PrefsMenuView.xib in Resources */,
+				DF41DB2A1532005E000B5D00 /* PrefsMenuView~ipad.xib in Resources */,
+				DF41DB2B1532005E000B5D00 /* TranscriptVC.xib in Resources */,
+				DF41DB34153200D1000B5D00 /* background-popbox.png in Resources */,
+				DF41DB35153200D1000B5D00 /* background-popbox@2x.png in Resources */,
+				DF41DB36153200D1000B5D00 /* button-tab-sel.png in Resources */,
+				DF41DB37153200D1000B5D00 /* button-tab-sel@2x.png in Resources */,
+				DF41DB38153200D1000B5D00 /* fader-popbox.png in Resources */,
+				DF41DB39153200D1000B5D00 /* selecthandle.png in Resources */,
+				DF41DB3A153200D1000B5D00 /* selecthandle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
