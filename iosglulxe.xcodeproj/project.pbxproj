@@ -68,6 +68,7 @@
 		DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */; };
 		DF41DB101531FADE000B5D00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */; };
 		DF41DB161531FB43000B5D00 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF41DB151531FB43000B5D00 /* MessageUI.framework */; };
+		DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */; };
 		DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */; };
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
@@ -205,6 +206,8 @@
 		DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranscriptViewController.m; sourceTree = "<group>"; };
 		DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DF41DB151531FB43000B5D00 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerpGlkWindows.h; sourceTree = "<group>"; };
+		DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkWindows.m; sourceTree = "<group>"; };
 		DF4B9DFE1369129200AC9A95 /* GlkBlorbLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkBlorbLayer.m; sourceTree = "<group>"; };
 		DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDispatchLayer.m; sourceTree = "<group>"; };
 		DF4B9E281369196000AC9A95 /* iosglk_startup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglk_startup.h; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */,
 				DF41DAFA1531F7BE000B5D00 /* DisplayTextViewController.h */,
 				DF41DAFB1531F7BE000B5D00 /* DisplayTextViewController.m */,
+				DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */,
+				DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */,
 				DF41DAFC1531F7BE000B5D00 /* GradientView.h */,
 				DF41DAFD1531F7BE000B5D00 /* GradientView.m */,
 				DF41DB001531F7BE000B5D00 /* MButton.h */,
@@ -731,6 +736,7 @@
 				DF41DB0C1531F7BF000B5D00 /* NotesViewController.m in Sources */,
 				DF41DB0D1531F7BF000B5D00 /* PrefsMenuView.m in Sources */,
 				DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */,
+				DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
