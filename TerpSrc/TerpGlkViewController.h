@@ -5,12 +5,18 @@
  */
 
 #import <UIKit/UIKit.h>
-
 #import "IosGlkViewController.h"
 
-@interface TerpGlkViewController : IosGlkViewController
+@class NotesViewController;
+@class TerpGlkDelegate;
 
-- (IBAction) pageDisplayChanged;
+@interface TerpGlkViewController : IosGlkViewController <UIGestureRecognizerDelegate>
+
+@property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
+
++ (TerpGlkViewController *) singleton;
+
+- (TerpGlkDelegate *) terpDelegate;
 - (IBAction) showPreferences;
 
 @end

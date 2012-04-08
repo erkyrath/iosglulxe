@@ -6,10 +6,19 @@
 
 #import "TerpGlkViewController.h"
 #import "TerpGlkDelegate.h"
+#import "IosGlkAppDelegate.h"
 #import "GlkFrameView.h"
 #import "GlkWinBufferView.h"
+#import "NotesViewController.h"
+#import "PrefsMenuView.h"
 
 @implementation TerpGlkViewController
+
+@synthesize notesvc;
+
++ (TerpGlkViewController *) singleton {
+	return (TerpGlkViewController *)([IosGlkAppDelegate singleton].glkviewc);
+}
 
 - (TerpGlkDelegate *) terpDelegate {
 	return (TerpGlkDelegate *)self.glkdelegate;
@@ -19,42 +28,153 @@
 	[super didFinishLaunching];
 	
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
 	CGFloat maxwidth = [defaults floatForKey:@"FrameMaxWidth"];
 	self.terpDelegate.maxwidth = maxwidth;
+	
+	/* Font-scale values are arbitrarily between 1 and 5. */
+	int fontscale = [defaults integerForKey:@"FontScale"];
+	if (fontscale == 0)
+		fontscale = 3;
+	self.terpDelegate.fontscale = fontscale;
+	
+	/* Color-scheme values are 0 to 2. */
+	int colorscheme = [defaults integerForKey:@"ColorScheme"];
+	self.terpDelegate.colorscheme = colorscheme;
+	
+	NSString *fontfamily = [defaults stringForKey:@"FontFamily"];
+	if (!fontfamily)
+		fontfamily = @"Georgia";
+	self.terpDelegate.fontfamily = fontfamily;
+	
+	self.navigationController.navigationBar.barStyle = (colorscheme==2 ? UIBarStyleBlack : UIBarStyleDefault);
+	
+	// Yes, this is in two places.
+	self.frameview.backgroundColor = [self.terpDelegate genBackgroundColor];
 }
 
-- (IBAction) pageDisplayChanged {
-	NSLog(@"### page changed");
+- (void) becameInactive {
+	[notesvc saveIfNeeded];
+}
+
+- (void) viewDidLoad {
+	[super viewDidLoad];
 	
-	//### some debugging
-	/*
-	for (UIView *subview in self.frameview.subviews) {
-		if ([subview isKindOfClass:[GlkWinBufferView class]]) {
-			GlkWinBufferView *winv = (GlkWinBufferView *)subview;
-			[winv.textview debugDisplay];
-			break;
+	self.frameview.backgroundColor = [self.terpDelegate genBackgroundColor];
+	
+	if ([frameview respondsToSelector:@selector(addGestureRecognizer:)]) {
+		/* gestures are available in iOS 3.2 and up */
+		UISwipeGestureRecognizer *recognizer;
+		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)] autorelease];
+		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+		recognizer.delegate = self;
+		[frameview addGestureRecognizer:recognizer];
+		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)] autorelease];
+		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
+		recognizer.delegate = self;
+		[frameview addGestureRecognizer:recognizer];
+	}
+	
+	/* Interface Builder currently doesn't allow us to set the voiceover labels for bar button items. We do it in code. */
+	UIBarButtonItem *stylebutton = self.navigationItem.leftBarButtonItem;
+	if (stylebutton && [stylebutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
+		[stylebutton setAccessibilityLabel:@"Text Styles"]; //###localize
+	}
+	UIBarButtonItem *keyboardbutton = self.navigationItem.rightBarButtonItem;
+	if (keyboardbutton && [keyboardbutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
+		[keyboardbutton setAccessibilityLabel:@"Compose Command"]; //###localize
+	}
+}
+
+/* UITabBarController delegate method */
+- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewc {
+	if (![viewc isKindOfClass:[UINavigationController class]])
+		return;
+	UINavigationController *navc = (UINavigationController *)viewc;
+	NSArray *viewcstack = navc.viewControllers;
+	if (!viewcstack || !viewcstack.count)
+		return;
+	UIViewController *rootviewc = [viewcstack objectAtIndex:0];
+	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
+	
+	if (rootviewc != notesvc) {
+		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
+		[notesvc.navigationController popToRootViewControllerAnimated:NO];
+	}
+}
+
+/* UIGestureRecognizer delegate method */
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+	/* Turn off tab-swiping if an input menu is open. */
+	if (!frameview)
+		return NO;
+	if (frameview.menuview)
+		return NO;
+	return YES;
+}
+
+- (IBAction) toggleKeyboard {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		/* Can't have the prefs menu up at the same time as the keyboard -- the iPhone screen is too small. */
+		if (frameview.menuview && [frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
+			[frameview removePopMenuAnimated:YES];
 		}
 	}
-	 */
+	[super toggleKeyboard];
+}
+
+- (void) keyboardWillBeShown:(NSNotification*)notification {
+	[super keyboardWillBeShown:notification];
+	NSLog(@"Keyboard will be shown (fizmo)");
+
+	if (notesvc) {
+		[notesvc adjustToKeyboardBox];
+	}
+}
+
+- (void) keyboardWillBeHidden:(NSNotification*)notification {
+	[super keyboardWillBeHidden:notification];
+	NSLog(@"Keyboard will be hidden (fizmo)");
+
+	if (notesvc) {
+		[notesvc adjustToKeyboardBox];
+	}
 }
 
 - (IBAction) showPreferences {
-	NSLog(@"### preferences");
-	CGFloat maxwidth = self.terpDelegate.maxwidth;
-	if (maxwidth > 0)
-		maxwidth = 0;
-	else
-		maxwidth = (self.view.bounds.size.width > 500) ? 600 : 280; //###
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+		/* Can't have the prefs menu up at the same time as the keyboard */
+		[self hideKeyboard];
+	}
 	
-	self.terpDelegate.maxwidth = maxwidth;
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setFloat:maxwidth forKey:@"FrameMaxWidth"];
+	if (frameview.menuview && [frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
+		[frameview removePopMenuAnimated:YES];
+		return;
+	}
 	
-	[self.frameview setNeedsLayout];
+	CGRect rect = CGRectMake(4, 0, 40, 4);
+	PrefsMenuView *menuview = [[[PrefsMenuView alloc] initWithFrame:frameview.bounds buttonFrame:rect belowButton:YES] autorelease];
+	[frameview postPopMenu:menuview];
+}
+
+- (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer {
+	if (self.tabBarController) {
+		int count = self.tabBarController.viewControllers.count;
+		int val = (self.tabBarController.selectedIndex + 1) % count;
+		self.tabBarController.selectedIndex = val;
+	}
+}
+
+- (void) handleSwipeRight:(UIGestureRecognizer *)recognizer {
+	if (self.tabBarController) {
+		int count = self.tabBarController.viewControllers.count;
+		int val = (self.tabBarController.selectedIndex + count - 1) % count;
+		self.tabBarController.selectedIndex = val;
+	}
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
-	//### different for iPad?
+	//### should the iPad support horizontal layout?
 	return (orientation == UIInterfaceOrientationPortrait);
 }
 
