@@ -6,7 +6,7 @@
 	#import <Foundation/Foundation.h>
 	#import <UIKit/UIKit.h>
 
-	#import <QuartzCore/CALayer.h>
+	#import <QuartzCore/QuartzCore.h>
 #else
 	#define OS_UNIX // The Glulxe source likes this defined.
 #endif
