@@ -7,6 +7,7 @@
 #import "TerpGlkDelegate.h"
 #import "IosGlkLibDelegate.h"
 #import "TerpGlkWindows.h"
+#import "GlkWindowState.h"
 #import "StyleSet.h"
 
 @implementation TerpGlkDelegate
@@ -31,11 +32,11 @@
 	return path;
 }
 
-- (GlkWinBufferView *) viewForBufferWindow:(GlkWindowState *)win frame:(CGRect)box {
-	return [[[TerpGlkWinBufferView alloc] initWithWindow:win frame:box] autorelease];
+- (GlkWinBufferView *) viewForBufferWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {
+	return [[[TerpGlkWinBufferView alloc] initWithWindow:win frame:box margin:margin] autorelease];
 }
 
-- (GlkWinGridView *) viewForGridWindow:(GlkWindowState *)win frame:(CGRect)box {
+- (GlkWinGridView *) viewForGridWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {
 	return nil;
 }
 
@@ -148,6 +149,10 @@
 	}
 }
 
+- (BOOL) hasDarkTheme {
+	return (colorscheme == 2);
+}
+
 /* This is invoked from both the VM and UI threads.
  */
 - (CGSize) interWindowSpacing {
@@ -161,6 +166,28 @@
 	}
 	return rect;
 }
+
+- (UIEdgeInsets) viewMarginForWindow:(GlkWindowState *)win rect:(CGRect)rect framebounds:(CGRect)framebounds {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		return UIEdgeInsetsZero;
+	
+	if ([win isKindOfClass:[GlkWindowBufferState class]]) {
+		CGFloat left = rect.origin.x - framebounds.origin.x;
+		CGFloat right = (framebounds.origin.x+framebounds.size.width) - (rect.origin.x+rect.size.width);
+		if (left >= 32 && right >= 32) {
+			return UIEdgeInsetsMake(0, left, 0, right);
+		}
+	}
+	
+	return UIEdgeInsetsZero;
+}
+
+/* This is called when the library leaves glk_main(), either by returning or by a glk_exit() exception.
+ */
+- (void) vmHasExited {
+	//iosglk_clear_autosave();
+}
+
 
 @end
 
