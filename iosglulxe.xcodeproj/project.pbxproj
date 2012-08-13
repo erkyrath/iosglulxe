@@ -16,6 +16,29 @@
 		DF19DE0914F18C98007DCB29 /* IosGlkLibDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0614F18C98007DCB29 /* IosGlkLibDelegate.m */; };
 		DF19DE1114F18DB9007DCB29 /* TerpGlkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */; };
 		DF19DE1214F18DB9007DCB29 /* TerpGlkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */; };
+		DF1D85CA15D9BB3400C17282 /* GameOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1D85C715D9BB3400C17282 /* GameOverView.m */; };
+		DF1D85CB15D9BB3400C17282 /* MButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1D85C915D9BB3400C17282 /* MButton.m */; };
+		DF1D85DE15D9BCDD00C17282 /* button-done-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85CC15D9BCDD00C17282 /* button-done-hi.png */; };
+		DF1D85DF15D9BCDD00C17282 /* button-done-hi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85CD15D9BCDD00C17282 /* button-done-hi@2x.png */; };
+		DF1D85E015D9BCDD00C17282 /* button-done.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85CE15D9BCDD00C17282 /* button-done.png */; };
+		DF1D85E115D9BCDD00C17282 /* button-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85CF15D9BCDD00C17282 /* button-done@2x.png */; };
+		DF1D85E215D9BCDD00C17282 /* button-input-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D015D9BCDD00C17282 /* button-input-back.png */; };
+		DF1D85E315D9BCDD00C17282 /* button-input-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D115D9BCDD00C17282 /* button-input-back@2x.png */; };
+		DF1D85E415D9BCDD00C17282 /* button-input-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D215D9BCDD00C17282 /* button-input-clear.png */; };
+		DF1D85E515D9BCDD00C17282 /* button-input-clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D315D9BCDD00C17282 /* button-input-clear@2x.png */; };
+		DF1D85E615D9BCDD00C17282 /* button-input-menu-sel.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D415D9BCDD00C17282 /* button-input-menu-sel.png */; };
+		DF1D85E715D9BCDD00C17282 /* button-input-menu-sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D515D9BCDD00C17282 /* button-input-menu-sel@2x.png */; };
+		DF1D85E815D9BCDD00C17282 /* button-input-menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D615D9BCDD00C17282 /* button-input-menu.png */; };
+		DF1D85E915D9BCDD00C17282 /* button-input-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D715D9BCDD00C17282 /* button-input-menu@2x.png */; };
+		DF1D85EA15D9BCDD00C17282 /* button-pref-base.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D815D9BCDD00C17282 /* button-pref-base.png */; };
+		DF1D85EB15D9BCDD00C17282 /* button-pref-base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85D915D9BCDD00C17282 /* button-pref-base@2x.png */; };
+		DF1D85EC15D9BCDD00C17282 /* button-pref-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85DA15D9BCDD00C17282 /* button-pref-hi.png */; };
+		DF1D85ED15D9BCDD00C17282 /* button-pref-hi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85DB15D9BCDD00C17282 /* button-pref-hi@2x.png */; };
+		DF1D85EE15D9BCDD00C17282 /* more-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85DC15D9BCDD00C17282 /* more-arrow.png */; };
+		DF1D85EF15D9BCDD00C17282 /* more-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85DD15D9BCDD00C17282 /* more-arrow@2x.png */; };
+		DF1D85F315D9BD6C00C17282 /* HistoryMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F015D9BD6C00C17282 /* HistoryMenuView~ipad.xib */; };
+		DF1D85F415D9BD6C00C17282 /* PaletteMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */; };
+		DF1D85F515D9BD6C00C17282 /* TextFieldRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F215D9BD6C00C17282 /* TextFieldRightView.xib */; };
 		DF41DAA11531F63F000B5D00 /* HistoryMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */; };
 		DF41DAA21531F63F000B5D00 /* InputMenuDecor.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */; };
 		DF41DAA31531F63F000B5D00 /* MoreBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */; };
@@ -62,7 +85,6 @@
 		DF41DB081531F7BF000B5D00 /* DisplayTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAFB1531F7BE000B5D00 /* DisplayTextViewController.m */; };
 		DF41DB091531F7BF000B5D00 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAFD1531F7BE000B5D00 /* GradientView.m */; };
 		DF41DB0A1531F7BF000B5D00 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAFF1531F7BE000B5D00 /* HelpViewController.m */; };
-		DF41DB0B1531F7BF000B5D00 /* MButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB011531F7BE000B5D00 /* MButton.m */; };
 		DF41DB0C1531F7BF000B5D00 /* NotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB031531F7BE000B5D00 /* NotesViewController.m */; };
 		DF41DB0D1531F7BF000B5D00 /* PrefsMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB051531F7BE000B5D00 /* PrefsMenuView.m */; };
 		DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */; };
@@ -156,8 +178,33 @@
 		DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkDelegate.m; sourceTree = "<group>"; };
 		DF19DE0F14F18DB9007DCB29 /* TerpGlkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerpGlkViewController.h; sourceTree = "<group>"; };
 		DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGlkViewController.m; sourceTree = "<group>"; };
+		DF1D85C615D9BB3400C17282 /* GameOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverView.h; sourceTree = "<group>"; };
+		DF1D85C715D9BB3400C17282 /* GameOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverView.m; sourceTree = "<group>"; };
+		DF1D85C815D9BB3400C17282 /* MButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MButton.h; sourceTree = "<group>"; };
+		DF1D85C915D9BB3400C17282 /* MButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MButton.m; sourceTree = "<group>"; };
+		DF1D85CC15D9BCDD00C17282 /* button-done-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-done-hi.png"; path = "iosglk/Media/button-done-hi.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85CD15D9BCDD00C17282 /* button-done-hi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-done-hi@2x.png"; path = "iosglk/Media/button-done-hi@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85CE15D9BCDD00C17282 /* button-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-done.png"; path = "iosglk/Media/button-done.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85CF15D9BCDD00C17282 /* button-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-done@2x.png"; path = "iosglk/Media/button-done@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D015D9BCDD00C17282 /* button-input-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-back.png"; path = "iosglk/Media/button-input-back.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D115D9BCDD00C17282 /* button-input-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-back@2x.png"; path = "iosglk/Media/button-input-back@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D215D9BCDD00C17282 /* button-input-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-clear.png"; path = "iosglk/Media/button-input-clear.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D315D9BCDD00C17282 /* button-input-clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-clear@2x.png"; path = "iosglk/Media/button-input-clear@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D415D9BCDD00C17282 /* button-input-menu-sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-menu-sel.png"; path = "iosglk/Media/button-input-menu-sel.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D515D9BCDD00C17282 /* button-input-menu-sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-menu-sel@2x.png"; path = "iosglk/Media/button-input-menu-sel@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D615D9BCDD00C17282 /* button-input-menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-menu.png"; path = "iosglk/Media/button-input-menu.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D715D9BCDD00C17282 /* button-input-menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-input-menu@2x.png"; path = "iosglk/Media/button-input-menu@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D815D9BCDD00C17282 /* button-pref-base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pref-base.png"; path = "iosglk/Media/button-pref-base.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85D915D9BCDD00C17282 /* button-pref-base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pref-base@2x.png"; path = "iosglk/Media/button-pref-base@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85DA15D9BCDD00C17282 /* button-pref-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pref-hi.png"; path = "iosglk/Media/button-pref-hi.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85DB15D9BCDD00C17282 /* button-pref-hi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pref-hi@2x.png"; path = "iosglk/Media/button-pref-hi@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85DC15D9BCDD00C17282 /* more-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "more-arrow.png"; path = "iosglk/Media/more-arrow.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85DD15D9BCDD00C17282 /* more-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "more-arrow@2x.png"; path = "iosglk/Media/more-arrow@2x.png"; sourceTree = SOURCE_ROOT; };
+		DF1D85F015D9BD6C00C17282 /* HistoryMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "HistoryMenuView~ipad.xib"; path = "iosglk/Resources/HistoryMenuView~ipad.xib"; sourceTree = SOURCE_ROOT; };
+		DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PaletteMenuView~ipad.xib"; path = "iosglk/Resources/PaletteMenuView~ipad.xib"; sourceTree = SOURCE_ROOT; };
+		DF1D85F215D9BD6C00C17282 /* TextFieldRightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldRightView.xib; path = iosglk/Resources/TextFieldRightView.xib; sourceTree = SOURCE_ROOT; };
 		DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryMenuView.xib; path = iosglk/Resources/HistoryMenuView.xib; sourceTree = SOURCE_ROOT; };
-		DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputMenuDecor.xib; path = iosglk/Resources/InputMenuDecor.xib; sourceTree = SOURCE_ROOT; };
+		DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputMenuDecor.xib; path = iosglk/Resources/en.lproj/InputMenuDecor.xib; sourceTree = SOURCE_ROOT; };
 		DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreBoxView.xib; path = iosglk/Resources/MoreBoxView.xib; sourceTree = SOURCE_ROOT; };
 		DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PaletteMenuView.xib; path = iosglk/Resources/PaletteMenuView.xib; sourceTree = SOURCE_ROOT; };
 		DF41DAA01531F63F000B5D00 /* PopBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PopBoxView.xib; path = iosglk/Resources/PopBoxView.xib; sourceTree = SOURCE_ROOT; };
@@ -211,8 +258,6 @@
 		DF41DAFD1531F7BE000B5D00 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 		DF41DAFE1531F7BE000B5D00 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		DF41DAFF1531F7BE000B5D00 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
-		DF41DB001531F7BE000B5D00 /* MButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MButton.h; sourceTree = "<group>"; };
-		DF41DB011531F7BE000B5D00 /* MButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MButton.m; sourceTree = "<group>"; };
 		DF41DB021531F7BE000B5D00 /* NotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotesViewController.h; sourceTree = "<group>"; };
 		DF41DB031531F7BE000B5D00 /* NotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotesViewController.m; sourceTree = "<group>"; };
 		DF41DB041531F7BE000B5D00 /* PrefsMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsMenuView.h; sourceTree = "<group>"; };
@@ -383,7 +428,10 @@
 				DF41DAA01531F63F000B5D00 /* PopBoxView.xib */,
 				DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */,
 				DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */,
+				DF1D85F015D9BD6C00C17282 /* HistoryMenuView~ipad.xib */,
 				DF41DA9F1531F63F000B5D00 /* PaletteMenuView.xib */,
+				DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */,
+				DF1D85F215D9BD6C00C17282 /* TextFieldRightView.xib */,
 				DF41DB1E1532005E000B5D00 /* DisplayTextVC.xib */,
 				DF41DB1F1532005E000B5D00 /* HelpVC.xib */,
 				DF41DB201532005E000B5D00 /* NotesVC.xib */,
@@ -428,8 +476,6 @@
 				DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */,
 				DF41DAFC1531F7BE000B5D00 /* GradientView.h */,
 				DF41DAFD1531F7BE000B5D00 /* GradientView.m */,
-				DF41DB001531F7BE000B5D00 /* MButton.h */,
-				DF41DB011531F7BE000B5D00 /* MButton.m */,
 			);
 			path = TerpSrc;
 			sourceTree = "<group>";
@@ -437,6 +483,24 @@
 		DF41DAA71531F67D000B5D00 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				DF1D85CC15D9BCDD00C17282 /* button-done-hi.png */,
+				DF1D85CD15D9BCDD00C17282 /* button-done-hi@2x.png */,
+				DF1D85CE15D9BCDD00C17282 /* button-done.png */,
+				DF1D85CF15D9BCDD00C17282 /* button-done@2x.png */,
+				DF1D85D015D9BCDD00C17282 /* button-input-back.png */,
+				DF1D85D115D9BCDD00C17282 /* button-input-back@2x.png */,
+				DF1D85D215D9BCDD00C17282 /* button-input-clear.png */,
+				DF1D85D315D9BCDD00C17282 /* button-input-clear@2x.png */,
+				DF1D85D415D9BCDD00C17282 /* button-input-menu-sel.png */,
+				DF1D85D515D9BCDD00C17282 /* button-input-menu-sel@2x.png */,
+				DF1D85D615D9BCDD00C17282 /* button-input-menu.png */,
+				DF1D85D715D9BCDD00C17282 /* button-input-menu@2x.png */,
+				DF1D85D815D9BCDD00C17282 /* button-pref-base.png */,
+				DF1D85D915D9BCDD00C17282 /* button-pref-base@2x.png */,
+				DF1D85DA15D9BCDD00C17282 /* button-pref-hi.png */,
+				DF1D85DB15D9BCDD00C17282 /* button-pref-hi@2x.png */,
+				DF1D85DC15D9BCDD00C17282 /* more-arrow.png */,
+				DF1D85DD15D9BCDD00C17282 /* more-arrow@2x.png */,
 				DF41DB2D153200D1000B5D00 /* background-popbox.png */,
 				DF41DB2E153200D1000B5D00 /* background-popbox@2x.png */,
 				DF41DB2F153200D1000B5D00 /* button-tab-sel.png */,
@@ -515,6 +579,10 @@
 				DF41DAED1531F6D3000B5D00 /* TextSelectView.m */,
 				DF19DE0114F18C98007DCB29 /* CmdTextField.h */,
 				DF19DE0214F18C98007DCB29 /* CmdTextField.m */,
+				DF1D85C615D9BB3400C17282 /* GameOverView.h */,
+				DF1D85C715D9BB3400C17282 /* GameOverView.m */,
+				DF1D85C815D9BB3400C17282 /* MButton.h */,
+				DF1D85C915D9BB3400C17282 /* MButton.m */,
 			);
 			name = AppSrc;
 			path = iosglk/AppSrc;
@@ -720,6 +788,27 @@
 				DF41DB39153200D1000B5D00 /* selecthandle.png in Resources */,
 				DF41DB3A153200D1000B5D00 /* selecthandle@2x.png in Resources */,
 				DF41DB3C153230AA000B5D00 /* WebSite in Resources */,
+				DF1D85DE15D9BCDD00C17282 /* button-done-hi.png in Resources */,
+				DF1D85DF15D9BCDD00C17282 /* button-done-hi@2x.png in Resources */,
+				DF1D85E015D9BCDD00C17282 /* button-done.png in Resources */,
+				DF1D85E115D9BCDD00C17282 /* button-done@2x.png in Resources */,
+				DF1D85E215D9BCDD00C17282 /* button-input-back.png in Resources */,
+				DF1D85E315D9BCDD00C17282 /* button-input-back@2x.png in Resources */,
+				DF1D85E415D9BCDD00C17282 /* button-input-clear.png in Resources */,
+				DF1D85E515D9BCDD00C17282 /* button-input-clear@2x.png in Resources */,
+				DF1D85E615D9BCDD00C17282 /* button-input-menu-sel.png in Resources */,
+				DF1D85E715D9BCDD00C17282 /* button-input-menu-sel@2x.png in Resources */,
+				DF1D85E815D9BCDD00C17282 /* button-input-menu.png in Resources */,
+				DF1D85E915D9BCDD00C17282 /* button-input-menu@2x.png in Resources */,
+				DF1D85EA15D9BCDD00C17282 /* button-pref-base.png in Resources */,
+				DF1D85EB15D9BCDD00C17282 /* button-pref-base@2x.png in Resources */,
+				DF1D85EC15D9BCDD00C17282 /* button-pref-hi.png in Resources */,
+				DF1D85ED15D9BCDD00C17282 /* button-pref-hi@2x.png in Resources */,
+				DF1D85EE15D9BCDD00C17282 /* more-arrow.png in Resources */,
+				DF1D85EF15D9BCDD00C17282 /* more-arrow@2x.png in Resources */,
+				DF1D85F315D9BD6C00C17282 /* HistoryMenuView~ipad.xib in Resources */,
+				DF1D85F415D9BD6C00C17282 /* PaletteMenuView~ipad.xib in Resources */,
+				DF1D85F515D9BD6C00C17282 /* TextFieldRightView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,11 +881,12 @@
 				DF41DB081531F7BF000B5D00 /* DisplayTextViewController.m in Sources */,
 				DF41DB091531F7BF000B5D00 /* GradientView.m in Sources */,
 				DF41DB0A1531F7BF000B5D00 /* HelpViewController.m in Sources */,
-				DF41DB0B1531F7BF000B5D00 /* MButton.m in Sources */,
 				DF41DB0C1531F7BF000B5D00 /* NotesViewController.m in Sources */,
 				DF41DB0D1531F7BF000B5D00 /* PrefsMenuView.m in Sources */,
 				DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */,
 				DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */,
+				DF1D85CA15D9BB3400C17282 /* GameOverView.m in Sources */,
+				DF1D85CB15D9BB3400C17282 /* MButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,6 +930,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
