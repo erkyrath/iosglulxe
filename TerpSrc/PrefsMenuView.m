@@ -1,13 +1,13 @@
 /* PrefsMenuView.m: A popmenu subclass that can display the preferences menu
- for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */
 
 #import "PrefsMenuView.h"
-#import "FizmoGlkViewController.h"
+#import "TerpGlkViewController.h"
 #import "IosGlkAppDelegate.h"
-#import "FizmoGlkDelegate.h"
+#import "TerpGlkDelegate.h"
 #import "GlkFrameView.h"
 #import "GlkWinBufferView.h"
 #import "StyledTextView.h"
@@ -73,7 +73,7 @@
 	supportsbrightness = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
 	
 	[[NSBundle mainBundle] loadNibNamed:@"PrefsMenuView" owner:self options:nil];
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 
 	UIImage *checkimage = [UIImage imageNamed:[IosGlkAppDelegate imageHackPNG:@"checkmark"]];
 	[colorbut_bright setSelectImage:checkimage];
@@ -104,20 +104,20 @@
 }
 
 - (void) updateButtons {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
-	CGFloat maxwidth = glkviewc.fizmoDelegate.maxwidth;
+	CGFloat maxwidth = glkviewc.terpDelegate.maxwidth;
 	colbut_full.selected = (maxwidth == 0);
 	colbut_34.selected = (maxwidth == 1);
 	colbut_12.selected = (maxwidth == 2);
 	
-	int colorscheme = glkviewc.fizmoDelegate.colorscheme;
+	int colorscheme = glkviewc.terpDelegate.colorscheme;
 	colorbut_bright.selected = (colorbut_bright.tag == colorscheme);
 	colorbut_quiet.selected = (colorbut_quiet.tag == colorscheme);
 	colorbut_dark.selected = (colorbut_dark.tag == colorscheme);
 
 	if (fontnames) {
-		NSString *family = glkviewc.fizmoDelegate.fontfamily;
+		NSString *family = glkviewc.terpDelegate.fontfamily;
 		for (int count = 0; count < fontnames.count; count++) {
 			NSString *str = [fontnames objectAtIndex:count];
 			UIButton *button = [fontbuttons objectAtIndex:count];
@@ -134,7 +134,7 @@
 }
 
 - (IBAction) handleColumnWidth:(id)sender {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
 	int maxwidth;
 	
@@ -148,7 +148,7 @@
 		maxwidth = 0;
 	}
 	
-	glkviewc.fizmoDelegate.maxwidth = maxwidth;
+	glkviewc.terpDelegate.maxwidth = maxwidth;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:maxwidth forKey:@"FrameMaxWidth"];
 	
@@ -157,9 +157,9 @@
 }
 
 - (IBAction) handleFontSize:(id)sender {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
-	int fontscale = glkviewc.fizmoDelegate.fontscale;
+	int fontscale = glkviewc.terpDelegate.fontscale;
 	
 	if (sender == sizebut_small) {
 		fontscale -= 1;
@@ -170,10 +170,10 @@
 	fontscale = MAX(fontscale, 1);
 	fontscale = MIN(fontscale, FONTSCALE_MAX);
 
-	if (fontscale == glkviewc.fizmoDelegate.fontscale)
+	if (fontscale == glkviewc.terpDelegate.fontscale)
 		return;
 	
-	glkviewc.fizmoDelegate.fontscale = fontscale;
+	glkviewc.terpDelegate.fontscale = fontscale;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:fontscale forKey:@"FontScale"];
 	
@@ -181,9 +181,9 @@
 }
 
 - (IBAction) handleFontLeading:(id)sender {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
-	int leading = glkviewc.fizmoDelegate.leading;
+	int leading = glkviewc.terpDelegate.leading;
 	
 	if (sender == leadbut_small) {
 		leading -= 1;
@@ -194,10 +194,10 @@
 	leading = MAX(leading, 0);
 	leading = MIN(leading, LEADING_MAX);
 	
-	if (leading == glkviewc.fizmoDelegate.leading)
+	if (leading == glkviewc.terpDelegate.leading)
 		return;
 	
-	glkviewc.fizmoDelegate.leading = leading;
+	glkviewc.terpDelegate.leading = leading;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:leading forKey:@"FontLeading"];
 	
@@ -205,19 +205,19 @@
 }
 
 - (IBAction) handleColor:(id)sender {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
 	int val = ((UIView *)sender).tag;
 	
-	glkviewc.fizmoDelegate.colorscheme = val;
+	glkviewc.terpDelegate.colorscheme = val;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:val forKey:@"ColorScheme"];
 	
-	BOOL isdark = glkviewc.fizmoDelegate.hasDarkTheme;
+	BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
 	
 	[self updateButtons];
 	glkviewc.navigationController.navigationBar.barStyle = (isdark ? UIBarStyleBlack : UIBarStyleDefault);
-	glkviewc.frameview.backgroundColor = glkviewc.fizmoDelegate.genBackgroundColor;
+	glkviewc.frameview.backgroundColor = glkviewc.terpDelegate.genBackgroundColor;
 	[glkviewc.frameview updateWindowStyles];
 	
 	if (faderview) {
@@ -232,14 +232,14 @@
 }
 
 - (IBAction) handleFont:(id)sender {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
 	int val = ((UIView *)sender).tag;
 	if (!fontnames || val < 0 || val >= fontnames.count)
 		return;
 	NSString *name = [fontnames objectAtIndex:val];
 	
-	glkviewc.fizmoDelegate.fontfamily = name;
+	glkviewc.terpDelegate.fontfamily = name;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:name forKey:@"FontFamily"];
 	
@@ -248,7 +248,7 @@
 }
 
 - (void) setUpFontMenu {
-	FizmoGlkViewController *glkviewc = [FizmoGlkViewController singleton];
+	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
 	
 	NSMutableArray *arr = [NSMutableArray arrayWithObjects:@"Times", @"Helvetica", @"Georgia", nil];
 	/*if ([UIFont fontWithName:@"Palatino" size:14])
@@ -291,7 +291,7 @@
 		rect.origin.y += count*buttonspacing;
 		button.frame = rect;
 		[button setSelectImage:checkimage];
-		button.titleLabel.font = [glkviewc.fizmoDelegate fontVariantsForSize:fontsize label:name].normal;
+		button.titleLabel.font = [glkviewc.terpDelegate fontVariantsForSize:fontsize label:name].normal;
 		button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		[button setTitleColor:normalcolor forState:UIControlStateNormal];
 		[button setTitleColor:selectedcolor forState:UIControlStateSelected];

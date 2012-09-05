@@ -1,11 +1,11 @@
 /* NotesViewController.m: Interpreter notes tab view controller
- for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */
 
 #import "NotesViewController.h"
-#import "FizmoGlkViewController.h"
+#import "TerpGlkViewController.h"
 #import "IosGlkViewController.h"
 #import "TranscriptViewController.h"
 #import "GradientView.h"
@@ -124,7 +124,7 @@
 	if ([IosGlkAppDelegate gesturesavailable]) {
 		/* gestures are available in iOS 3.2 and up */
 		
-		FizmoGlkViewController *mainviewc = [FizmoGlkViewController singleton];
+		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;

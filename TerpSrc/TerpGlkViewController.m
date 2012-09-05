@@ -153,7 +153,7 @@
 
 - (void) postGameOver {
 	CGRect rect = frameview.bounds;
-	FizmoGameOverView *menuview = [[[FizmoGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect] autorelease];
+	TerpGameOverView *menuview = [[[TerpGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect] autorelease];
 	[frameview postPopMenu:menuview];
 }
 

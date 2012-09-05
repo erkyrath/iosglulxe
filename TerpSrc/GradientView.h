@@ -1,5 +1,5 @@
 /* GradientView.h: A view that just displays a color gradient
- for IosGlk, the iOS implementation of the Glk API.
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */

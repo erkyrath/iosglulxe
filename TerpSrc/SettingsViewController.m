@@ -1,11 +1,11 @@
 /* SettingsViewController.h: Interpreter settings tab view controller
- for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */
 
 #import "SettingsViewController.h"
-#import "FizmoGlkViewController.h"
+#import "TerpGlkViewController.h"
 #import "DisplayWebViewController.h"
 #import "GlkFrameView.h"
 #import "IosGlkAppDelegate.h"
@@ -61,7 +61,7 @@
 	if ([IosGlkAppDelegate gesturesavailable]) {
 		/* gestures are available in iOS 3.2 and up */
 		
-		FizmoGlkViewController *mainviewc = [FizmoGlkViewController singleton];
+		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;

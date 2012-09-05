@@ -1,12 +1,12 @@
 /* DisplayWebViewController.h: HTML Display view controller
- for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */
 
 #import "DisplayWebViewController.h"
 #import "IosGlkViewController.h"
-#import "FizmoGlkViewController.h"
+#import "TerpGlkViewController.h"
 #import "IosGlkAppDelegate.h"
 
 @implementation DisplayWebViewController
