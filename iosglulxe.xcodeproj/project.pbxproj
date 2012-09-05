@@ -39,6 +39,9 @@
 		DF1D85F315D9BD6C00C17282 /* HistoryMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F015D9BD6C00C17282 /* HistoryMenuView~ipad.xib */; };
 		DF1D85F415D9BD6C00C17282 /* PaletteMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */; };
 		DF1D85F515D9BD6C00C17282 /* TextFieldRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF1D85F215D9BD6C00C17282 /* TextFieldRightView.xib */; };
+		DF3868F115F7D2030070AADB /* TerpGameOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868EE15F7D2030070AADB /* TerpGameOverView.m */; };
+		DF3868F215F7D2030070AADB /* DisplayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868F015F7D2030070AADB /* DisplayWebViewController.m */; };
+		DF3868F515F7D2880070AADB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868F415F7D2880070AADB /* SettingsViewController.m */; };
 		DF41DAA11531F63F000B5D00 /* HistoryMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */; };
 		DF41DAA21531F63F000B5D00 /* InputMenuDecor.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */; };
 		DF41DAA31531F63F000B5D00 /* MoreBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */; };
@@ -203,6 +206,12 @@
 		DF1D85F015D9BD6C00C17282 /* HistoryMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "HistoryMenuView~ipad.xib"; path = "iosglk/Resources/HistoryMenuView~ipad.xib"; sourceTree = SOURCE_ROOT; };
 		DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PaletteMenuView~ipad.xib"; path = "iosglk/Resources/PaletteMenuView~ipad.xib"; sourceTree = SOURCE_ROOT; };
 		DF1D85F215D9BD6C00C17282 /* TextFieldRightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TextFieldRightView.xib; path = iosglk/Resources/TextFieldRightView.xib; sourceTree = SOURCE_ROOT; };
+		DF3868ED15F7D2030070AADB /* TerpGameOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerpGameOverView.h; sourceTree = "<group>"; };
+		DF3868EE15F7D2030070AADB /* TerpGameOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerpGameOverView.m; sourceTree = "<group>"; };
+		DF3868EF15F7D2030070AADB /* DisplayWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayWebViewController.h; sourceTree = "<group>"; };
+		DF3868F015F7D2030070AADB /* DisplayWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayWebViewController.m; sourceTree = "<group>"; };
+		DF3868F315F7D2880070AADB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		DF3868F415F7D2880070AADB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		DF41DA9C1531F63F000B5D00 /* HistoryMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryMenuView.xib; path = iosglk/Resources/HistoryMenuView.xib; sourceTree = SOURCE_ROOT; };
 		DF41DA9D1531F63F000B5D00 /* InputMenuDecor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputMenuDecor.xib; path = iosglk/Resources/en.lproj/InputMenuDecor.xib; sourceTree = SOURCE_ROOT; };
 		DF41DA9E1531F63F000B5D00 /* MoreBoxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreBoxView.xib; path = iosglk/Resources/MoreBoxView.xib; sourceTree = SOURCE_ROOT; };
@@ -458,22 +467,28 @@
 		DF19DE0C14F18D8C007DCB29 /* TerpSrc */ = {
 			isa = PBXGroup;
 			children = (
-				DF19DE0D14F18DB9007DCB29 /* TerpGlkDelegate.h */,
-				DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */,
 				DF19DE0F14F18DB9007DCB29 /* TerpGlkViewController.h */,
 				DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */,
-				DF41DB041531F7BE000B5D00 /* PrefsMenuView.h */,
-				DF41DB051531F7BE000B5D00 /* PrefsMenuView.m */,
-				DF41DAFE1531F7BE000B5D00 /* HelpViewController.h */,
-				DF41DAFF1531F7BE000B5D00 /* HelpViewController.m */,
+				DF19DE0D14F18DB9007DCB29 /* TerpGlkDelegate.h */,
+				DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */,
+				DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */,
+				DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */,
+				DF3868ED15F7D2030070AADB /* TerpGameOverView.h */,
+				DF3868EE15F7D2030070AADB /* TerpGameOverView.m */,
 				DF41DB021531F7BE000B5D00 /* NotesViewController.h */,
 				DF41DB031531F7BE000B5D00 /* NotesViewController.m */,
 				DF41DB061531F7BE000B5D00 /* TranscriptViewController.h */,
 				DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */,
+				DF41DAFE1531F7BE000B5D00 /* HelpViewController.h */,
+				DF41DAFF1531F7BE000B5D00 /* HelpViewController.m */,
+				DF3868F315F7D2880070AADB /* SettingsViewController.h */,
+				DF3868F415F7D2880070AADB /* SettingsViewController.m */,
+				DF3868EF15F7D2030070AADB /* DisplayWebViewController.h */,
+				DF3868F015F7D2030070AADB /* DisplayWebViewController.m */,
 				DF41DAFA1531F7BE000B5D00 /* DisplayTextViewController.h */,
 				DF41DAFB1531F7BE000B5D00 /* DisplayTextViewController.m */,
-				DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */,
-				DF41DB181531FCCF000B5D00 /* TerpGlkWindows.m */,
+				DF41DB041531F7BE000B5D00 /* PrefsMenuView.h */,
+				DF41DB051531F7BE000B5D00 /* PrefsMenuView.m */,
 				DF41DAFC1531F7BE000B5D00 /* GradientView.h */,
 				DF41DAFD1531F7BE000B5D00 /* GradientView.m */,
 			);
@@ -887,6 +902,9 @@
 				DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */,
 				DF1D85CA15D9BB3400C17282 /* GameOverView.m in Sources */,
 				DF1D85CB15D9BB3400C17282 /* MButton.m in Sources */,
+				DF3868F115F7D2030070AADB /* TerpGameOverView.m in Sources */,
+				DF3868F215F7D2030070AADB /* DisplayWebViewController.m in Sources */,
+				DF3868F515F7D2880070AADB /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
