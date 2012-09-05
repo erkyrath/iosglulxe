@@ -16,6 +16,7 @@
 @synthesize fontfamily;
 @synthesize fontscale;
 @synthesize colorscheme;
+@synthesize leading;
 
 - (void) dealloc {
 	self.fontfamily = nil;
@@ -23,6 +24,10 @@
 }
 
 - (NSString *) gameId {
+	return nil;
+}
+
+- (NSString *) gameTitle {
 	return nil;
 }
 
@@ -94,6 +99,7 @@
 	
 	if (wintype == wintype_TextGrid) {
 		styles.margins = UIEdgeInsetsMake(6, 6, 6, 6);
+		styles.leading = self.leading;
 		
 		CGFloat statusfontsize;
 		if (isiphone) {
@@ -130,6 +136,7 @@
 	}
 	else {
 		styles.margins = UIEdgeInsetsMake(4, 6, 4, 6);
+		styles.leading = self.leading;
 
 		CGFloat statusfontsize = 11+self.fontscale;
 
@@ -160,9 +167,29 @@
 }
 
 - (CGRect) adjustFrame:(CGRect)rect {
-	if (maxwidth > 64 && rect.size.width > maxwidth) {
-		rect.origin.x = (rect.origin.x+0.5*rect.size.width) - 0.5*maxwidth;
-		rect.size.width = maxwidth;
+	/* Decode the maxwidth value into a pixel width. 0 means full-width. */
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		return rect;
+	
+	CGFloat limit = 0;
+	switch (maxwidth) {
+		case 0:
+			limit = 0;
+			break;
+		case 1: // "3/4 column"
+			limit = 0.8125 * rect.size.width;
+			break;
+		case 2: // "1/2 column"
+			limit = 0.6667 * rect.size.width;
+			break;
+	}
+	
+	// I hate odd widths
+	limit = ((int)floorf(limit)) & (~1);
+	
+	if (limit > 64 && rect.size.width > limit) {
+		rect.origin.x = (rect.origin.x+0.5*rect.size.width) - 0.5*limit;
+		rect.size.width = limit;
 	}
 	return rect;
 }
@@ -185,7 +212,7 @@
 /* This is called when the library leaves glk_main(), either by returning or by a glk_exit() exception.
  */
 - (void) vmHasExited {
-	//iosglk_clear_autosave();
+	//###iosglk_clear_autosave();
 }
 
 

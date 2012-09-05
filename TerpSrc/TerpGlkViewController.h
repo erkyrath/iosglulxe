@@ -8,11 +8,15 @@
 #import "IosGlkViewController.h"
 
 @class NotesViewController;
+@class SettingsViewController;
 @class TerpGlkDelegate;
+@class GlkFileRefPrompt;
 
 @interface TerpGlkViewController : IosGlkViewController <UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
+@property (nonatomic, retain) IBOutlet SettingsViewController *settingsvc;
+@property (nonatomic, retain) GlkFileRefPrompt *restorefileprompt;
 
 + (TerpGlkViewController *) singleton;
 

@@ -1,5 +1,5 @@
 /* GradientView.m: A view that just displays a color gradient
- for IosGlk, the iOS implementation of the Glk API.
+ for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
  Designed by Andrew Plotkin <erkyrath@eblong.com>
  http://eblong.com/zarf/glk/
  */
@@ -52,7 +52,20 @@
 	return YES;
 }
 
-- (void) setUpColors {
+- (void) setUpColorsPreset:(int)val {
+	switch (val) {
+		case 1:
+			self.color0 = [UIColor colorWithRed:1.0 green:0.992 blue:0.651 alpha:1];
+			self.color1 = [UIColor colorWithRed:1.0 green:1.0 blue:0.500 alpha:1];
+			self.color2 = [UIColor colorWithRed:0.976 green:0.980 blue:0.470 alpha:1];
+			self.color3 = self.color1;
+			self.color4 = self.color0;
+			numcolors = 5;
+			break;
+		default:
+			return;
+	}
+	
 	self.backgroundColor = nil;
 
 	CAGradientLayer *layer = (CAGradientLayer *)self.layer;

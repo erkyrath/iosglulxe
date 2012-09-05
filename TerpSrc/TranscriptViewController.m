@@ -1,13 +1,12 @@
-//
-//  TranscriptViewController.m
-//  IosFizmo
-//
-//  Created by Andrew Plotkin on 2/23/12.
-//  Copyright (c) 2012 Zarfhome. All rights reserved.
-//
+/* TranscriptViewController.m: Transcript overview display view controller
+ for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ Designed by Andrew Plotkin <erkyrath@eblong.com>
+ http://eblong.com/zarf/glk/
+ */
 
 #import "TranscriptViewController.h"
 #import "DisplayTextViewController.h"
+#import "IosGlkViewController.h"
 #import "RelDateFormatter.h"
 #import "GlkLibrary.h"
 #import "GlkFileRef.h"
@@ -41,8 +40,7 @@
 - (void) viewDidLoad {
 	[super viewDidLoad];
 	
-	//### localize and customize
-	self.navigationItem.title = @"Transcripts";
+	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 	
 	self.navigationItem.rightBarButtonItem = [self editButtonItem];
 	
@@ -91,7 +89,7 @@
 	GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
-	thumb.label = @"No stored transcripts"; //### localize and customize
+	thumb.label = NSLocalizedStringFromTable(@"label.no-transcripts", @"TerpLocalize", nil);
 	[filelist insertObject:thumb atIndex:0];
 }
 
@@ -167,7 +165,7 @@
 			thumb = [filelist objectAtIndex:row];
 		if (thumb && !thumb.isfake) {
 			GlkFileThumb *thumb = [filelist objectAtIndex:row];
-			NSLog(@"selector: deleting file \"%@\" (%@)", thumb.label, thumb.pathname);
+			//NSLog(@"selector: deleting file \"%@\" (%@)", thumb.label, thumb.pathname);
 			BOOL res = [[NSFileManager defaultManager] removeItemAtPath:thumb.pathname error:nil];
 			if (res) {
 				[filelist removeObjectAtIndex:row];
@@ -192,13 +190,14 @@
 		return;
 	if (thumb.isfake)
 		return;
-	
-	NSLog(@"selector: selected \"%@\"", thumb.label);
-	
+		
 	/* The user has selected a file. */
 	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
+	return [[IosGlkViewController singleton] shouldAutorotateToInterfaceOrientation:orientation];
+}
 
 @end

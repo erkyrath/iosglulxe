@@ -1,14 +1,14 @@
-//
-//  DisplayTextViewController.m
-//  IosFizmo
-//
-//  Created by Andrew Plotkin on 2/23/12.
-//  Copyright (c) 2012 Zarfhome. All rights reserved.
-//
+/* DisplayTextViewController.m: Transcript display view controller
+ for IosFizmo, an IosGlk port of the Fizmo Z-machine interpreter.
+ Designed by Andrew Plotkin <erkyrath@eblong.com>
+ http://eblong.com/zarf/glk/
+ */
 
 #import "DisplayTextViewController.h"
+#import "IosGlkViewController.h"
 #import "RelDateFormatter.h"
 #import "GlkFileTypes.h"
+#import "IosGlkAppDelegate.h"
 
 @implementation DisplayTextViewController
 
@@ -16,6 +16,7 @@
 @synthesize titlelabel;
 @synthesize datelabel;
 @synthesize thumb;
+@synthesize exportsheet;
 
 - (id) initWithNibName:(NSString *)nibName thumb:(GlkFileThumb *)thumbref bundle:(NSBundle *)nibBundle
 {
@@ -31,6 +32,7 @@
 	self.textview = nil;
 	self.titlelabel = nil;
 	self.datelabel = nil;
+	self.exportsheet = nil;
 	[super dealloc];
 }
 
@@ -38,10 +40,9 @@
 {
 	[super viewDidLoad];
 
-	self.navigationItem.title = @"Transcript"; //### localize
+	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcript", @"TerpLocalize", nil);
 
 	UIBarButtonItem *sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
-	sendbutton.enabled = [MFMailComposeViewController canSendMail];
 	self.navigationItem.rightBarButtonItem = sendbutton;
 
 	titlelabel.text = thumb.label;
@@ -52,6 +53,8 @@
 	}
 	else {
 		RelDateFormatter *dateformatter = [[[RelDateFormatter alloc] init] autorelease];
+		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
+		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
 		datelabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 
@@ -59,7 +62,7 @@
 	if (str)
 		textview.text = str;
 
-	if ([textview respondsToSelector:@selector(addGestureRecognizer:)]) {
+	if ([IosGlkAppDelegate gesturesavailable]) {
 		/* gestures are available in iOS 3.2 and up */
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)] autorelease];
@@ -74,14 +77,50 @@
 
 - (void) buttonSend:(id)sender
 {
-	MFMailComposeViewController *compose = [[MFMailComposeViewController alloc] init];
-	compose.mailComposeDelegate = self;
+	NSString *copylabel = NSLocalizedStringFromTable(@"label.copy-all", @"TerpLocalize", nil);
+	NSString *emaillabel = nil;
+	if ([MFMailComposeViewController class] && [MFMailComposeViewController canSendMail])
+		emaillabel = NSLocalizedStringFromTable(@"label.email", @"TerpLocalize", nil);
 	
-	[compose setSubject:[@"Transcript: " stringByAppendingString:thumb.label]];
-    [compose setMessageBody:textview.text isHTML:NO];
+	self.exportsheet = [[[UIActionSheet alloc]
+						 initWithTitle:nil
+						 delegate:self
+						 cancelButtonTitle:NSLocalizedStringFromTable(@"button.cancel", @"TerpLocalize", nil)
+						 destructiveButtonTitle:nil
+						 otherButtonTitles: copylabel, emaillabel, nil] autorelease];
+	
+	// iOS3 compatibility
+	if ([exportsheet respondsToSelector:@selector(showFromBarButtonItem:animated:)])
+		[exportsheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
+	else
+		[exportsheet showInView:textview];
+}
 
-	[self presentModalViewController:compose animated:YES];
-    [compose release]; // Can safely release the controller now.
+- (void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+	self.exportsheet = nil;
+	
+	/* Because we have a variable number of options, cancelButtonIndex might be 1. */
+	if (buttonIndex == actionSheet.cancelButtonIndex)
+		return;
+	
+	switch (buttonIndex) {
+		case 0:
+			[UIPasteboard generalPasteboard].string = textview.text;
+			break;
+			
+		case 1: {
+			MFMailComposeViewController *compose = [[MFMailComposeViewController alloc] init];
+			compose.mailComposeDelegate = self;
+			
+			NSString *subjstr = [NSString stringWithFormat:@"%@: %@", NSLocalizedStringFromTable(@"title.transcript", @"TerpLocalize", nil), thumb.label];
+			[compose setSubject:subjstr];
+			[compose setMessageBody:textview.text isHTML:NO];
+			
+			[self presentModalViewController:compose animated:YES];
+			[compose release]; // Can safely release the controller now.
+			}
+			break;
+	}
 }
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -89,9 +128,9 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
+	return [[IosGlkViewController singleton] shouldAutorotateToInterfaceOrientation:orientation];
 }
+
 
 @end
