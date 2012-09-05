@@ -214,7 +214,7 @@
 
 - (void) keyboardWillBeShown:(NSNotification*)notification {
 	[super keyboardWillBeShown:notification];
-	//NSLog(@"Keyboard will be shown (fizmo)");
+	//NSLog(@"Keyboard will be shown (terp)");
 
 	if (notesvc) {
 		[notesvc adjustToKeyboardBox];
@@ -223,7 +223,7 @@
 
 - (void) keyboardWillBeHidden:(NSNotification*)notification {
 	[super keyboardWillBeHidden:notification];
-	//NSLog(@"Keyboard will be hidden (fizmo)");
+	//NSLog(@"Keyboard will be hidden (terp)");
 
 	if (notesvc) {
 		[notesvc adjustToKeyboardBox];
