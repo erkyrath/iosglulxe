@@ -1,0 +1,25 @@
+/* TerpLocalize.strings: Interpreter-level localization strings
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
+ Designed by Andrew Plotkin <erkyrath@eblong.com>
+ http://eblong.com/zarf/glk/
+ */
+
+"button.cancel" = "Cancel";
+
+"title.game" = "Adventure";
+"title.transcript" = "Transcript";
+"title.transcripts" = "Transcripts";
+
+"label.text-styles" = "Text Styles";
+"label.keyboard" = "Keyboard";
+"label.no-transcripts" = "No stored transcripts";
+"label.copy-all" = "Copy All";
+"label.email" = "Email";
+
+"settings.section.settings" = "Text Entry and Display";
+"settings.footer.settings" = "If you have Auto-Correction turned off in your iOS Settings, this option will not apply.";
+"settings.title.license" = "License Information";
+
+"settings.cell.license" = "License Information";
+"settings.cell.autocorrect" = "Auto-Correction";
+"settings.cell.keepopen" = "Keyboard Stays Open";
