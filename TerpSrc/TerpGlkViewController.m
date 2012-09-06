@@ -85,9 +85,11 @@
 	
 	/* If the interpreter hit a "fatal error" state, and we're just waiting around to tell the user about it, we want the Home button to shut down the app. That is, the user can kill the app by backgrounding it. */
 	GlkLibrary *library = [GlkLibrary singleton];
+	/*###terp:
 	if (library && library.vmexited && !iosglk_can_restart_cleanly()) {
 		iosglk_shut_down_process();
 	}
+	 ###*/
 }
 
 - (void) viewDidLoad {
@@ -143,7 +145,7 @@
 		}
 		
 		/* Queue up the autorestore file, and restart the interpreter. */
-		iosglk_queue_autosave(prompt.pathname);
+		//###terp: iosglk_queue_autosave(prompt.pathname);
 		[[GlkAppWrapper singleton] acceptEventRestart];
 		return nil;
 	}

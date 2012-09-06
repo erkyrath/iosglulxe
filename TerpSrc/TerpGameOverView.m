@@ -19,9 +19,9 @@
 }
 
 - (NSString *) nibForContent {
-	if (iosglk_can_restart_cleanly())
+	/*###terp: if (iosglk_can_restart_cleanly())
 		return @"GameOverView";
-	else
+	else ###*/
 		return @"FatalGameOverView";
 }
 
@@ -46,7 +46,7 @@
 }
 
 - (IBAction) handleQuitButton:(id)sender {
-	iosglk_shut_down_process();
+	//###terp: iosglk_shut_down_process();
 }
 
 @end
