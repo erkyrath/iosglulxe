@@ -2,10 +2,288 @@
 <html>
 <head>
 <title>How to Play IF</title>
-<meta name="viewport" content="width=640">
+<meta name="viewport" content="width=device-width,user-scalable=no">
+<link rel="stylesheet" href="page.css" type="text/css">
 </head>
 
 <body>
-<p>Here's how to play interactive fiction.</p>
+
+<p class="LinkLine">
+(Jump to: &nbsp;
+<a href="#quickstart">Quick start</a>
+...
+<a href="#howtoplay">How to play</a>
+...
+<a href="#looklike">What commands look like</a>
+...
+<a href="#orient">Orienting yourself</a>
+...
+<a href="#moving">Moving around the world</a>
+...
+<a href="#common">Common actions</a>
+...
+<a href="#special">Special commands</a>)
+</p>
+
+<h1><a name="quickstart">Quick start</a></h1>
+
+<p>
+<em>Already know how IF works? Here&#x2019;s the scoop for this app:</em>
+</p>
+
+<ul class="BulletList">
+<li>You&#x2019;ve got four tabs: the game, a note-taking journal, this
+help screen, and app preferences.
+<li>Swipe left or right to switch tabs.
+<li>Double-tap any word on the screen to copy-and-paste it into your command.
+<li>Tap the bookmark input button to bring up command shortcuts.
+There&#x2019;s a palette of common IF commands,
+and a list of the commands you&#x2019;ve recently used.
+<li>Font and theme preferences are in the menu in the top left.
+<li>VoiceOver output and voice dictation input are fully supported (on
+devices that offer them). Try them!
+</ul>
+
+<h1><a name="howtoplay">How to play</a></h1>
+
+<p>
+In this game, you are the center of a story. You will type commands
+in simple English; the game will respond, and tell you what happens.
+</p>
+
+<p>
+What commands does this game understand? Well, it depends on the game.
+You can try nearly anything you can think of, if it makes sense in the
+situation you find yourself in.
+</p>
+
+<p>
+Most interactive fiction follows some simple rules, though. Once you&#x2019;re
+familiar with the pattern and the common commands, you can explore freely,
+and you&#x2019;ll have a good idea how to experiment further.
+</p>
+
+<h1><a name="looklike">What commands look like</a></h1>
+
+<p>
+The simplest IF commands are usually one or two words:
+</p>
+
+<ul class="CommandList">
+<li>LOOK
+<li>TAKE SWORD
+<li>EAT CUPCAKE
+<li>PUSH BUTTON
+</ul>
+
+<p>
+But sometimes you need more:
+</p>
+
+<ul class="CommandList">
+<li>LOOK UNDER BED
+<li>PUT LETTER IN ENVELOPE
+</ul>
+
+<p>
+In a more complicated scene, you might have to get more specific:
+</p>
+
+<ul class="CommandList">
+<li>EAT THE SMALL BLUE JELLYBEAN
+<li>PUT COPPER COIN IN SLOT 4
+</ul>
+
+<p>
+You will almost always be dealing with concrete things that you see in
+the game world. Work with what you see around you. If you try wild 
+abstractions like 
+&#x201C;<span class="Command">GO SEE A MOVIE</span>&#x201D; or 
+&#x201C;<span class="Command">RUN FOR PRESIDENT</span>&#x201D;, the game will probably not
+understand you.
+</p>
+
+<h1><a name="orient">Orienting yourself</a></h1>
+
+<p>
+If you are completely at sea, you can always try these commands:
+</p>
+
+<ul class="CommandList">
+<li>LOOK
+<span class="Gloss">or</span>
+L
+<span class="Gloss">: Look around the room &#x2014; repeat the description of
+everything you see.</span>
+<li>INVENTORY
+<span class="Gloss">or</span>
+I
+<span class="Gloss">: List everything you&#x2019;re carrying.</span>
+<li>EXAMINE <span class="Term">thing</span>
+<span class="Gloss">or</span>
+X <span class="Term">thing</span>
+<span class="Gloss">: Look more closely at something &#x2014; learn more about
+it.</span>
+</ul>
+
+<p>
+Because these actions are so common, they have one-letter
+abbreviations: 
+&#x201C;<span class="Command">L</span>&#x201D;,
+&#x201C;<span class="Command">I</span>&#x201D;, and
+&#x201C;<span class="Command">X</span>&#x201D;.
+</p>
+
+<p>
+Again, your actions should focus on the objects and exits that you see
+in the game world.
+</p>
+
+<h1><a name="moving">Moving around the world</a></h1>
+
+<p>
+The game world is divided into locations &#x2014; usually called 
+&#x201C;rooms&#x201D;, although
+they might be indoors or outdoors. A room is everything you can see at
+one time, and everything you can conveniently reach. Don&#x2019;t worry about
+crossing the room, turning around, or standing near things; that sort of
+movement is automatic.
+</p>
+
+<p>
+To move to a <em>different</em> location, you&#x2019;ll usually type simple compass
+directions:
+</p>
+
+<ul class="CommandList">
+<li>NORTH
+<li>SOUTH
+<li>EAST
+<li>WEST
+<li>NORTHEAST
+<li>SOUTHWEST
+<li>UP
+<li>DOWN
+</ul>
+
+<p>
+You can abbreviate these directions as
+&#x201C;<span class="Command">N</span>&#x201D;,
+&#x201C;<span class="Command">NE</span>&#x201D;, and so on; also
+&#x201C;<span class="Command">U</span>&#x201D; and
+&#x201C;<span class="Command">D</span>&#x201D;.
+</p>
+
+<p>
+More specific commands sometimes make sense:
+</p>
+
+<ul class="CommandList">
+<li>IN
+<li>OUT
+<li>ENTER BANK VAULT
+<li>GO THROUGH ARCHWAY
+<li>CLIMB LADDER
+</ul>
+
+<h1><a name="common">Common actions</a></h1>
+
+<p>
+You&#x2019;re probably staring at your dictionary and shuddering in terror
+(or anticipation!) of the infinite possibilities. Sometimes IF works
+that way. More often, you&#x2019;ll run through a small list of common
+commands &#x2014; some of which you&#x2019;ve already seen.
+</p>
+
+<ul class="CommandList">
+<li>EXAMINE <span class="Term">thing</span>
+<li>GET <span class="Term">thing,</span>
+DROP <span class="Term">thing</span>
+<li>PUT <span class="Term">this</span> IN <span class="Term">that,</span>
+PUT <span class="Term">this</span> ON <span class="Term">that</span>
+<li>PUSH <span class="Term">thing,</span>
+PULL <span class="Term">thing,</span>
+TURN <span class="Term">thing</span>
+<li>OPEN <span class="Term">thing,</span>
+CLOSE <span class="Term">thing</span>
+<li>LOCK <span class="Term">this</span> WITH <span class="Term">that,</span>
+UNLOCK <span class="Term">this</span> WITH <span class="Term">that</span>
+<li>TOUCH <span class="Term">thing,</span>
+SMELL <span class="Term">thing,</span>
+LISTEN TO <span class="Term">thing</span>
+<li>EAT <span class="Term">thing,</span>
+DRINK <span class="Term">thing</span>
+<li>WEAR <span class="Term">thing,</span>
+REMOVE <span class="Term">thing</span>
+<li>SEARCH <span class="Term">thing,</span>
+LOOK IN <span class="Term">thing,</span>
+LOOK UNDER <span class="Term">thing,</span>
+LOOK BEHIND <span class="Term">thing</span>
+<li>ENTER <span class="Term">thing,</span>
+SIT ON <span class="Term">thing,</span>
+CLIMB <span class="Term">thing</span>
+<li>GET IN <span class="Term">thing,</span>
+GET OFF <span class="Term">thing,</span>
+GET OUT OF <span class="Term">thing</span>
+<li>BREAK <span class="Term">thing,</span>
+CUT <span class="Term">thing,</span>
+CRUSH <span class="Term">thing</span>
+<li>WAIT
+</ul>
+
+<h1><a name="special">Special commands</a></h1>
+
+<ul class="CommandList">
+<li>SAVE
+<span class="Gloss">: Save your current game position.</span>
+<li>RESTORE
+<span class="Gloss">: Restore a saved game; return to the saved position.</span>
+</ul>
+
+<p>
+You can save any number of positions; you&#x2019;ll see a list when you type the
+&#x201C;<span class="Command">RESTORE</span>&#x201D; command.
+(Of course, when you launch the app you&#x2019;ll be where you left off.
+You don&#x2019;t need to 
+&#x201C;<span class="Command">SAVE</span>&#x201D;
+for that. But it&#x2019;s usually wise to save every once in a while, in case you
+make a mistake or want to try something different ways.
+</p>
+
+<ul class="CommandList">
+<li>UNDO
+<span class="Gloss">: Take back your last move.</span>
+<li>RESTART
+<span class="Gloss">: Start the game over from the beginning.</span>
+</ul>
+
+<p>
+These are handy, but not as flexible as
+&#x201C;<span class="Command">RESTORE</span>&#x201D; and
+&#x201C;<span class="Command">SAVE</span>&#x201D;.
+</p>
+
+<ul class="CommandList">
+<li>SCRIPT
+<span class="Gloss">: Begin saving a transcript of your game session.</span>
+<li>SCRIPT OFF
+<span class="Gloss">: Turn off &#x201C;script&#x201D; mode.</span>
+</ul>
+
+<p>
+A transcript is a text log of your game. To see the list of saved transcripts,
+switch to the Notes tab and tap the Transcripts button in the top left.
+</p>
+
+<ul class="CommandList">
+<li>ABOUT
+<span class="Gloss">: Read a brief introduction to the game.</span>
+<li>VERBOSE
+<span class="Gloss">: See a detailed description of each room you enter, every time.</span>
+<li>BRIEF
+<span class="Gloss">: Turn off &#x201C;verbose&#x201D;.</span>
+
+</ul>
+
 </body>
 </html>

@@ -1,0 +1,130 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+  background: #D8CC99;
+  max-width: 688px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  color: #543;
+  background: #F8E8B8;
+  font-size: 20px;
+  padding: 4px 40px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  margin-top: 32px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.BulletList {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.BulletList li:before {
+  content: "\2043\00A0\00A0";
+  display: inline;
+}
+
+.BulletList li {
+  text-indent: -15px;
+  margin-left: 40px;
+}
+
+.CommandList {
+  list-style: none;
+  padding-left: 40px;
+}
+
+.CommandList li {
+  color: #007;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Command {
+  color: #007;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.Term {
+  color: #067;
+}
+
+.Gloss {
+  color: black;
+  font-weight: normal;
+  font-style: italic;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.LinkLine {
+  font-style: italic;
+  font-size: 14px;
+  background: #F8E8B8;
+  padding: 8px 40px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+}
+
+.LinkLine a {
+  color: #22D;
+}
+
+.License {
+  font-size: 13px;
+  margin-left: 40px;
+}
+
+@media screen and (max-device-width: 480px) {
+  body {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-size: 17px;
+    padding: 4px 20px;
+    margin-top: 20px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
+
+  .BulletList li {
+    margin-left: 20px;
+  }
+
+  .CommandList {
+    padding-left: 20px;
+  }
+
+  .CommandList li {
+    font-size: 12px;
+  }
+
+  .Command {
+    font-size: 12px;
+  }
+
+  .LinkLine {
+    font-style: italic;
+    font-size: 12px;
+    padding: 4px 20px;
+  }
+
+  .License {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+
+}
