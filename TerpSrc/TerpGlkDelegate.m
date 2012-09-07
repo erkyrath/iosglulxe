@@ -33,7 +33,7 @@
 
 - (NSString *) gamePath {
 	NSBundle *bundle = [NSBundle mainBundle];
-	NSString *path = [bundle pathForResource:@"Game" ofType:@"z5"];
+	NSString *path = [bundle pathForResource:@"Game" ofType:@"ulx"];
 	return path;
 }
 
