@@ -29,22 +29,7 @@
 
 - (IBAction) handleRestartButton:(id)sender {
 	[self.superviewAsFrameView removePopMenuAnimated:YES];
-	
 	[[GlkAppWrapper singleton] acceptEventRestart];
-}
-
-- (IBAction) handleRestoreButton:(id)sender {
-	[self.superviewAsFrameView removePopMenuAnimated:YES];
-	
-	NSString *basedir = [GlkFileRef documentsDirectory];
-	NSString *dirname = [GlkFileRef subDirOfBase:basedir forUsage:fileusage_SavedGame gameid:[GlkLibrary singleton].gameId];
-	
-	TerpGlkViewController *viewc = [TerpGlkViewController singleton];
-	
-	viewc.restorefileprompt = [[[GlkFileRefPrompt alloc] initWithUsage:fileusage_SavedGame fmode:filemode_Read dirname:dirname] autorelease];
-	[viewc displayModalRequest:viewc.restorefileprompt];
-	
-	// The callback from the FileSelectVC will trigger acceptEventRestart.
 }
 
 - (IBAction) handleQuitButton:(id)sender {

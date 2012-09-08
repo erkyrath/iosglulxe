@@ -10,7 +10,6 @@
 @interface TerpGameOverView : GameOverView
 
 - (IBAction) handleRestartButton:(id)sender;
-- (IBAction) handleRestoreButton:(id)sender;
 - (IBAction) handleQuitButton:(id)sender;
 
 @end

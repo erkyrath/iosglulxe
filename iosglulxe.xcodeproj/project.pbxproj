@@ -50,7 +50,6 @@
 		DF38690C15F7DDCC0070AADB /* SettingsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF38690415F7DDCC0070AADB /* SettingsVC.xib */; };
 		DF38690D15F7DDCC0070AADB /* TerpLocalize.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF38690615F7DDCC0070AADB /* TerpLocalize.strings */; };
 		DF38690E15F7DDCC0070AADB /* FatalGameOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF38690815F7DDCC0070AADB /* FatalGameOverView.xib */; };
-		DF38690F15F7DDCC0070AADB /* GameOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF38690A15F7DDCC0070AADB /* GameOverView.xib */; };
 		DF38691415F7DE1C0070AADB /* InputMenuDecor~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF38691015F7DE1C0070AADB /* InputMenuDecor~ipad.xib */; };
 		DF38691515F7DE1C0070AADB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF38691215F7DE1C0070AADB /* Localizable.strings */; };
 		DF38692415F7DFB90070AADB /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = DF38691615F7DFB80070AADB /* Default-Landscape.png */; };
@@ -195,6 +194,7 @@
 		DF4CBA2F1369009500CED834 /* vm.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CBA1F1369009500CED834 /* vm.c */; };
 		DF6BCEBF1369062600442D6F /* gi_blorb.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCEBD1369062600442D6F /* gi_blorb.c */; };
 		DF6BCEDA13690BA400442D6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCED913690BA400442D6F /* main.c */; };
+		DF9E959C15FB0B6600907F8C /* GameOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF9E959A15FB0B6600907F8C /* GameOverView.xib */; };
 		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
 /* End PBXBuildFile section */
 
@@ -255,7 +255,6 @@
 		DF38690515F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SettingsVC.xib; sourceTree = "<group>"; };
 		DF38690715F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TerpLocalize.strings; sourceTree = "<group>"; };
 		DF38690915F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FatalGameOverView.xib; sourceTree = "<group>"; };
-		DF38690B15F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GameOverView.xib; sourceTree = "<group>"; };
 		DF38691115F7DE1C0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iosglk/Resources/en.lproj/InputMenuDecor~ipad.xib"; sourceTree = SOURCE_ROOT; };
 		DF38691315F7DE1C0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = iosglk/Resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		DF38691615F7DFB80070AADB /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
@@ -439,6 +438,8 @@
 		DF6BCEBD1369062600442D6F /* gi_blorb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gi_blorb.c; sourceTree = "<group>"; };
 		DF6BCEBE1369062600442D6F /* gi_blorb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gi_blorb.h; sourceTree = "<group>"; };
 		DF6BCED913690BA400442D6F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DF9E959915F9938600907F8C /* iosstart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosstart.h; sourceTree = "<group>"; };
+		DF9E959B15FB0B6600907F8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iosglk/Resources/en.lproj/GameOverView.xib; sourceTree = SOURCE_ROOT; };
 		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -528,7 +529,7 @@
 				DF1D85F115D9BD6C00C17282 /* PaletteMenuView~ipad.xib */,
 				DF3868FE15F7DD4D0070AADB /* PrefsMenuView.xib */,
 				DF38690115F7DD510070AADB /* PrefsMenuView~ipad.xib */,
-				DF38690A15F7DDCC0070AADB /* GameOverView.xib */,
+				DF9E959A15FB0B6600907F8C /* GameOverView.xib */,
 				DF38690815F7DDCC0070AADB /* FatalGameOverView.xib */,
 				DF41DB1F1532005E000B5D00 /* HelpVC.xib */,
 				DF38690415F7DDCC0070AADB /* SettingsVC.xib */,
@@ -744,28 +745,28 @@
 		DF4CB9F01368FFF400CED834 /* LibSrc */ = {
 			isa = PBXGroup;
 			children = (
-				DF4CB9F11369003600CED834 /* Geometry.h */,
-				DF4CB9F21369003600CED834 /* Geometry.m */,
-				DF4CB9F31369003600CED834 /* GlkFileRef.h */,
-				DF4CB9F41369003600CED834 /* GlkFileRef.m */,
-				DF4CB9F51369003600CED834 /* GlkFileTypes.h */,
-				DF4CB9F61369003600CED834 /* GlkFileTypes.m */,
 				DF4CB9F71369003600CED834 /* GlkLibrary.h */,
 				DF4CB9F81369003600CED834 /* GlkLibrary.m */,
-				DF4CB9F91369003600CED834 /* GlkStream.h */,
-				DF4CB9FA1369003600CED834 /* GlkStream.m */,
-				DF4CB9FB1369003600CED834 /* GlkUtilTypes.h */,
-				DF4CB9FC1369003600CED834 /* GlkUtilTypes.m */,
 				DF4CB9FD1369003600CED834 /* GlkWindow.h */,
 				DF4CB9FE1369003600CED834 /* GlkWindow.m */,
-				DF4CB9FF1369003600CED834 /* StyleSet.h */,
-				DF4CBA001369003600CED834 /* StyleSet.m */,
-				DF41DAF11531F6F8000B5D00 /* GlkAccessTypes.h */,
-				DF41DAF21531F6F8000B5D00 /* GlkAccessTypes.m */,
+				DF4CB9F91369003600CED834 /* GlkStream.h */,
+				DF4CB9FA1369003600CED834 /* GlkStream.m */,
+				DF4CB9F31369003600CED834 /* GlkFileRef.h */,
+				DF4CB9F41369003600CED834 /* GlkFileRef.m */,
 				DF41DAF31531F6F8000B5D00 /* GlkLibraryState.h */,
 				DF41DAF41531F6F8000B5D00 /* GlkLibraryState.m */,
 				DF41DAF51531F6F8000B5D00 /* GlkWindowState.h */,
 				DF41DAF61531F6F8000B5D00 /* GlkWindowState.m */,
+				DF4CB9F51369003600CED834 /* GlkFileTypes.h */,
+				DF4CB9F61369003600CED834 /* GlkFileTypes.m */,
+				DF4CB9FB1369003600CED834 /* GlkUtilTypes.h */,
+				DF4CB9FC1369003600CED834 /* GlkUtilTypes.m */,
+				DF41DAF11531F6F8000B5D00 /* GlkAccessTypes.h */,
+				DF41DAF21531F6F8000B5D00 /* GlkAccessTypes.m */,
+				DF4CB9F11369003600CED834 /* Geometry.h */,
+				DF4CB9F21369003600CED834 /* Geometry.m */,
+				DF4CB9FF1369003600CED834 /* StyleSet.h */,
+				DF4CBA001369003600CED834 /* StyleSet.m */,
 			);
 			name = LibSrc;
 			path = iosglk/LibSrc;
@@ -775,6 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				DF4B9E4A13691DC300AC9A95 /* iosstart.m */,
+				DF9E959915F9938600907F8C /* iosstart.h */,
 				DF6BCED913690BA400442D6F /* main.c */,
 				DF4CBA161369009500CED834 /* glulxe.h */,
 				DF4CBA0D1369009500CED834 /* accel.c */,
@@ -930,7 +932,6 @@
 				DF38690C15F7DDCC0070AADB /* SettingsVC.xib in Resources */,
 				DF38690D15F7DDCC0070AADB /* TerpLocalize.strings in Resources */,
 				DF38690E15F7DDCC0070AADB /* FatalGameOverView.xib in Resources */,
-				DF38690F15F7DDCC0070AADB /* GameOverView.xib in Resources */,
 				DF38691415F7DE1C0070AADB /* InputMenuDecor~ipad.xib in Resources */,
 				DF38691515F7DE1C0070AADB /* Localizable.strings in Resources */,
 				DF38692415F7DFB90070AADB /* Default-Landscape.png in Resources */,
@@ -965,6 +966,7 @@
 				DF38695315F8474B0070AADB /* lead-narrow@2x.png in Resources */,
 				DF38695415F8474B0070AADB /* lead-wide.png in Resources */,
 				DF38695515F8474B0070AADB /* lead-wide@2x.png in Resources */,
+				DF9E959C15FB0B6600907F8C /* GameOverView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1108,14 +1110,6 @@
 			name = FatalGameOverView.xib;
 			sourceTree = "<group>";
 		};
-		DF38690A15F7DDCC0070AADB /* GameOverView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF38690B15F7DDCC0070AADB /* en */,
-			);
-			name = GameOverView.xib;
-			sourceTree = "<group>";
-		};
 		DF38691015F7DE1C0070AADB /* InputMenuDecor~ipad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1130,6 +1124,14 @@
 				DF38691315F7DE1C0070AADB /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		DF9E959A15FB0B6600907F8C /* GameOverView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DF9E959B15FB0B6600907F8C /* en */,
+			);
+			name = GameOverView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
