@@ -12,6 +12,8 @@
 #import "GlkFrameView.h"
 #import "GlkFileTypes.h"
 
+#import "iosstart.h"
+
 @implementation TerpGameOverView
 
 - (void) dealloc {
@@ -19,9 +21,9 @@
 }
 
 - (NSString *) nibForContent {
-	/*###terp: if (iosglk_can_restart_cleanly())
-		return @"GameOverView";
-	else ###*/
+	if (iosglk_can_restart_cleanly())
+	 	return @"GameOverView";
+	else
 		return @"FatalGameOverView";
 }
 
@@ -46,7 +48,7 @@
 }
 
 - (IBAction) handleQuitButton:(id)sender {
-	//###terp: iosglk_shut_down_process();
+	iosglk_shut_down_process();
 }
 
 @end
