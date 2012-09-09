@@ -23,7 +23,6 @@
 
 @synthesize notesvc;
 @synthesize settingsvc;
-@synthesize restorefileprompt;
 
 + (TerpGlkViewController *) singleton {
 	return (TerpGlkViewController *)([IosGlkAppDelegate singleton].glkviewc);
@@ -130,27 +129,6 @@
 	if (keyboardbutton && [keyboardbutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
 		[keyboardbutton setAccessibilityLabel:NSLocalizedStringFromTable(@"label.keyboard", @"TerpLocalize", nil)];
 	}
-}
-
-- (id) filterEvent:(id)data {
-	if (self.vmexited && data && [data isKindOfClass:[GlkFileRefPrompt class]] && data == restorefileprompt) {
-		/* Drop the field reference to the prompt. */
-		GlkFileRefPrompt *prompt = restorefileprompt;
-		[[prompt retain] autorelease];
-		self.restorefileprompt = nil;
-		
-		if (!prompt.filename) {
-			/* Cancelled. Forget it. */
-			return nil;
-		}
-		
-		/* Queue up the autorestore file, and restart the interpreter. */
-		//###terp: iosglk_queue_autosave(prompt.pathname);
-		[[GlkAppWrapper singleton] acceptEventRestart];
-		return nil;
-	}
-	
-	return data;
 }
 
 - (void) postGameOver {

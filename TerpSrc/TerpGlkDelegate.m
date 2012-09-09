@@ -10,6 +10,8 @@
 #import "GlkWindowState.h"
 #import "StyleSet.h"
 
+#import "iosstart.h"
+
 @implementation TerpGlkDelegate
 
 @synthesize maxwidth;
@@ -212,7 +214,7 @@
 /* This is called when the library leaves glk_main(), either by returning or by a glk_exit() exception.
  */
 - (void) vmHasExited {
-	//###terp: iosglk_clear_autosave();
+	iosglk_clear_autosave();
 }
 
 

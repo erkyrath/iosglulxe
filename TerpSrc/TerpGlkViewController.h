@@ -16,7 +16,6 @@
 
 @property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
 @property (nonatomic, retain) IBOutlet SettingsViewController *settingsvc;
-@property (nonatomic, retain) GlkFileRefPrompt *restorefileprompt;
 
 + (TerpGlkViewController *) singleton;
 
