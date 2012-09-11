@@ -1,14 +1,34 @@
-Scrolling seems inadequate (try "look" in Advent). Need a "more" flag?
+(skip) Select/deselect the keyboard button as keyboard goes in/out.
 
-I dunno what's up with the fonts in iOS5.
+(skip) Don't select a blank line as a paragraph?
 
-Need a navbar with a "close keyboard" button
+(fuk dat) Can I use transitionFromViewController in the tab bar controller to animate swipes?
 
-left/right pages for notes/map/etc
+(nope) Test bluetooth keyboard; see about up/down arrows
 
-Gotta buffer GlkStream!
+(ignore) on iOS3, transcript viewer, action menu: "cancel" button doesn't work
 
-glulxercise failures: "all" doesn't come back -- too many lines in buf?
+(nobody cares) Note achievement strangeness on support page? (How to refetch missed achievements; command chains don't work.)
 
-Make sure that @quit and VM-loop-exit wind up in the same state as glk_exit().
+(enh) Stick a compass image behind the compass labels.
+
+(1.2?) iCloud support. Also, DropBox support. (Requires UI thinking.)
+
+Background color bug! (Changing color scheme when text is shorter than the screen.) Fixes on next layoutsubviews?
+
+Style breaks shouldn't necessarily be wrap breaks. (E.g. "*command*")
+
+While we're thinking about that, get images to work.
+
+On iOS3/4, the notes page doesn't inset properly when the keyboard is open.
+
+On iOS4, we should be retrying achievement failures.
+
+Add a context menu (when selecting a word) to stick it into various common commands? (In the edit menu, or change double-tap?)
+
+...We kind of need a magnifying reticle for that.
+
+Can we make the bookmark button taller? Two-finger tap shortcut for that?
+
+Glulx: if the game calls glk_exit(), the VM uses the "exited uncleanly" dialog. (Which is true; the VM's clean-up code was bypassed. Can we work around this?)
 
