@@ -1,0 +1,341 @@
+# How to Turn Your Inform Game Into an iOS App
+
+iOS Glulxe is a Glulx interpreter for iOS. It's designed to be packaged up with a single game file -- a one-game app. (This is the opposite of iOS Frotz, which is designed to host lots of game files.)
+
+Would you like to package up your Inform game as an iOS app? Probably! Is it easy? Yye-- well, no, not *easy*. But it's manageable.
+
+Let's start with:
+
+## The Requirements
+
+**You must have an Inform game compiled as a Glulx game file.**
+
+If you have a Z-code game, [read this page instead][zcode-doc].
+
+[zcode-doc]: https://github.com/erkyrath/iosfizmo/wiki/How-to-Turn-Your-Inform-Game-Into-an-iOS-App
+
+**You must have a Mac and the latest version of MacOS.**
+
+**You must have [Xcode][] installed on your Mac.**
+
+(Xcode is free; you download it from the [Mac App Store][Xcode] or from the [iOS Dev Center][iosdev]. Yes, it's a gigabyte and a half, it's enormous.)
+
+[Xcode]: http://itunes.apple.com/us/app/xcode/id497799835?mt=12
+
+**You must be a registered Apple iOS developer to release an iOS app.** This costs $100 per year. Visit Apple's [iOS Dev Center][iosdev].
+
+(You can build a test app and test it in Xcode without being a registered iOS developer. To test it on an actual iPhone, or submit it to Apple for release, you need to pony up the fee.)
+
+(Note that when you visit Apple's dev site, it will first ask you to register as a *developer* -- in general -- this is free. Once your dev account exists, you'll see the option to buy an *iOS developer* membership for $100.)
+
+[iosdev]: https://developer.apple.com/devcenter/ios/
+
+## What Doesn't Work Yet
+
+**There is no good way to upgrade your game file once you release it.**
+
+Or rather, if you do, everybody's saved games will break. You know how, in an IF game, saved game files have to match the exact version of the game? That's still true. So if you release an update with a different game file, your players will find all their progress erased. You don't want to do that to them.
+
+(This also applies to the hidden save file that's used to launch the app in the same state the player left it. If you update the game file, that won't work; the player will see the game start from the beginning, with an extra bonus error about "checksum doesn't match.")
+
+I have a plan for this: I am going to build a way to include *multiple versions* of your game file in the app. Each saved game will cause the matching game file to be loaded up. This is of course not ideal -- it means that players will be stuck in the old version of the game until they start over -- but at least they won't see their games break.
+
+Unfortunately, even that much of a plan is still theoretical. I will update this document when the feature is available. In the meantime, the plan is "Release your game right the first time." That's a terrible plan but it's what I've got.
+
+**Menus don't work nicely.**
+
+That is, the standard Inform menus that appear in the status window. They're not *broken* -- you can cycle through the menu by tapping the "P" and "N" keys on the virtual keyboard. However, players who aren't already IF fans will probably be confused by this.
+
+Overall, it is better to rebuild your game without menus, and move your HELP and ABOUT information to the app's help screen. More on that later.
+
+# What This Document Will Not Teach You
+
+This is not an Xcode tutorial. Xcode is Apple's development environment; it's pretty good, but you *do* have to spend some time getting used to it. (For what it's worth, I found it *much* easier than Eclipse. This is not worth a lot, I admit.)
+
+For an introduction to Xcode, and the process of releasing an iOS app, read Apple's [Start Developing iOS Apps][startdevelop] guide. (The same guide, and all the rest of the Xcode documentation, is included inside Xcode itself. There's a reason it's a gig and a half large.)
+
+[startdevelop]: https://developer.apple.com/library/ios/#referencelibrary/GettingStarted/RoadMapiOS/Introduction/Introduction.html
+
+This document is also not a Git tutorial. [Git][] is the version control system I use. You don't have to know anything about it, really. You can download all the Glulxe source code inside Xcode, and then ignore Git thereafter.
+
+[Git]: http://git-scm.com/documentation
+
+However, if you want to pick up my improvements to the interpreter, you'll have to go back to Git. The clever way to do this is to create a Git branch, store all your changes in it, and then merge my master branch into it. The easy way is just to re-download all the source code and make your changes again. Feel free to use the easy way.
+
+# Okay, Let's Get This Show on the Elephant
+
+## Downloading the source code (and project file)
+
+- Launch Xcode. (I am writing this document with Xcode 4.3.2.)
+
+- Open the Organizer window. (`Windows` menu, `Organizer`)
+
+- Select the Repositories tab. (Organizer window, top bar, `Repositories`)
+
+- Press the `+` button in the lower left-hand corner. This brings up a pop-up menu. Select `Checkout or Clone Repository...`
+
+- The "Checkout or Clone" dialog appears. It has a field for `Location`. Paste in this URL:
+
+	https://github.com/erkyrath/iosglulxe.git
+
+- Press the `Clone` button. (Lower right of the dialog.) Ignore the "Authentication required" warning -- it's not actually required.
+
+- A "Clone" dialog appears, asking for a place to create the directory `iosglulxe`. Navigate to wherever you want this and press the `Clone` button.
+
+- After a few moments of work, the dialog will display "Clone of 'iosglulxe' complete." Press the `Open Project` button. (Lower right of the dialog.)
+
+- You now have a project window for `iosglulxe.xcodeproj`. 
+
+(Note: this gets you the most current, bleeding-edge IosGlulxe source code. This should work for you -- I don't plan to break the build. If you want to use the latest stable release, you'll need to do additional work.) (TODO)
+
+## Test the interpreter
+
+- Find the `Scheme` pop-up menu. (Project window, top bar, the wide pop-up menu on the left.) Click the *right side* of this menu and select `iPhone 5.1 Simulator`.
+
+(Or whatever is the latest iPhone OS version you see. If the pop-up menu says "Edit Scheme...", "New Scheme..." and so on, you clicked the left side. Don't do that.)
+
+- Click the `Run` button. (Top bar, left end, the big triangle.)
+
+(If you hold down this button for a moment, you'll get a pop-up menu of `Run`, `Test`, `Profile`, `Analyze`. You want `Run`. Or just click the button instead of holding it down.)
+
+- The project will go through a cycle of building and attaching to the app.
+
+(If the project seems to get stuck on "Attaching...", wait another minute or so. When you get tired of waiting, press the `Stop` button (the big square), wait for it to turn grey, and then press `Run` again.)
+
+- The iOS Simulator will appear. (This is a separate app, but Xcode manages it.) You should now see Colossal Cave running in a simulated iPhone. You can play it!
+
+- To test on a simulated iPad, select `iPad 5.1 Simulator` in the `Scheme` menu and hit `Run` again.
+
+## Know your way around your `iosglulxe` directory
+
+The directory contains a plethora of files. Some interesting ones:
+
+- `iosglulxe.xcodeproj`: The Xcode project file. If Xcode isn't running and you want to start working on your app, double-click this.
+- `iosglulxe-Info.plist`: Some important app configuration information.
+- `glulxe` (subdirectory): Source code for the [Glulxe][] interpreter. This is the portable interpreter engine.
+- `iosglk` (subdirectory): Source code for the [iOS Glk][iosglk] display library. This is the general iOS display library. (This directory contains its own Xcode project file, but you should ignore that.)
+- `TerpSrc` (subdirectory): Source code specifically for iOS Glulxe. This glues together `glulxe` and `iosglk`, and also handles the four app tabs.
+- `Resources` (subdirectory): All of the interface layout files (Interface Builder files -- `.xib`). These define the appearance of the screens and menus in the app. (Note: more resources are in `iosglk/Resources`.)
+- `Media` (subdirectory): Interface graphics for the interpreter. Buttons and icons. (Note: more graphics are in `iosglk/Media`.)
+- `WebSite` (subdirectory): HTML files for the in-app "help" and "license information" screens.
+- `Icon.png`, `Icon-*.png`: The iOS icons. There are a whole bunch of these, in different sizes. It's a nuisance.
+- `iTunesArtwork`: The cover art image. This is a PNG file, even though it lacks the `.png` suffix.
+- `Default.png`, `Default-*.png`: The iOS launch images. These appear as the app is starting up. (`Default.png` is for iPhone; the other two are for iPad.)
+- `Game.z5`: The game file. When you download the project, this is Colossal Cave.
+
+[iosglk]: https://github.com/erkyrath/iosglk/
+[Glulxe]: https://github.com/erkyrath/glulxe/
+
+## Know your way around the Xcode project window
+
+Again, this isn't a Xcode tutorial (see [Apple's docs][startdevelop] for that). But I'll go over the basic "where the hell did my files go" orientation.
+
+The project window has three columns:
+
+- Left: the navigator (normally a list of files)
+- Center: the primary editor (displays the source code, image, or settings you have selected in the left column)
+- Right: the utilities (lets you edit metadata or special features of whatever's selected in the left or center column)
+
+If you don't see these, turn on the left and right buttons in the `View` control (the three-button widget on the right of the top bar).
+
+(There's also a debug area, which is a pane at the bottom of the center column. That's controlled by the center button in the `View` control. You shouldn't need it, so feel free to close it.)
+
+If the center column is split in half, you have the assistant view open. You don't want that. Press the left button in the `Editor` control (top bar, the button with horizontal lines) and the center column should unsplit.
+
+If the left column doesn't show a list of files (or a folder with a disclosure triangle), you have the wrong navigator selected. Look at the top of the left column, and press the leftmost button (the folder icon). 
+
+(There are many ways to rearrange this layout, in the `Preferences` or the `View` menu. Go for it if you must.)
+
+Now that you have the columns in front of you, you can open the project tree in the left column (the disclosure triangle on the `iosglulxe` entry). You'll see a list of folders which is similar to the directory layout I described above. (It's not grouped exactly the same way, but you'll see `TerpSrc`, `Resources`, `Media`, `WebSite`, and so on.)
+
+## Change the project's bundle name and identifier
+
+- In the left column, open `iosglulxe` (the top-level blue project folder).
+
+- Under that, open `Other Sources`.
+
+- Select `iosglulxe-Info.plist`. A list of settings will appear in the center column.
+
+- Find the `Bundle identifier` line. By default this is `com.eblong.iosglulxetest`. Change it to something appropriate to your app: `com.yourcompany.yourgametitle`.
+
+- Find the `Bundle display name` line. This is the label that appears with your icon on the iOS home screen. By default it is `Glulxe`; change this to your game title.
+
+(There isn't much room on the iOS screen, so you may need to shorten the title. Test it in the iPhone Simulator to make sure it looks good. Remember that you have to exit the app in order to see the icon!)
+
+(If the app appears with a blank white icon after this change, try quitting the iPhone Simulator -- not just the app, but the whole simulator -- and then running the app again.)
+
+## Replace Colossal Cave with your game
+
+The easy way to do this is simply to rename your game file (.ulx or .gblorb) to `Game.ulx`, and copy it over the `Game.ulx` in the project directory. Yes, you can rename your .gblorb file to .ulx -- IosGlulxe won't care.
+
+## Replace the game title (the title of the app's game tab)
+
+- In the left column, open `iosglulxe` (the top-level blue project folder).
+
+- Under that, open `Resources`.
+
+- Select `TerpLocalize.strings` (at the bottom of the `Resources` folder). A list of string definitions will appear in the center column.
+
+Early in that file, you'll see the line:
+
+	"title.game" = "Adventure";
+
+- Change the string `Adventure` to your game title.
+
+- Test it in the iOS Simulator, to make sure your title isn't too wide for the iPhone navigation bar.
+
+## Customize the game colors (optional)
+
+- In the left column, open `iosglulxe` (the top-level blue project folder).
+
+- Under that, open `TerpSrc`.
+
+- Select `TerpGlkDelegate.m`. This file contains some methods which customize the interpreter behavior.
+
+- Find the `genForegroundColor` method. This defines the text color for the app's three color schemes. (The scheme is selected by the user with the `Colors` button in the game's style (`Aa`) menu.)
+
+The function looks like this:
+
+	- (UIColor *) genForegroundColor {
+		switch (self.colorscheme) {
+			case 1: /* quiet */
+				return [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+			case 2: /* dark */
+				return [UIColor colorWithRed:0.75 green:0.75 blue:0.7 alpha:1];
+			case 0: /* bright */
+			default:
+				return [UIColor blackColor];
+		}
+	}
+
+You can adjust the text red, green, and blue values for each of the three schemes. (Alpha should always be 1.) `blackColor` is a shortcut for `colorWithRed:0 green:0 blue:0 alpha:1`.
+
+- Right below this is the `genBackgroundColor` method. This defines the background (paper) color for the story window. (Again, in each of the three schemes.)
+
+- The status bar color is handled differently.
+
+Find the `prepareStyles` method, and this stanza of code:
+
+	switch (self.colorscheme) {
+		case 1: /* quiet */
+			styles.backgroundcolor = [UIColor colorWithRed:0.75 green:0.7 blue:0.5 alpha:1];
+			styles.colors[style_Normal] = [UIColor colorWithRed:0.15 green:0.1 blue:0.0 alpha:1];
+			break;
+		case 2: /* dark */
+			styles.backgroundcolor =  [UIColor colorWithRed:0.55 green:0.55 blue:0.5 alpha:1];
+			styles.colors[style_Normal] = [UIColor blackColor];
+			break;
+		case 0: /* bright */
+		default:
+			styles.backgroundcolor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
+			styles.colors[style_Normal] = [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+			break;
+	}
+
+Each case contains lines to define the foreground and background colors.
+
+- If you want to customize the color of a particular style (as opposed to the whole window), you can do that too. You'll need to add code to `prepareStyles` to set `styles.colors[style_...]`, for the appropriate Glk style constant. 
+
+## Customize the icon and cover art
+
+In the project directory, you'll see a whole lot of `Icon...png` files. You need to replace all of them.
+
+You need to retain the name and size of every icon file. Notice that some of the icons name their own size (`Icon-72.png` is 72x72); some don't (`Icon.png` is 57x57); and some have a wacky "@2x" modifier (`Icon-50@2x.png` is 100x100). Don't try to figure out the reasons behind all of this; it's historical remnants all the way down. Just make new icons with the same names and sizes as the existing ones.
+
+(The "dpi" or dots-per-inch of the PNG files does *not* matter -- only the overall size in pixels.)
+
+You should also make a `iTunesArtwork` file. This should be a 512x512 PNG file. Notice that the filename *does not* have a ".png" extension.
+
+The easiest way to do all of this is to create a large version of your artwork -- 1024x1024 pixels. Then reduce that to each of the required sizes, and copy the result into the project directory. (A 1024x1024 version will be required for the App Store submission, so you might as well have that ready.)
+
+It's important not to put in too much detail. Even though your starting image is large, it will be reduced for display -- even in the App Store. If you put the game title in the image as a text element, it will be squished into unreadability.
+
+You might want to make a different, simplified image for the smaller icon sizes. However, I don't bother.
+
+By default, iOS adds a gloss-highlight to your icon when displaying it on the home screen. To turn this off, go into `iosglulxe-Info.plist`, find the `Icon already includes gloss effects` entry, and set it to `YES`. (I know, it seems backwards. You don't actually have to include a gloss effect; you're just telling iOS not to add more.)
+
+## Customize the launch images (optional)
+
+In the project directory, you'll see files called `Default.png`, `Default-Landscape.png`, and `Default-Portrait.png`. These are flashed up briefly while the app in launching. `Default.png` is used for the iPhone (which launches all apps portrait-style); the others are used for the iPad.
+
+You do not have to replace these, but you might want to. (For *Dreamhold*, I added a low-contrast company logo to the center area.) If you change the game's default background color, you should change the background color of the launch images.
+
+The iOS convention is that launch images do not include content. The images I provide don't even include a blank status line. (I tried adding one, but it led to an unpleasant flicker in the launch sequence. Also, the user might have selected a different column width or font size, which changes the status line's outline. So I took it out.)
+
+## Customize the help and license information screens
+
+The `WebSite` subdirectory contains two HTML files, plus a CSS file that they both include. 
+
+- `index.html` appears as the content of the app's `Help` tab. 
+
+- `license.html` appears when the user taps the `License Information` button in the `Settings` tab.
+
+You can customize these to include information about your game. Remember that you must retain the iOS Glk and Glulxe license information in `license.html`.
+
+The files are normal HTML, so you can edit and test them with normal Web tools. Note that the CSS file has a special section:
+
+	@media screen and (max-device-width: 480px) { ... }
+
+This defines a slightly different layout for the iPhone display. (Smaller fonts and margins.)
+
+## Set up the AppID and provisioning you need to test on real hardware
+
+*You cannot do this until you have [registered as an iOS developer][iosdev] and paid the registration fee.*
+
+- Go to the [iOS Dev Center][iosdev] on Apple's web site. Log in. Follow the link to the iOS Provisioning Portal.
+
+- Select `Certificates` and set up your iOS Development Certificate. (I'm not going to try to give full instructions for this. The web site is reasonably helpful.)
+
+- Select `Devices` and add your mighty collection of iPhones, iPads, iPod touches.
+
+- Select `App IDs`. Press the `New App ID` button (top right corner).
+
+- In the `Create App ID` form, enter your game title under `Description`. Leave `Bundle Seed ID` alone. For `Bundle Identifier`, enter the string that you used earlier in `iosglulxe-Info.plist` -- my example string was `com.yourcompany.yourgametitle`. Press `Submit`.
+
+- Select `Provisioning`. Make sure the `Development` tab is selected, and press the `New Profile` button (top right corner).
+
+- In the `Create iOS Development Provisioning Profile` form, enter `(Game Title) Development` for `Profile Name`. Check your name under `Certificates`. For the `App ID`, select the ID you just created (with your game title). Check all your devices under `Devices`. Press `Submit`.
+
+- You will probably see your profile listed with status `Pending`. Reload the web page. Now the status has changed to `Active`. Press the `Download` button.
+
+- Go back to Xcode. Open the Organizer window. (`Windows` menu, `Organizer`)
+
+- Select the Devices tab. (Organizer window, top bar, `Devices`)
+
+- Select `Provisioning Profiles` in the left column.
+
+- Drag the ".mobileprovision" file from wherever you downloaded it into the Organizer window. It should appear and be listed as `Valid Profile`.
+
+- Plug your iPhone/iPad/iPod whatever into your Mac's USB port.
+
+- Go back to your Xcode project window.
+
+- Find the `Scheme` pop-up menu. (Project window, top bar, the wide pop-up menu on the left.) Click the *right side* of this menu and select the device you just plugged in.
+
+- Press the `Run` button. The app should compile, install, and run on your device.
+
+## Do some beta-testing
+
+You will have to create an "Ad Hoc" build to distribute. This will use the same App ID as your development build, but you will have to create a new Provisioning Profile (under the `Distribution` tab, as opposed to `Development`. Be sure to check `Ad Hoc`.) The rest of the procedure is pretty much the same.
+
+For distributing your beta build and organizing testers, I recommend the [TestFlight][] service.
+
+[TestFlight]: https://testflightapp.com/
+
+## Submit it to the App Store
+
+You create an App Store submission in the [iTunes Connect][connect] section of Apple's web site. You will need a large cover image (1024x1024) and some screenshots of your app.
+
+[connect]: https://itunesconnect.apple.com/
+
+To create the final build, you will need a third Provisioning Profile: the `Distribution` tab, but this time you check `App Store`.
+
+# Things to watch out for
+
+- Test your app on an iPhone (or the iPhone Simulator) with the font size turned up. Play a few moves while watching the status line; make sure it draws acceptably.
+
+(When the font is large, the "window width" of the status line is quite small -- it's measured in characters, after all. You may have to adjust your status-line code to fit the tighter width.)
+
+- If the player types "quit", the game will end with a menu that offers only a "restart" option. (This is unlike IosFizmo, which offers "restart" and "restore".)
+
+- If your game calls glk_exit() or glk($1), the game will end with a menu that says "A serious error has occurred." Sorry about that. If you really need to write code that ends the game, use the normal Inform quit features or the I6 @quit opcode.
