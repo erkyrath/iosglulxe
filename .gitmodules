@@ -1,6 +1,6 @@
 [submodule "glulxe"]
 	path = glulxe
-	url = git@github.com:erkyrath/glulxe.git
+	url = ../glulxe.git
 [submodule "iosglk"]
 	path = iosglk
-	url = git@github.com:erkyrath/iosglk.git
+	url = ../iosglk.git
