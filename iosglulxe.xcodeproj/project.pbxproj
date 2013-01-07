@@ -1185,10 +1185,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				OTHER_LDFLAGS = (
-					"-weak-lSystem",
-					/usr/lib/libSystem.B.dylib,
-				);
+				OTHER_LDFLAGS = "-weak-lSystem";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1210,10 +1207,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = (
-					"-weak-lSystem",
-					/usr/lib/libSystem.B.dylib,
-				);
+				OTHER_LDFLAGS = "-weak-lSystem";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E6F4CEA2-5D13-45E5-A6B3-D8C96773E4C2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
