@@ -129,6 +129,13 @@
 	if (keyboardbutton && [keyboardbutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
 		[keyboardbutton setAccessibilityLabel:NSLocalizedStringFromTable(@"label.keyboard", @"TerpLocalize", nil)];
 	}
+	
+	if ([IosGlkAppDelegate oldstyleui]) {
+		if (stylebutton)
+			[stylebutton setImage:[UIImage imageNamed:@"baricon-styles-old"]];
+		if (keyboardbutton)
+			[keyboardbutton setImage:[UIImage imageNamed:@"baricon-edit-old"]];
+	}
 }
 
 - (void) postGameOver {

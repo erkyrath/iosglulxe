@@ -196,6 +196,10 @@
 		DF6BCEBF1369062600442D6F /* gi_blorb.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCEBD1369062600442D6F /* gi_blorb.c */; };
 		DF6BCEDA13690BA400442D6F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DF6BCED913690BA400442D6F /* main.c */; };
 		DF9E959C15FB0B6600907F8C /* GameOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF9E959A15FB0B6600907F8C /* GameOverView.xib */; };
+		DFA5BD5A18601DA300F11F5F /* baricon-edit-old.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5618601DA300F11F5F /* baricon-edit-old.png */; };
+		DFA5BD5B18601DA300F11F5F /* baricon-edit-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */; };
+		DFA5BD5C18601DA300F11F5F /* baricon-styles-old.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */; };
+		DFA5BD5D18601DA300F11F5F /* baricon-styles-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5918601DA300F11F5F /* baricon-styles-old@2x.png */; };
 		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
 /* End PBXBuildFile section */
 
@@ -442,6 +446,10 @@
 		DF6BCED913690BA400442D6F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DF9E959915F9938600907F8C /* iosstart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosstart.h; sourceTree = "<group>"; };
 		DF9E959B15FB0B6600907F8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iosglk/Resources/en.lproj/GameOverView.xib; sourceTree = SOURCE_ROOT; };
+		DFA5BD5618601DA300F11F5F /* baricon-edit-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-edit-old.png"; sourceTree = "<group>"; };
+		DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-edit-old@2x.png"; sourceTree = "<group>"; };
+		DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-styles-old.png"; sourceTree = "<group>"; };
+		DFA5BD5918601DA300F11F5F /* baricon-styles-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-styles-old@2x.png"; sourceTree = "<group>"; };
 		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -597,6 +605,10 @@
 				DF41DAAD1531F6AF000B5D00 /* baricon-styles@2x.png */,
 				DF38693615F847250070AADB /* baricon-edit.png */,
 				DF38693715F847250070AADB /* baricon-edit@2x.png */,
+				DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */,
+				DFA5BD5918601DA300F11F5F /* baricon-styles-old@2x.png */,
+				DFA5BD5618601DA300F11F5F /* baricon-edit-old.png */,
+				DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */,
 				DF41DAC21531F6AF000B5D00 /* tabicon-game.png */,
 				DF41DAC31531F6AF000B5D00 /* tabicon-game@2x.png */,
 				DF41DAC41531F6AF000B5D00 /* tabicon-help.png */,
@@ -922,6 +934,7 @@
 				DF1D85E715D9BCDD00C17282 /* button-input-menu-sel@2x.png in Resources */,
 				DF1D85E815D9BCDD00C17282 /* button-input-menu.png in Resources */,
 				DF1D85E915D9BCDD00C17282 /* button-input-menu@2x.png in Resources */,
+				DFA5BD5D18601DA300F11F5F /* baricon-styles-old@2x.png in Resources */,
 				DF1D85EA15D9BCDD00C17282 /* button-pref-base.png in Resources */,
 				DF1D85EB15D9BCDD00C17282 /* button-pref-base@2x.png in Resources */,
 				DF1D85EC15D9BCDD00C17282 /* button-pref-hi.png in Resources */,
@@ -930,6 +943,7 @@
 				DF1D85EF15D9BCDD00C17282 /* more-arrow@2x.png in Resources */,
 				DF1D85F315D9BD6C00C17282 /* HistoryMenuView~ipad.xib in Resources */,
 				DF1D85F415D9BD6C00C17282 /* PaletteMenuView~ipad.xib in Resources */,
+				DFA5BD5B18601DA300F11F5F /* baricon-edit-old@2x.png in Resources */,
 				DF1D85F515D9BD6C00C17282 /* TextFieldRightView.xib in Resources */,
 				DF38690315F7DDC30070AADB /* WebDocVC.xib in Resources */,
 				DF38690C15F7DDCC0070AADB /* SettingsVC.xib in Resources */,
@@ -945,6 +959,7 @@
 				DF38692915F7DFB90070AADB /* Icon-50@2x.png in Resources */,
 				DF38692A15F7DFB90070AADB /* Icon-72.png in Resources */,
 				DF38692B15F7DFB90070AADB /* Icon-72@2x.png in Resources */,
+				DFA5BD5C18601DA300F11F5F /* baricon-styles-old.png in Resources */,
 				DF38692C15F7DFB90070AADB /* Icon-Small-50.png in Resources */,
 				DF38692D15F7DFB90070AADB /* Icon-Small-50@2x.png in Resources */,
 				DF38692E15F7DFB90070AADB /* Icon-Small.png in Resources */,
@@ -956,6 +971,7 @@
 				DF38693815F847250070AADB /* baricon-edit.png in Resources */,
 				DF38693915F847250070AADB /* baricon-edit@2x.png in Resources */,
 				DF38694815F8474B0070AADB /* brightness-hi.png in Resources */,
+				DFA5BD5A18601DA300F11F5F /* baricon-edit-old.png in Resources */,
 				DF38694915F8474B0070AADB /* brightness-hi@2x.png in Resources */,
 				DF38694A15F8474B0070AADB /* brightness-lo.png in Resources */,
 				DF38694B15F8474B0070AADB /* brightness-lo@2x.png in Resources */,

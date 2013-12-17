@@ -121,6 +121,11 @@
 		[keyboardbutton setAccessibilityLabel:NSLocalizedStringFromTable(@"label.keyboard", @"TerpLocalize", nil)];
 	}
 
+	if ([IosGlkAppDelegate oldstyleui]) {
+		if (keyboardbutton)
+			[keyboardbutton setImage:[UIImage imageNamed:@"baricon-edit-old"]];
+	}
+	
 	if ([IosGlkAppDelegate gesturesavailable]) {
 		/* gestures are available in iOS 3.2 and up */
 		
