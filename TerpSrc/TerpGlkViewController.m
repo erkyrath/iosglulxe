@@ -131,6 +131,7 @@
 	}
 	
 	if ([IosGlkAppDelegate oldstyleui]) {
+		/* Use the old-style drop-shadowed buttons in the navbar. */
 		if (stylebutton)
 			[stylebutton setImage:[UIImage imageNamed:@"baricon-styles-old"]];
 		if (keyboardbutton)
