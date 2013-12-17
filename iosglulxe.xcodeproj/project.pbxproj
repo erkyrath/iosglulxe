@@ -200,6 +200,10 @@
 		DFA5BD5B18601DA300F11F5F /* baricon-edit-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */; };
 		DFA5BD5C18601DA300F11F5F /* baricon-styles-old.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */; };
 		DFA5BD5D18601DA300F11F5F /* baricon-styles-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD5918601DA300F11F5F /* baricon-styles-old@2x.png */; };
+		DFA5BD721860F4D000F11F5F /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD6E1860F4D000F11F5F /* Icon-40@2x.png */; };
+		DFA5BD731860F4D000F11F5F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD6F1860F4D000F11F5F /* Icon-60@2x.png */; };
+		DFA5BD741860F4D000F11F5F /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD701860F4D000F11F5F /* Icon-76.png */; };
+		DFA5BD751860F4D000F11F5F /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD711860F4D000F11F5F /* Icon-76@2x.png */; };
 		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
 /* End PBXBuildFile section */
 
@@ -450,6 +454,10 @@
 		DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-edit-old@2x.png"; sourceTree = "<group>"; };
 		DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-styles-old.png"; sourceTree = "<group>"; };
 		DFA5BD5918601DA300F11F5F /* baricon-styles-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-styles-old@2x.png"; sourceTree = "<group>"; };
+		DFA5BD6E1860F4D000F11F5F /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		DFA5BD6F1860F4D000F11F5F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		DFA5BD701860F4D000F11F5F /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		DFA5BD711860F4D000F11F5F /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
 		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -513,6 +521,10 @@
 				DF38691F15F7DFB90070AADB /* Icon-Small-50@2x.png */,
 				DF38692015F7DFB90070AADB /* Icon-Small.png */,
 				DF38692115F7DFB90070AADB /* Icon-Small@2x.png */,
+				DFA5BD6E1860F4D000F11F5F /* Icon-40@2x.png */,
+				DFA5BD6F1860F4D000F11F5F /* Icon-60@2x.png */,
+				DFA5BD701860F4D000F11F5F /* Icon-76.png */,
+				DFA5BD711860F4D000F11F5F /* Icon-76@2x.png */,
 				DF38691815F7DFB80070AADB /* Default.png */,
 				DF4ACCA6169CA29600620E03 /* Default-568h@2x.png */,
 				DF38691615F7DFB80070AADB /* Default-Landscape.png */,
@@ -930,16 +942,19 @@
 				DF1D85E315D9BCDD00C17282 /* button-input-back@2x.png in Resources */,
 				DF1D85E415D9BCDD00C17282 /* button-input-clear.png in Resources */,
 				DF1D85E515D9BCDD00C17282 /* button-input-clear@2x.png in Resources */,
+				DFA5BD741860F4D000F11F5F /* Icon-76.png in Resources */,
 				DF1D85E615D9BCDD00C17282 /* button-input-menu-sel.png in Resources */,
 				DF1D85E715D9BCDD00C17282 /* button-input-menu-sel@2x.png in Resources */,
 				DF1D85E815D9BCDD00C17282 /* button-input-menu.png in Resources */,
 				DF1D85E915D9BCDD00C17282 /* button-input-menu@2x.png in Resources */,
 				DFA5BD5D18601DA300F11F5F /* baricon-styles-old@2x.png in Resources */,
 				DF1D85EA15D9BCDD00C17282 /* button-pref-base.png in Resources */,
+				DFA5BD751860F4D000F11F5F /* Icon-76@2x.png in Resources */,
 				DF1D85EB15D9BCDD00C17282 /* button-pref-base@2x.png in Resources */,
 				DF1D85EC15D9BCDD00C17282 /* button-pref-hi.png in Resources */,
 				DF1D85ED15D9BCDD00C17282 /* button-pref-hi@2x.png in Resources */,
 				DF1D85EE15D9BCDD00C17282 /* more-arrow.png in Resources */,
+				DFA5BD731860F4D000F11F5F /* Icon-60@2x.png in Resources */,
 				DF1D85EF15D9BCDD00C17282 /* more-arrow@2x.png in Resources */,
 				DF1D85F315D9BD6C00C17282 /* HistoryMenuView~ipad.xib in Resources */,
 				DF1D85F415D9BD6C00C17282 /* PaletteMenuView~ipad.xib in Resources */,
@@ -971,6 +986,7 @@
 				DF38693815F847250070AADB /* baricon-edit.png in Resources */,
 				DF38693915F847250070AADB /* baricon-edit@2x.png in Resources */,
 				DF38694815F8474B0070AADB /* brightness-hi.png in Resources */,
+				DFA5BD721860F4D000F11F5F /* Icon-40@2x.png in Resources */,
 				DFA5BD5A18601DA300F11F5F /* baricon-edit-old.png in Resources */,
 				DF38694915F8474B0070AADB /* brightness-hi@2x.png in Resources */,
 				DF38694A15F8474B0070AADB /* brightness-lo.png in Resources */,
