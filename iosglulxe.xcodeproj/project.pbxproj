@@ -210,6 +210,10 @@
 		DFA5BD7D1861843D00F11F5F /* Default-New-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */; };
 		DFA5BD7F1861862400F11F5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7E1861862400F11F5F /* Default@2x.png */; };
 		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
+		DFF42D8719D8A4D00002CFE9 /* tabicon-game@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8319D8A4D00002CFE9 /* tabicon-game@3x.png */; };
+		DFF42D8819D8A4D00002CFE9 /* tabicon-help@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8419D8A4D00002CFE9 /* tabicon-help@3x.png */; };
+		DFF42D8919D8A4D00002CFE9 /* tabicon-notes@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8519D8A4D00002CFE9 /* tabicon-notes@3x.png */; };
+		DFF42D8A19D8A4D00002CFE9 /* tabicon-settings@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8619D8A4D00002CFE9 /* tabicon-settings@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -469,6 +473,10 @@
 		DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-New-Portrait.png"; sourceTree = "<group>"; };
 		DFA5BD7E1861862400F11F5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
+		DFF42D8319D8A4D00002CFE9 /* tabicon-game@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-game@3x.png"; sourceTree = "<group>"; };
+		DFF42D8419D8A4D00002CFE9 /* tabicon-help@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-help@3x.png"; sourceTree = "<group>"; };
+		DFF42D8519D8A4D00002CFE9 /* tabicon-notes@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-notes@3x.png"; sourceTree = "<group>"; };
+		DFF42D8619D8A4D00002CFE9 /* tabicon-settings@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-settings@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,12 +646,16 @@
 				DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */,
 				DF41DAC21531F6AF000B5D00 /* tabicon-game.png */,
 				DF41DAC31531F6AF000B5D00 /* tabicon-game@2x.png */,
+				DFF42D8319D8A4D00002CFE9 /* tabicon-game@3x.png */,
 				DF41DAC41531F6AF000B5D00 /* tabicon-help.png */,
 				DF41DAC51531F6AF000B5D00 /* tabicon-help@2x.png */,
+				DFF42D8419D8A4D00002CFE9 /* tabicon-help@3x.png */,
 				DF41DAC61531F6AF000B5D00 /* tabicon-notes.png */,
 				DF41DAC71531F6AF000B5D00 /* tabicon-notes@2x.png */,
+				DFF42D8519D8A4D00002CFE9 /* tabicon-notes@3x.png */,
 				DF38693215F846F50070AADB /* tabicon-settings.png */,
 				DF38693315F846F50070AADB /* tabicon-settings@2x.png */,
+				DFF42D8619D8A4D00002CFE9 /* tabicon-settings@3x.png */,
 				DF1D85D815D9BCDD00C17282 /* button-pref-base.png */,
 				DF1D85D915D9BCDD00C17282 /* button-pref-base@2x.png */,
 				DF1D85DA15D9BCDD00C17282 /* button-pref-hi.png */,
@@ -908,6 +920,7 @@
 				DF41DAA41531F63F000B5D00 /* PaletteMenuView.xib in Resources */,
 				DF41DAA51531F63F000B5D00 /* PopBoxView.xib in Resources */,
 				DF41DAC81531F6AF000B5D00 /* background-notes-s.png in Resources */,
+				DFF42D8819D8A4D00002CFE9 /* tabicon-help@3x.png in Resources */,
 				DF41DAC91531F6AF000B5D00 /* background-notes.png in Resources */,
 				DF41DACA1531F6AF000B5D00 /* background-notesopaque-s.png in Resources */,
 				DF41DACB1531F6AF000B5D00 /* background-notesopaque.png in Resources */,
@@ -920,6 +933,7 @@
 				DF41DAD61531F6AF000B5D00 /* col-12-sel.png in Resources */,
 				DF41DAD71531F6AF000B5D00 /* col-12-sel@2x.png in Resources */,
 				DF41DAD81531F6AF000B5D00 /* col-12.png in Resources */,
+				DFF42D8719D8A4D00002CFE9 /* tabicon-game@3x.png in Resources */,
 				DF41DAD91531F6AF000B5D00 /* col-12@2x.png in Resources */,
 				DF41DADA1531F6AF000B5D00 /* col-34-sel.png in Resources */,
 				DF41DADB1531F6AF000B5D00 /* col-34-sel@2x.png in Resources */,
@@ -1010,6 +1024,7 @@
 				DF38694915F8474B0070AADB /* brightness-hi@2x.png in Resources */,
 				DF38694A15F8474B0070AADB /* brightness-lo.png in Resources */,
 				DF38694B15F8474B0070AADB /* brightness-lo@2x.png in Resources */,
+				DFF42D8919D8A4D00002CFE9 /* tabicon-notes@3x.png in Resources */,
 				DF38694C15F8474B0070AADB /* button-detail-base.png in Resources */,
 				DF38694D15F8474B0070AADB /* button-detail-base@2x.png in Resources */,
 				DF38694E15F8474B0070AADB /* button-detail-hi.png in Resources */,
@@ -1017,6 +1032,7 @@
 				DF38695015F8474B0070AADB /* detail-arrow.png in Resources */,
 				DF38695115F8474B0070AADB /* detail-arrow@2x.png in Resources */,
 				DF38695215F8474B0070AADB /* lead-narrow.png in Resources */,
+				DFF42D8A19D8A4D00002CFE9 /* tabicon-settings@3x.png in Resources */,
 				DF38695315F8474B0070AADB /* lead-narrow@2x.png in Resources */,
 				DF38695415F8474B0070AADB /* lead-wide.png in Resources */,
 				DF38695515F8474B0070AADB /* lead-wide@2x.png in Resources */,
