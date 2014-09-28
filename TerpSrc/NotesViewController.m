@@ -32,6 +32,8 @@
 
 - (void) viewDidLoad
 {
+	[super viewDidLoad];
+	
 	textview.delegate = self;
 	
 	UIEdgeInsets insets = UIEdgeInsetsMake(buttontable.bounds.size.height, 0, 0, 0);
@@ -143,6 +145,7 @@
 
 - (void) viewWillUnload
 {
+	[super viewWillUnload];
 	[self saveIfNeeded];
 	textview.delegate = nil;
 }
