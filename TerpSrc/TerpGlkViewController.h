@@ -12,7 +12,7 @@
 @class TerpGlkDelegate;
 @class GlkFileRefPrompt;
 
-@interface TerpGlkViewController : IosGlkViewController <UIGestureRecognizerDelegate>
+@interface TerpGlkViewController : IosGlkViewController <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
 @property (nonatomic, retain) IBOutlet SettingsViewController *settingsvc;
