@@ -77,6 +77,21 @@
 
 - (void) buttonSend:(id)sender
 {
+	if ([UIActivityViewController class]) {
+		// Available in iOS6+
+		NSArray *ls = [NSArray arrayWithObject:textview.text];
+		UIActivityViewController *actvc = [[[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil] autorelease];
+		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+			[self presentViewController:actvc animated:YES completion:nil];
+		}
+		else {
+			UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:actvc];
+			[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+		}
+		return;
+	}
+	
+	// In iOS5-, we use the old implementation.
 	NSString *copylabel = NSLocalizedStringFromTable(@"label.copy-all", @"TerpLocalize", nil);
 	NSString *emaillabel = nil;
 	if ([MFMailComposeViewController class] && [MFMailComposeViewController canSendMail])
