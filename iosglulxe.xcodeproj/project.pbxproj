@@ -209,6 +209,8 @@
 		DFA5BD7C1861843D00F11F5F /* Default-New-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7A1861843D00F11F5F /* Default-New-Landscape.png */; };
 		DFA5BD7D1861843D00F11F5F /* Default-New-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */; };
 		DFA5BD7F1861862400F11F5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7E1861862400F11F5F /* Default@2x.png */; };
+		DFEE5C791A3A515000B51584 /* ShareFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEE5C781A3A515000B51584 /* ShareFilesVC.xib */; };
+		DFEE5C7C1A3A51A300B51584 /* ShareFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEE5C7A1A3A51A300B51584 /* ShareFilesViewController.m */; };
 		DFF06ACD136D1A5D00756327 /* GlkDateTimeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */; };
 		DFF42D8719D8A4D00002CFE9 /* tabicon-game@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8319D8A4D00002CFE9 /* tabicon-game@3x.png */; };
 		DFF42D8819D8A4D00002CFE9 /* tabicon-help@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFF42D8419D8A4D00002CFE9 /* tabicon-help@3x.png */; };
@@ -476,6 +478,9 @@
 		DFA5BD7A1861843D00F11F5F /* Default-New-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-New-Landscape.png"; sourceTree = "<group>"; };
 		DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-New-Portrait.png"; sourceTree = "<group>"; };
 		DFA5BD7E1861862400F11F5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		DFEE5C781A3A515000B51584 /* ShareFilesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareFilesVC.xib; sourceTree = "<group>"; };
+		DFEE5C7A1A3A51A300B51584 /* ShareFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareFilesViewController.m; sourceTree = "<group>"; };
+		DFEE5C7B1A3A51A300B51584 /* ShareFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareFilesViewController.h; sourceTree = "<group>"; };
 		DFF06ACC136D1A5D00756327 /* GlkDateTimeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkDateTimeLayer.m; sourceTree = "<group>"; };
 		DFF42D8319D8A4D00002CFE9 /* tabicon-game@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-game@3x.png"; sourceTree = "<group>"; };
 		DFF42D8419D8A4D00002CFE9 /* tabicon-help@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabicon-help@3x.png"; sourceTree = "<group>"; };
@@ -590,6 +595,7 @@
 				DF3868F815F7DD190070AADB /* NotesVC.xib */,
 				DF3868FB15F7DD1E0070AADB /* NotesVC~ipad.xib */,
 				DF41DB241532005E000B5D00 /* TranscriptVC.xib */,
+				DFEE5C781A3A515000B51584 /* ShareFilesVC.xib */,
 				DF38690215F7DDC30070AADB /* WebDocVC.xib */,
 				DF41DB1E1532005E000B5D00 /* DisplayTextVC.xib */,
 				DF38691215F7DE1C0070AADB /* Localizable.strings */,
@@ -625,6 +631,8 @@
 				DF41DB031531F7BE000B5D00 /* NotesViewController.m */,
 				DF41DB061531F7BE000B5D00 /* TranscriptViewController.h */,
 				DF41DB071531F7BE000B5D00 /* TranscriptViewController.m */,
+				DFEE5C7B1A3A51A300B51584 /* ShareFilesViewController.h */,
+				DFEE5C7A1A3A51A300B51584 /* ShareFilesViewController.m */,
 				DF41DAFE1531F7BE000B5D00 /* HelpViewController.h */,
 				DF41DAFF1531F7BE000B5D00 /* HelpViewController.m */,
 				DF3868F315F7D2880070AADB /* SettingsViewController.h */,
@@ -1008,6 +1016,7 @@
 				DF1D85F515D9BD6C00C17282 /* TextFieldRightView.xib in Resources */,
 				DF38690315F7DDC30070AADB /* WebDocVC.xib in Resources */,
 				DF38690C15F7DDCC0070AADB /* SettingsVC.xib in Resources */,
+				DFEE5C791A3A515000B51584 /* ShareFilesVC.xib in Resources */,
 				DF38690D15F7DDCC0070AADB /* TerpLocalize.strings in Resources */,
 				DF38690E15F7DDCC0070AADB /* FatalGameOverView.xib in Resources */,
 				DF38691415F7DE1C0070AADB /* InputMenuDecor~ipad.xib in Resources */,
@@ -1099,6 +1108,7 @@
 				DF4CBA241369009500CED834 /* funcs.c in Sources */,
 				DF4CBA251369009500CED834 /* gestalt.c in Sources */,
 				DF4CBA261369009500CED834 /* glkop.c in Sources */,
+				DFEE5C7C1A3A51A300B51584 /* ShareFilesViewController.m in Sources */,
 				DF4CBA281369009500CED834 /* heap.c in Sources */,
 				DF4CBA291369009500CED834 /* operand.c in Sources */,
 				DF4CBA2A1369009500CED834 /* osdepend.c in Sources */,

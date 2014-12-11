@@ -9,6 +9,7 @@
 "title.game" = "Adventure";
 "title.transcript" = "Transcript";
 "title.transcripts" = "Transcripts";
+"title.sharefiles" = "Share Files";
 
 "label.text-styles" = "Text Styles";
 "label.keyboard" = "Keyboard";
