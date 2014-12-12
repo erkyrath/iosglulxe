@@ -12,12 +12,12 @@
 @interface ShareFilesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	UITableView *tableView;
 	
-	NSMutableArray *filelist; // array of GlkFileThumb
+	NSMutableArray *filelists; // array of (nonempty) arrays of GlkFileThumb
 	NSDateFormatter *dateformatter;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray *filelist;
+@property (nonatomic, retain) NSMutableArray *filelists;
 @property (nonatomic, retain) NSDateFormatter *dateformatter;
 
 - (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle;

@@ -12,16 +12,18 @@
 #import "GlkFileTypes.h"
 #import "GlkUtilities.h"
 
+static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Data, fileusage_InputRecord, -1 };
+
 @implementation ShareFilesViewController
 
 @synthesize tableView;
-@synthesize filelist;
+@synthesize filelists;
 @synthesize dateformatter;
 
 - (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
-		self.filelist = [NSMutableArray arrayWithCapacity:16];
+		self.filelists = [NSMutableArray arrayWithCapacity:8];
 		self.dateformatter = [[[RelDateFormatter alloc] init] autorelease];
 		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
@@ -30,7 +32,7 @@
 }
 
 - (void) dealloc {
-	self.filelist = nil;
+	self.filelists = nil;
 	self.dateformatter = nil;
 	self.tableView = nil;
 	[super dealloc];
@@ -52,38 +54,48 @@
 		dirlist = [NSArray array];
 	}
 	NSString *basedir = [dirlist objectAtIndex:0];
-	NSString *dirname = [GlkFileRef subDirOfBase:basedir forUsage:fileusage_Transcript gameid:[GlkLibrary singleton].gameId];
 	
-	[filelist removeAllObjects];
-	NSArray *ls = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirname error:nil];
-	if (ls) {
-		for (NSString *filename in ls) {
-			NSString *pathname = [dirname stringByAppendingPathComponent:filename];
-			NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:pathname error:nil];
-			if (!attrs)
-				continue;
-			if (![NSFileTypeRegular isEqualToString:[attrs fileType]])
-				continue;
-			
-			/* We accept both dumbass-encoded strings (which were typed by the user) and "normal" strings (which were created by fileref_by_name). */
-			NSString *label = StringFromDumbEncoding(filename);
-			if (!label)
-				label = filename;
-			
-			GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
-			thumb.filename = filename;
-			thumb.pathname = pathname;
-			thumb.usage = fileusage_Transcript; //###
-			thumb.modtime = [attrs fileModificationDate];
-			thumb.label = label;
-			
-			[filelist addObject:thumb];
+	[filelists removeAllObjects];
+	for (int ux = 0; usages[ux] >= 0; ux++) {
+		glui32 usage = usages[ux];
+		NSString *dirname = [GlkFileRef subDirOfBase:basedir forUsage:usage gameid:[GlkLibrary singleton].gameId];
+		NSMutableArray *files = nil;
+		NSArray *ls = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirname error:nil];
+		if (ls) {
+			for (NSString *filename in ls) {
+				NSString *pathname = [dirname stringByAppendingPathComponent:filename];
+				NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:pathname error:nil];
+				if (!attrs)
+					continue;
+				if (![NSFileTypeRegular isEqualToString:[attrs fileType]])
+					continue;
+				
+				/* We accept both dumbass-encoded strings (which were typed by the user) and "normal" strings (which were created by fileref_by_name). */
+				NSString *label = StringFromDumbEncoding(filename);
+				if (!label)
+					label = filename;
+				
+				GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+				thumb.filename = filename;
+				thumb.pathname = pathname;
+				thumb.usage = usage;
+				thumb.modtime = [attrs fileModificationDate];
+				thumb.label = label;
+				
+				if (!files) {
+					files = [NSMutableArray arrayWithCapacity:16];
+					[filelists addObject:files];
+				}
+				[files addObject:thumb];
+			}
 		}
 	}
 	
-	[filelist sortUsingSelector:@selector(compareModTime:)];
+	for (NSMutableArray *files in filelists) {
+		[files sortUsingSelector:@selector(compareModTime:)];
+	}
 	
-	if (filelist.count == 0)
+	if (filelists.count == 0)
 		[self addBlankThumb];
 }
 
@@ -92,7 +104,7 @@
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
 	thumb.label = NSLocalizedStringFromTable(@"label.no-transcripts", @"TerpLocalize", nil);
-	[filelist insertObject:thumb atIndex:0];
+	[filelists insertObject:[NSMutableArray arrayWithObject:thumb] atIndex:0];
 }
 
 - (void) buttonSend:(id)sender
@@ -102,8 +114,31 @@
 
 // Table view data source methods (see UITableViewDataSource)
 
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+	return filelists.count;
+}
+
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return filelist.count;
+	if (section < 0 || section >= filelists.count)
+		return 0;
+	
+	NSMutableArray *files = [filelists objectAtIndex:section];
+	return files.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	if (section < 0 || section >= filelists.count)
+		return @"???";
+
+	NSMutableArray *files = [filelists objectAtIndex:section];
+	// The array should be nonempty.
+	if (!files.count)
+		return @"???";
+	
+	GlkFileThumb *thumb = [files objectAtIndex:0];
+	return [GlkFileThumb labelForFileUsage:thumb.usage localize:@"placeholders"];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableview cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,9 +152,13 @@
 	
 	GlkFileThumb *thumb = nil;
 	
-	int row = indexPath.row;
-	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+	int sect = indexPath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexPath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
 	
 	/* Make the cell look right... */
 	
@@ -153,9 +192,15 @@
 
 - (void) tableView:(UITableView *)tableview didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	GlkFileThumb *thumb = nil;
-	int row = indexPath.row;
-	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+
+	int sect = indexPath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexPath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
+	
 	if (!thumb || thumb.isfake) {
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 		return;
