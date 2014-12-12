@@ -5,17 +5,20 @@
  */
 
 "button.cancel" = "Cancel";
+"button.drat" = "Phooey";
 
 "title.game" = "Adventure";
 "title.transcript" = "Transcript";
 "title.transcripts" = "Transcripts";
 "title.sharefiles" = "Share Files";
+"title.noshareapps" = "Cannot Share";
 
 "label.text-styles" = "Text Styles";
 "label.keyboard" = "Keyboard";
 "label.no-transcripts" = "No stored transcripts";
 "label.copy-all" = "Copy All";
 "label.email" = "Email";
+"label.noshareapps" = "None of your apps can accept files of this type. (Try installing a file-management app such as Dropbox).";
 
 "settings.section.settings" = "Text Entry and Display";
 "settings.footer.settings" = "If you have Auto-Correction turned off in your iOS Settings, this option will not apply.";

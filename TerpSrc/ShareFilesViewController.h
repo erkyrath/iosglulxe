@@ -9,14 +9,16 @@
 @class GlkFileRefPrompt;
 @class GlkFileThumb;
 
-@interface ShareFilesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface ShareFilesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate> {
 	UITableView *tableView;
+	UIDocumentInteractionController *sharedocic;
 	
 	NSMutableArray *filelists; // array of (nonempty) arrays of GlkFileThumb
 	NSDateFormatter *dateformatter;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) UIDocumentInteractionController *sharedocic;
 @property (nonatomic, retain) NSMutableArray *filelists;
 @property (nonatomic, retain) NSDateFormatter *dateformatter;
 

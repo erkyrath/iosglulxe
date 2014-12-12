@@ -17,6 +17,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 @implementation ShareFilesViewController
 
 @synthesize tableView;
+@synthesize sharedocic;
 @synthesize filelists;
 @synthesize dateformatter;
 
@@ -35,6 +36,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	self.filelists = nil;
 	self.dateformatter = nil;
 	self.tableView = nil;
+	self.sharedocic = nil;
 	[super dealloc];
 }
 
@@ -109,7 +111,41 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 - (void) buttonSend:(id)sender
 {
-	NSLog(@"### buttonSend");
+	NSIndexPath *indexpath = [tableView indexPathForSelectedRow];
+	if (!indexpath)
+		return;
+	
+	GlkFileThumb *thumb = nil;
+	
+	int sect = indexpath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexpath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
+	if (!thumb)
+		return;
+	
+	NSURL *url = [NSURL fileURLWithPath:thumb.pathname];
+	self.sharedocic = [UIDocumentInteractionController interactionControllerWithURL:url];
+	sharedocic.delegate = self;
+	NSLog(@"### docname %@ from URL %@", sharedocic.name, url);
+	
+	BOOL res = [sharedocic presentOpenInMenuFromBarButtonItem:sender animated:YES];
+	if (!res) {
+		self.sharedocic = nil;
+		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"title.noshareapps", @"TerpLocalize", nil) message:NSLocalizedStringFromTable(@"label.noshareapps", @"TerpLocalize", nil) delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) otherButtonTitles:nil] autorelease];
+		[alert show];
+	}
+}
+
+// Documentation Interaction delegate methods (see UIDocumentInteractionControllerDelegate)
+
+- (void) documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)docic
+{
+	NSLog(@"### documentInteractionControllerDidDismissOpenInMenu");
+	self.sharedocic = nil;
 }
 
 // Table view data source methods (see UITableViewDataSource)
@@ -208,7 +244,6 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		
 	/* The user has selected a file. */
 	self.navigationItem.rightBarButtonItem.enabled = YES;
-	//###
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
