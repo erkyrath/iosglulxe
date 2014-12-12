@@ -43,6 +43,7 @@
 	
 	UIBarButtonItem *sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
 	self.navigationItem.rightBarButtonItem = sendbutton;
+	self.navigationItem.rightBarButtonItem.enabled = NO;
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
@@ -72,6 +73,7 @@
 			GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
 			thumb.filename = filename;
 			thumb.pathname = pathname;
+			thumb.usage = fileusage_Transcript; //###
 			thumb.modtime = [attrs fileModificationDate];
 			thumb.label = label;
 			
@@ -154,12 +156,13 @@
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
 		thumb = [filelist objectAtIndex:row];
-	if (!thumb)
+	if (!thumb || thumb.isfake) {
+		self.navigationItem.rightBarButtonItem.enabled = NO;
 		return;
-	if (thumb.isfake)
-		return;
+	}
 		
 	/* The user has selected a file. */
+	self.navigationItem.rightBarButtonItem.enabled = YES;
 	//###
 }
 
