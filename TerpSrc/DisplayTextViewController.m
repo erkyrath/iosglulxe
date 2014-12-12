@@ -85,7 +85,7 @@
 			[self presentViewController:actvc animated:YES completion:nil];
 		}
 		else {
-			UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:actvc];
+			UIPopoverController *popover = [[[UIPopoverController alloc] initWithContentViewController:actvc] autorelease];
 			[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 		}
 		return;
