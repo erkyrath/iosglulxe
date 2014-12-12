@@ -133,7 +133,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	NSURL *url = [NSURL fileURLWithPath:temppath];
 	self.sharedocic = [UIDocumentInteractionController interactionControllerWithURL:url];
-	NSLog(@"### docic URL %@, UTI %@", url, sharedocic.UTI);
+	//NSLog(@"### docic URL %@, UTI %@", url, sharedocic.UTI);
 	sharedocic.delegate = self;
 	
 	BOOL res = [sharedocic presentOpenInMenuFromBarButtonItem:sender animated:YES];
