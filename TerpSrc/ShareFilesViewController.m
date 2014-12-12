@@ -127,24 +127,30 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (!thumb)
 		return;
 	
-	NSURL *url = [NSURL fileURLWithPath:thumb.pathname];
+	NSString *temppath = [thumb exportTempFile];
+	if (!temppath)
+		return;
+	
+	NSURL *url = [NSURL fileURLWithPath:temppath];
 	self.sharedocic = [UIDocumentInteractionController interactionControllerWithURL:url];
+	NSLog(@"### docic URL %@, UTI %@", url, sharedocic.UTI);
 	sharedocic.delegate = self;
-	NSLog(@"### docname %@ from URL %@", sharedocic.name, url);
 	
 	BOOL res = [sharedocic presentOpenInMenuFromBarButtonItem:sender animated:YES];
 	if (!res) {
 		self.sharedocic = nil;
+		[[NSFileManager defaultManager] removeItemAtPath:temppath error:nil];
 		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"title.noshareapps", @"TerpLocalize", nil) message:NSLocalizedStringFromTable(@"label.noshareapps", @"TerpLocalize", nil) delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) otherButtonTitles:nil] autorelease];
 		[alert show];
 	}
+	
+	// I'm going to be lazy and leave the file in the temporary directory. I don't see a nice time to delete it. (didEndSendingToApplication happens after DidDismissOpenInMenu.) Hopefully "temporary" means what I think it means.
 }
 
 // Documentation Interaction delegate methods (see UIDocumentInteractionControllerDelegate)
 
 - (void) documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)docic
 {
-	NSLog(@"### documentInteractionControllerDidDismissOpenInMenu");
 	self.sharedocic = nil;
 }
 

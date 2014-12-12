@@ -11,7 +11,7 @@
 "title.transcript" = "Transcript";
 "title.transcripts" = "Transcripts";
 "title.sharefiles" = "Share Files";
-"title.noshareapps" = "Cannot Share";
+"title.noshareapps" = "Unable to Share";
 
 "label.text-styles" = "Text Styles";
 "label.keyboard" = "Keyboard";
