@@ -8,7 +8,6 @@
 #import "TerpGlkViewController.h"
 #import "IosGlkViewController.h"
 #import "TranscriptViewController.h"
-#import "ShareFilesViewController.h"
 #import "GradientView.h"
 #import "MButton.h"
 #import "IosGlkAppDelegate.h"
@@ -21,7 +20,6 @@
 @synthesize gradview;
 @synthesize buttontable;
 @synthesize transcriptcell;
-@synthesize sharefilescell;
 @synthesize notespath;
 
 - (void) dealloc {
@@ -29,7 +27,6 @@
 	self.gradview = nil;
 	self.buttontable = nil;
 	self.transcriptcell = nil;
-	self.sharefilescell = nil;
 	[super dealloc];
 }
 
@@ -62,14 +59,6 @@
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 		transcriptcell.textLabel.font = [transcriptcell.textLabel.font fontWithSize:17];
 	transcriptcell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	
-	self.sharefilescell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Notes"] autorelease];
-	sharefilescell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
-	sharefilescell.textLabel.text = NSLocalizedStringFromTable(@"title.sharefiles", @"TerpLocalize", nil);
-	sharefilescell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-		sharefilescell.textLabel.font = [sharefilescell.textLabel.font fontWithSize:17];
-	sharefilescell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	/* Bang on font if Noteworthy is not available. I don't know why Marker Felt needs to be so enormous to fit the same grid as Noteworthy, though. */
 	if ([textview.font.familyName isEqualToString:@"Helvetica"]) {
@@ -219,12 +208,6 @@
 	[self.navigationController pushViewController:transviewc animated:YES];
 }
 
-- (IBAction) handleShareFiles
-{
-	ShareFilesViewController *shareviewc = [[[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil] autorelease];
-	[self.navigationController pushViewController:shareviewc animated:YES];
-}
-
 - (void) saveIfNeeded
 {
 	if (!textchanged)
@@ -259,7 +242,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 2;
+	return 1;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexpath
@@ -267,8 +250,6 @@
 	switch (indexpath.row) {
 		case 0:
 			return transcriptcell;
-		case 1:
-			return sharefilescell;
 		default:
 			return nil;
 	}
@@ -281,8 +262,6 @@
 	[buttontable deselectRowAtIndexPath:indexpath animated:NO];
 	if (indexpath.row == 0)
 		[self handleTranscripts];
-	if (indexpath.row == 1) 
-		[self handleShareFiles];
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section

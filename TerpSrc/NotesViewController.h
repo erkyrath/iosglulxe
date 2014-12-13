@@ -17,7 +17,6 @@
 @property (nonatomic, retain) IBOutlet UITextView *textview;
 @property (nonatomic, retain) IBOutlet UITableView *buttontable;
 @property (nonatomic, retain) IBOutlet UITableViewCell *transcriptcell;
-@property (nonatomic, retain) IBOutlet UITableViewCell *sharefilescell;
 
 @property (nonatomic, retain) NSString *notespath;
 
