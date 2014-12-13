@@ -10,8 +10,8 @@
 "title.game" = "Adventure";
 "title.transcript" = "Transcript";
 "title.transcripts" = "Transcripts";
-"title.sharefiles" = "Share Files";
 "title.noshareapps" = "Unable to Share";
+"title.sharefiles" = "Share Files";
 
 "label.text-styles" = "Text Styles";
 "label.keyboard" = "Keyboard";
@@ -27,3 +27,4 @@
 "settings.cell.license" = "License Information";
 "settings.cell.autocorrect" = "Auto-Correction";
 "settings.cell.keepopen" = "Keyboard Stays Open";
+"settings.cell.sharefiles" = "Share Saved Files";
