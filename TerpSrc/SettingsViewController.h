@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *autocorrectcell;
 @property (nonatomic, retain) IBOutlet UITableViewCell *keepopencell;
+@property (nonatomic, retain) IBOutlet UITableViewCell *sharefilescell;
 @property (nonatomic, retain) IBOutlet UITableViewCell *licensecell;
 
 @property (nonatomic, retain) IBOutlet UISwitch *autocorrectswitch;
