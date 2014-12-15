@@ -29,6 +29,10 @@
 	return nil;
 }
 
+- (GlkSaveFormat) checkGlkSaveFileFormat:(NSString *)path {
+	return saveformat_Ok; //###
+}
+
 - (NSString *) gameTitle {
 	return nil;
 }
