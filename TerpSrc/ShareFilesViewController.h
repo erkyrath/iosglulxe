@@ -12,6 +12,7 @@
 @interface ShareFilesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate> {
 	UITableView *tableView;
 	UIDocumentInteractionController *sharedocic;
+	NSString *sharetemppath;
 	
 	NSMutableArray *filelists; // array of (nonempty) arrays of GlkFileThumb
 	NSDateFormatter *dateformatter;
@@ -19,6 +20,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) UIDocumentInteractionController *sharedocic;
+@property (nonatomic, retain) NSString *sharetemppath;
 @property (nonatomic, retain) NSMutableArray *filelists;
 @property (nonatomic, retain) NSDateFormatter *dateformatter;
 

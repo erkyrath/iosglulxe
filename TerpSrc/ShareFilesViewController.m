@@ -18,6 +18,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 @synthesize tableView;
 @synthesize sharedocic;
+@synthesize sharetemppath;
 @synthesize filelists;
 @synthesize dateformatter;
 
@@ -37,6 +38,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	self.dateformatter = nil;
 	self.tableView = nil;
 	self.sharedocic = nil;
+	self.sharetemppath = nil;
 	[super dealloc];
 }
 
@@ -131,27 +133,50 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (!temppath)
 		return;
 	
+	self.sharetemppath = temppath;
 	NSURL *url = [NSURL fileURLWithPath:temppath];
 	self.sharedocic = [UIDocumentInteractionController interactionControllerWithURL:url];
 	//NSLog(@"### docic URL %@, UTI %@", url, sharedocic.UTI);
 	sharedocic.delegate = self;
 	
+	// Removing the temporary file is a nuisance. We *either* remove it at DidDismissOpenInMenu time (if the file was not sent to another app) or didEndSendingToApplication time (if it was). To track this, we'll clear self.sharetemppath at willBeginSendingToApplication time.
+	
 	BOOL res = [sharedocic presentOpenInMenuFromBarButtonItem:sender animated:YES];
 	if (!res) {
+		// The menu never opened at all, so we delete the file now.
+		if (self.sharetemppath) {
+			[[NSFileManager defaultManager] removeItemAtPath:self.sharetemppath error:nil];
+			self.sharetemppath = nil;
+		}
 		self.sharedocic = nil;
-		[[NSFileManager defaultManager] removeItemAtPath:temppath error:nil];
 		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"title.noshareapps", @"TerpLocalize", nil) message:NSLocalizedStringFromTable(@"label.noshareapps", @"TerpLocalize", nil) delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) otherButtonTitles:nil] autorelease];
 		[alert show];
 	}
-	
-	// I'm going to be lazy and leave the file in the temporary directory. I don't see a nice time to delete it. (didEndSendingToApplication happens after DidDismissOpenInMenu.) Hopefully "temporary" means what I think it means.
 }
 
 // Documentation Interaction delegate methods (see UIDocumentInteractionControllerDelegate)
 
 - (void) documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)docic
 {
+	if (self.sharetemppath) {
+		[[NSFileManager defaultManager] removeItemAtPath:self.sharetemppath error:nil];
+		self.sharetemppath = nil;
+	}
 	self.sharedocic = nil;
+}
+
+- (void) documentInteractionController:(UIDocumentInteractionController *)controller
+		willBeginSendingToApplication:(NSString *)application
+{
+	// We won't want to delete the temp file at DidDismissOpenInMenu. Clear the path now to make sure of this.
+	self.sharetemppath = nil;
+}
+
+- (void) documentInteractionController:(UIDocumentInteractionController *)controller
+		   didEndSendingToApplication:(NSString *)application
+{
+	// Delete the temp file. It's no longer kept in self.sharetemppath, so we delete it via the controller's stored URL.
+	[[NSFileManager defaultManager] removeItemAtURL:controller.URL error:nil];
 }
 
 // Table view data source methods (see UITableViewDataSource)
