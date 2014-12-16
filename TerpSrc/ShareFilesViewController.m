@@ -107,7 +107,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
-	thumb.label = NSLocalizedStringFromTable(@"label.no-transcripts", @"TerpLocalize", nil);
+	thumb.label = NSLocalizedStringFromTable(@"label.no-share-files", @"TerpLocalize", nil);
 	[filelists insertObject:[NSMutableArray arrayWithObject:thumb] atIndex:0];
 }
 
