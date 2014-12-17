@@ -21,5 +21,7 @@
 - (IBAction) handleAutoCorrect:(id)sender;
 - (IBAction) handleKeepOpen:(id)sender;
 - (void) handleLicenses;
+- (void) handleShareFiles;
+- (void) handleShareFilesHighlightUsage:(int)usage name:(NSString *)filename;
 
 @end

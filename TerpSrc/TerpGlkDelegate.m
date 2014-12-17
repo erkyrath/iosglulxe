@@ -5,6 +5,8 @@
  */
 
 #import "TerpGlkDelegate.h"
+#import "TerpGlkViewController.h"
+#import "SettingsViewController.h"
 #import "IosGlkLibDelegate.h"
 #import "TerpGlkWindows.h"
 #import "GlkWindowState.h"
@@ -29,8 +31,26 @@
 	return nil;
 }
 
+/* Check whether the given file is a Glulx save file matching our game. */
 - (GlkSaveFormat) checkGlkSaveFileFormat:(NSString *)path {
 	return saveformat_Ok; //###
+}
+
+/* Open the Share Files view in the Settings tab. Make sure the given file is highlighted. */
+- (void) displayGlkFileUsage:(int)usage name:(NSString *)name {
+	TerpGlkViewController *terpvc = [TerpGlkViewController singleton];
+	UITabBarController *tabbc = terpvc.tabBarController;
+	if (!tabbc) 
+		return;
+	
+	if (tabbc.selectedViewController != terpvc.settingsvc.navigationController) {
+		// Switch to the settings view.
+		tabbc.selectedViewController = terpvc.settingsvc.navigationController;
+	}
+	// Pop out to the root of the settings view.
+	[terpvc.settingsvc.navigationController popToRootViewControllerAnimated:NO];
+	// Push in to the share view.
+	[terpvc.settingsvc handleShareFilesHighlightUsage:usage name:name];
 }
 
 - (NSString *) gameTitle {

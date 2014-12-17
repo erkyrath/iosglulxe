@@ -123,6 +123,11 @@
 
 - (void) handleShareFiles
 {
+	[self handleShareFilesHighlightUsage:0 name:nil];
+}
+
+- (void) handleShareFilesHighlightUsage:(int)usage name:(NSString *)filename
+{
 	ShareFilesViewController *viewc = [[[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil] autorelease];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
