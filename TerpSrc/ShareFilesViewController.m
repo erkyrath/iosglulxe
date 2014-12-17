@@ -17,6 +17,8 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 @implementation ShareFilesViewController
 
 @synthesize tableView;
+@synthesize highlightusage;
+@synthesize highlightname;
 @synthesize sharedocic;
 @synthesize sharetemppath;
 @synthesize filelists;
@@ -34,6 +36,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 }
 
 - (void) dealloc {
+	self.highlightname = nil;
 	self.filelists = nil;
 	self.dateformatter = nil;
 	self.tableView = nil;
@@ -101,6 +104,38 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	if (filelists.count == 0)
 		[self addBlankThumb];
+	
+	if (highlightname) {
+		// Try to highlight the file that was passed in to us.
+		BOOL found = NO;
+		int selectsection = 0;
+		int selectrow = 0;
+		for (selectsection=0; selectsection<filelists.count; selectsection++) {
+			NSMutableArray *files = [filelists objectAtIndex:selectsection];
+			for (selectrow=0; selectrow<files.count; selectrow++) {
+				GlkFileThumb *thumb = [files objectAtIndex:selectrow];
+				if (thumb.usage != highlightusage) {
+					// skip this whole section
+					found = NO;
+					break;
+				}
+				if ([highlightname isEqualToString:thumb.filename]) {
+					found = YES;
+					break;
+				}
+			}
+			if (found)
+				break;
+		}
+		
+		if (found) {
+			NSUInteger vals[2];
+			vals[0] = selectsection;
+			vals[1] = selectrow;
+			NSIndexPath *indexpath = [NSIndexPath indexPathWithIndexes:vals length:2];
+			[tableView selectRowAtIndexPath:indexpath animated:NO scrollPosition:UITableViewScrollPositionNone];
+		}
+	}
 }
 
 - (void) addBlankThumb {

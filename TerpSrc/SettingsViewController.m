@@ -129,7 +129,14 @@
 - (void) handleShareFilesHighlightUsage:(int)usage name:(NSString *)filename
 {
 	ShareFilesViewController *viewc = [[[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil] autorelease];
-	[self.navigationController pushViewController:viewc animated:YES];
+	BOOL animated = YES;
+	if (filename) {
+		// It so happens that if filename exists, this is an arriving file (and the caller is displayGlkFileUsage). Don't animate in that case.
+		animated = NO;
+		viewc.highlightusage = usage;
+		viewc.highlightname = filename;
+	}
+	[self.navigationController pushViewController:viewc animated:animated];
 }
 
 /* UITableViewDataSource methods */
