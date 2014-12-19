@@ -17,6 +17,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 @implementation ShareFilesViewController
 
 @synthesize tableView;
+@synthesize sendbutton;
 @synthesize highlightusage;
 @synthesize highlightname;
 @synthesize sharedocic;
@@ -40,6 +41,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	self.filelists = nil;
 	self.dateformatter = nil;
 	self.tableView = nil;
+	self.sendbutton = nil;
 	self.sharedocic = nil;
 	self.sharetemppath = nil;
 	[super dealloc];
@@ -50,13 +52,14 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.sharefiles", @"TerpLocalize", nil);
 	
-	/*###
-	UIBarButtonItem *sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
-	self.navigationItem.rightBarButtonItem = sendbutton;
-	self.navigationItem.rightBarButtonItem.enabled = NO;
-	 ###*/
+	// Setting two right-bar-buttons like this is an iOS5+ API.
 	
-	self.navigationItem.rightBarButtonItem = [self editButtonItem];
+	self.sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
+	self.sendbutton.enabled = NO;
+	
+	UIBarButtonItem *editbutton = [self editButtonItem];
+	
+	self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:editbutton, sendbutton, nil];
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
@@ -153,6 +156,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
 	[super setEditing:editing animated:animated];
 	[tableView setEditing:editing animated:animated];
+	self.sendbutton.enabled = NO;
 }
 
 - (void) buttonSend:(id)sender
@@ -336,6 +340,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 					[self addBlankThumb];
 					[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				}*/
+				self.sendbutton.enabled = NO;
 			}
 		}
 	}
@@ -355,12 +360,12 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	}
 	
 	if (!thumb || thumb.isfake) {
-		self.navigationItem.rightBarButtonItem.enabled = NO;
+		self.sendbutton.enabled = NO;
 		return;
 	}
 		
 	/* The user has selected a file. */
-	self.navigationItem.rightBarButtonItem.enabled = YES;
+	self.sendbutton.enabled = YES;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {

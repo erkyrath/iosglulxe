@@ -11,6 +11,7 @@
 
 @interface ShareFilesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate> {
 	UITableView *tableView;
+	UIBarButtonItem *sendbutton;
 	int highlightusage;
 	NSString *highlightname;
 	UIDocumentInteractionController *sharedocic;
@@ -21,6 +22,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) UIBarButtonItem *sendbutton;
 @property (nonatomic) int highlightusage;
 @property (nonatomic, retain) NSString *highlightname;
 @property (nonatomic, retain) UIDocumentInteractionController *sharedocic;
