@@ -50,9 +50,13 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.sharefiles", @"TerpLocalize", nil);
 	
+	/*###
 	UIBarButtonItem *sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
 	self.navigationItem.rightBarButtonItem = sendbutton;
 	self.navigationItem.rightBarButtonItem.enabled = NO;
+	 ###*/
+	
+	self.navigationItem.rightBarButtonItem = [self editButtonItem];
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
@@ -144,6 +148,11 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	thumb.modtime = [NSDate date];
 	thumb.label = NSLocalizedStringFromTable(@"label.no-share-files", @"TerpLocalize", nil);
 	[filelists insertObject:[NSMutableArray arrayWithObject:thumb] atIndex:0];
+}
+
+- (void) setEditing:(BOOL)editing animated:(BOOL)animated {
+	[super setEditing:editing animated:animated];
+	[tableView setEditing:editing animated:animated];
 }
 
 - (void) buttonSend:(id)sender
@@ -288,6 +297,48 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	}
 	
 	return cell;
+}
+
+- (BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+	GlkFileThumb *thumb = nil;
+	
+	int sect = indexPath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexPath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
+	
+	return (thumb && !thumb.isfake);
+}
+
+- (void) tableView:(UITableView *)tableview commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		GlkFileThumb *thumb = nil;
+		NSMutableArray *files = nil;
+
+		int sect = indexPath.section;
+		if (sect >= 0 && sect < filelists.count) {
+			files = [filelists objectAtIndex:sect];
+			int row = indexPath.row;
+			if (row >= 0 && row < files.count)
+				thumb = [files objectAtIndex:row];
+		}
+		
+		if (files && thumb && !thumb.isfake) {
+			//NSLog(@"selector: deleting file \"%@\" (%@)", thumb.label, thumb.pathname);
+			BOOL res = [[NSFileManager defaultManager] removeItemAtPath:thumb.pathname error:nil];
+			if (res) {
+				[files removeObjectAtIndex:indexPath.row];
+				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+				/*if (filelist.count == 0) {
+					[self addBlankThumb];
+					[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+				}*/
+			}
+		}
+	}
 }
 
 // Table view delegate (see UITableViewDelegate)
