@@ -316,7 +316,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		cell.detailTextLabel.text = @"";
 	}
 	else {
-		cell.accessoryType = UITableViewCellAccessoryNone;
+		cell.accessoryType = ((thumb.usage == fileusage_Transcript) ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone);
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = thumb.label;
 		cell.textLabel.textColor = [UIColor blackColor];
@@ -389,6 +389,27 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		
 	/* The user has selected a file. */
 	self.sendbutton.enabled = YES;
+}
+
+- (void) tableView:(UITableView *)tableview accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+	GlkFileThumb *thumb = nil;
+	
+	int sect = indexPath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexPath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
+	
+	if (!thumb)
+		return;
+	if (thumb.usage != fileusage_Transcript)
+		return;
+	
+	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
+	[self.navigationController pushViewController:viewc animated:YES];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
