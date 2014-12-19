@@ -7,6 +7,7 @@
 #import "ShareFilesViewController.h"
 #import "IosGlkViewController.h"
 #import "RelDateFormatter.h"
+#import "DisplayTextViewController.h"
 #import "GlkLibrary.h"
 #import "GlkFileRef.h"
 #import "GlkFileTypes.h"
@@ -157,6 +158,28 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	[super setEditing:editing animated:animated];
 	[tableView setEditing:editing animated:animated];
 	self.sendbutton.enabled = NO;
+}
+
+- (void) buttonView:(id)sender
+{
+	NSIndexPath *indexpath = [tableView indexPathForSelectedRow];
+	if (!indexpath)
+		return;
+	
+	GlkFileThumb *thumb = nil;
+	
+	int sect = indexpath.section;
+	if (sect >= 0 && sect < filelists.count) {
+		NSMutableArray *files = [filelists objectAtIndex:sect];
+		int row = indexpath.row;
+		if (row >= 0 && row < files.count)
+			thumb = [files objectAtIndex:row];
+	}
+	if (!thumb)
+		return;
+	
+	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
+	[self.navigationController pushViewController:viewc animated:YES];
 }
 
 - (void) buttonSend:(id)sender
