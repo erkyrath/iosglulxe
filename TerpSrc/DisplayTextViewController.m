@@ -87,7 +87,6 @@
 		}
 		return;
 	}
-	
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
