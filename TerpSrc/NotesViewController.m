@@ -129,9 +129,7 @@
 			[keyboardbutton setImage:[UIImage imageNamed:@"baricon-edit-old"]];
 	}
 	
-	if ([IosGlkAppDelegate gesturesavailable]) {
-		/* gestures are available in iOS 3.2 and up */
-		
+	if (true) {
 		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
