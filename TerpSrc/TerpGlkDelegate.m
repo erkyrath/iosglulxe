@@ -162,7 +162,7 @@
 - (void) displayGlkFileUsage:(int)usage name:(NSString *)name {
 	TerpGlkViewController *terpvc = [TerpGlkViewController singleton];
 	UITabBarController *tabbc = terpvc.tabBarController;
-	if (!tabbc) 
+	if (!tabbc)
 		return;
 	
 	if (tabbc.selectedViewController != terpvc.settingsvc.navigationController) {
@@ -362,7 +362,6 @@
 - (void) vmHasExited {
 	iosglk_clear_autosave();
 }
-
 
 @end
 
