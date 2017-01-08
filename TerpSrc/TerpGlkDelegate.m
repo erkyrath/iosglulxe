@@ -193,6 +193,13 @@
 	return nil;
 }
 
+- (BOOL) shouldTapSetKeyboard:(BOOL)toopen {
+	if (toopen)
+		return YES;
+	else
+		return NO;
+}
+
 /* Utility method: turn a font menu label into an actual set of fonts.
  */
 - (FontVariants) fontVariantsForSize:(CGFloat)size label:(NSString *)label {
