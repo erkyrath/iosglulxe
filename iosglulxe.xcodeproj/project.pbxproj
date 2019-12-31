@@ -272,15 +272,8 @@
 		DF3868F015F7D2030070AADB /* DisplayWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayWebViewController.m; sourceTree = "<group>"; };
 		DF3868F315F7D2880070AADB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		DF3868F415F7D2880070AADB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		DF3868F715F7DD190070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NotesVC.xib; sourceTree = "<group>"; };
-		DF3868FA15F7DD1E0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/NotesVC~ipad.xib"; sourceTree = "<group>"; };
-		DF3868FD15F7DD4D0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PrefsMenuView.xib; sourceTree = "<group>"; };
-		DF38690015F7DD510070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/PrefsMenuView~ipad.xib"; sourceTree = "<group>"; };
 		DF38690215F7DDC30070AADB /* WebDocVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebDocVC.xib; sourceTree = "<group>"; };
-		DF38690515F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SettingsVC.xib; sourceTree = "<group>"; };
 		DF38690715F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TerpLocalize.strings; sourceTree = "<group>"; };
-		DF38690915F7DDCC0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FatalGameOverView.xib; sourceTree = "<group>"; };
-		DF38691115F7DE1C0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iosglk/Resources/en.lproj/InputMenuDecor~ipad.xib"; sourceTree = SOURCE_ROOT; };
 		DF38691315F7DE1C0070AADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = iosglk/Resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		DF38691615F7DFB80070AADB /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		DF38691715F7DFB80070AADB /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
@@ -464,8 +457,15 @@
 		DF6BCEBD1369062600442D6F /* gi_blorb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gi_blorb.c; sourceTree = "<group>"; };
 		DF6BCEBE1369062600442D6F /* gi_blorb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gi_blorb.h; sourceTree = "<group>"; };
 		DF6BCED913690BA400442D6F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		DF78C99723BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "../iosglk/Resources/Base.lproj/InputMenuDecor~ipad.xib"; sourceTree = "<group>"; };
+		DF78C99823BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrefsMenuView.xib; sourceTree = "<group>"; };
+		DF78C99923BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/PrefsMenuView~ipad.xib"; sourceTree = "<group>"; };
+		DF78C99A23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../iosglk/Resources/Base.lproj/GameOverView.xib; sourceTree = "<group>"; };
+		DF78C99B23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FatalGameOverView.xib; sourceTree = "<group>"; };
+		DF78C99C23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsVC.xib; sourceTree = "<group>"; };
+		DF78C99D23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NotesVC.xib; sourceTree = "<group>"; };
+		DF78C99E23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/NotesVC~ipad.xib"; sourceTree = "<group>"; };
 		DF9E959915F9938600907F8C /* iosstart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosstart.h; sourceTree = "<group>"; };
-		DF9E959B15FB0B6600907F8C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iosglk/Resources/en.lproj/GameOverView.xib; sourceTree = SOURCE_ROOT; };
 		DFA5BD5618601DA300F11F5F /* baricon-edit-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-edit-old.png"; sourceTree = "<group>"; };
 		DFA5BD5718601DA300F11F5F /* baricon-edit-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-edit-old@2x.png"; sourceTree = "<group>"; };
 		DFA5BD5818601DA300F11F5F /* baricon-styles-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baricon-styles-old.png"; sourceTree = "<group>"; };
@@ -914,14 +914,14 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "iosglulxe" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
 				en,
+				ja,
+				de,
+				fr,
+				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1164,7 +1164,7 @@
 		DF3868F815F7DD190070AADB /* NotesVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF3868F715F7DD190070AADB /* en */,
+				DF78C99D23BB27FC004D3102 /* Base */,
 			);
 			name = NotesVC.xib;
 			sourceTree = "<group>";
@@ -1172,7 +1172,7 @@
 		DF3868FB15F7DD1E0070AADB /* NotesVC~ipad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF3868FA15F7DD1E0070AADB /* en */,
+				DF78C99E23BB27FC004D3102 /* Base */,
 			);
 			name = "NotesVC~ipad.xib";
 			sourceTree = "<group>";
@@ -1180,7 +1180,7 @@
 		DF3868FE15F7DD4D0070AADB /* PrefsMenuView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF3868FD15F7DD4D0070AADB /* en */,
+				DF78C99823BB27FC004D3102 /* Base */,
 			);
 			name = PrefsMenuView.xib;
 			sourceTree = "<group>";
@@ -1188,7 +1188,7 @@
 		DF38690115F7DD510070AADB /* PrefsMenuView~ipad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF38690015F7DD510070AADB /* en */,
+				DF78C99923BB27FC004D3102 /* Base */,
 			);
 			name = "PrefsMenuView~ipad.xib";
 			sourceTree = "<group>";
@@ -1196,7 +1196,7 @@
 		DF38690415F7DDCC0070AADB /* SettingsVC.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF38690515F7DDCC0070AADB /* en */,
+				DF78C99C23BB27FC004D3102 /* Base */,
 			);
 			name = SettingsVC.xib;
 			sourceTree = "<group>";
@@ -1212,7 +1212,7 @@
 		DF38690815F7DDCC0070AADB /* FatalGameOverView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF38690915F7DDCC0070AADB /* en */,
+				DF78C99B23BB27FC004D3102 /* Base */,
 			);
 			name = FatalGameOverView.xib;
 			sourceTree = "<group>";
@@ -1220,7 +1220,7 @@
 		DF38691015F7DE1C0070AADB /* InputMenuDecor~ipad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF38691115F7DE1C0070AADB /* en */,
+				DF78C99723BB27FC004D3102 /* Base */,
 			);
 			name = "InputMenuDecor~ipad.xib";
 			sourceTree = "<group>";
@@ -1236,7 +1236,7 @@
 		DF9E959A15FB0B6600907F8C /* GameOverView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DF9E959B15FB0B6600907F8C /* en */,
+				DF78C99A23BB27FC004D3102 /* Base */,
 			);
 			name = GameOverView.xib;
 			sourceTree = "<group>";
