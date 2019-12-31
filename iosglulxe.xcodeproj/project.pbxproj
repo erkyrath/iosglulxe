@@ -918,9 +918,6 @@
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
-				ja,
-				de,
-				fr,
 				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
