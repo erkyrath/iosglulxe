@@ -16,9 +16,6 @@
 
 @implementation TerpGameOverView
 
-- (void) dealloc {
-	[super dealloc];
-}
 
 - (NSString *) nibForContent {
 	if (iosglk_can_restart_cleanly())

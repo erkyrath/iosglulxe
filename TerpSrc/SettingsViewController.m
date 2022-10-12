@@ -21,16 +21,6 @@
 @synthesize autocorrectswitch;
 @synthesize keepopenswitch;
 
-- (void) dealloc {
-	self.tableview = nil;
-	self.autocorrectcell = nil;
-	self.keepopencell = nil;
-	self.sharefilescell = nil;
-	self.licensecell = nil;
-	self.autocorrectswitch = nil;
-	self.keepopenswitch = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad
 {
@@ -38,31 +28,31 @@
 	
 	if ([tableview respondsToSelector:@selector(backgroundView)]) {
 		/* This is only available in iOS 3.2 and up */
-		tableview.backgroundView = [[[UIView alloc] initWithFrame:tableview.backgroundView.frame] autorelease];
+		tableview.backgroundView = [[UIView alloc] initWithFrame:tableview.backgroundView.frame];
 		tableview.backgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
 	}
 	
 	/* Create the cells... */
-	self.licensecell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"] autorelease];
+	self.licensecell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
 	licensecell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
 	licensecell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.license", @"TerpLocalize", nil);
 	licensecell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
 	licensecell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
-	self.sharefilescell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"] autorelease];
+	self.sharefilescell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
 	sharefilescell.backgroundColor = licensecell.backgroundColor;
 	sharefilescell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.sharefiles", @"TerpLocalize", nil);
 	sharefilescell.textLabel.textColor = licensecell.textLabel.textColor;
 	sharefilescell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
-	self.autocorrectcell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"] autorelease];
+	self.autocorrectcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
 	autocorrectcell.backgroundColor = licensecell.backgroundColor;
 	autocorrectcell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.autocorrect", @"TerpLocalize", nil);
 	autocorrectcell.textLabel.textColor = licensecell.textLabel.textColor;
 	autocorrectcell.selectionStyle = UITableViewCellSelectionStyleNone;
 	autocorrectcell.accessoryView = autocorrectswitch;
 	
-	self.keepopencell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"] autorelease];
+	self.keepopencell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
 	keepopencell.backgroundColor = licensecell.backgroundColor;
 	keepopencell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.keepopen", @"TerpLocalize", nil);
 	keepopencell.textLabel.textColor = licensecell.textLabel.textColor;
@@ -72,10 +62,10 @@
 	if (true) {
 		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 		[tableview addGestureRecognizer:recognizer];
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		[tableview addGestureRecognizer:recognizer];
 	}
@@ -115,7 +105,7 @@
 - (void) handleLicenses
 {
 	NSString *title = NSLocalizedStringFromTable(@"settings.title.license", @"TerpLocalize", nil);
-	DisplayWebViewController *viewc = [[[DisplayWebViewController alloc] initWithNibName:@"WebDocVC" filename:@"license" title:title bundle:nil] autorelease];
+	DisplayWebViewController *viewc = [[DisplayWebViewController alloc] initWithNibName:@"WebDocVC" filename:@"license" title:title bundle:nil];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 
@@ -126,7 +116,7 @@
 
 - (void) handleShareFilesHighlightUsage:(int)usage name:(NSString *)filename
 {
-	ShareFilesViewController *viewc = [[[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil] autorelease];
+	ShareFilesViewController *viewc = [[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil];
 	BOOL animated = YES;
 	if (filename) {
 		// It so happens that if filename exists, this is an arriving file (and the caller is displayGlkFileUsage). Don't animate in that case.

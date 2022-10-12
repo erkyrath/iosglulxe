@@ -98,11 +98,11 @@
 	
 	if (true) {
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 		recognizer.delegate = self;
 		[frameview addGestureRecognizer:recognizer];
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		recognizer.delegate = self;
 		[frameview addGestureRecognizer:recognizer];
@@ -140,7 +140,7 @@
 
 - (void) postGameOver {
 	CGRect rect = frameview.bounds;
-	TerpGameOverView *menuview = [[[TerpGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect] autorelease];
+	TerpGameOverView *menuview = [[TerpGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect];
 	[frameview postPopMenu:menuview];
 }
 
@@ -229,7 +229,7 @@
 	}
 	
 	CGRect rect = CGRectMake(4, 0, 40, 4);
-	PrefsMenuView *menuview = [[[PrefsMenuView alloc] initWithFrame:frameview.bounds buttonFrame:rect belowButton:YES] autorelease];
+	PrefsMenuView *menuview = [[PrefsMenuView alloc] initWithFrame:frameview.bounds buttonFrame:rect belowButton:YES];
 	[frameview postPopMenu:menuview];
 }
 

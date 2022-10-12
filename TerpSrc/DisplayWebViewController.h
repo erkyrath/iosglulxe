@@ -8,9 +8,9 @@
 
 @interface DisplayWebViewController : UIViewController <UIWebViewDelegate>
 
-@property (nonatomic, retain) IBOutlet UIWebView *webview;
-@property (nonatomic, retain) NSString *filename;
-@property (nonatomic, retain) NSString *doctitle;
+@property (nonatomic, strong) IBOutlet UIWebView *webview;
+@property (nonatomic, strong) NSString *filename;
+@property (nonatomic, strong) NSString *doctitle;
 
 - (id) initWithNibName:(NSString *)nibName filename:(NSString *)filename title:(NSString *)title bundle:(NSBundle *)nibBundle;
 

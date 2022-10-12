@@ -27,14 +27,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	self.color0 = nil;
-	self.color1 = nil;
-	self.color2 = nil;
-	self.color3 = nil;
-	self.color4 = nil;
-	[super dealloc];
-}
 
 - (BOOL) hasColors {
 	if (numcolors == 0)

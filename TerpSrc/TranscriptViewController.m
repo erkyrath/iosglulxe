@@ -23,19 +23,13 @@
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
 		self.filelist = [NSMutableArray arrayWithCapacity:16];
-		self.dateformatter = [[[RelDateFormatter alloc] init] autorelease];
+		self.dateformatter = [[RelDateFormatter alloc] init];
 		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
 	}
 	return self;
 }
 
-- (void) dealloc {
-	self.filelist = nil;
-	self.dateformatter = nil;
-	self.tableView = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
@@ -69,7 +63,7 @@
 			if (!label)
 				label = filename;
 			
-			GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+			GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 			thumb.filename = filename;
 			thumb.pathname = pathname;
 			thumb.usage = fileusage_Transcript;
@@ -87,7 +81,7 @@
 }
 
 - (void) addBlankThumb {
-	GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+	GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
 	thumb.label = NSLocalizedStringFromTable(@"label.no-transcripts", @"TerpLocalize", nil);
@@ -121,7 +115,7 @@
 	// This is boilerplate and I haven't touched it.
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 	
 	GlkFileThumb *thumb = nil;
@@ -193,7 +187,7 @@
 		return;
 		
 	/* The user has selected a file. */
-	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
+	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 

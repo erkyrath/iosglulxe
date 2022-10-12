@@ -16,9 +16,7 @@
 - (void) dealloc {
 	if (webview) {
 		webview.delegate = nil;
-		self.webview = nil;
 	}
-	[super dealloc];
 }
 
 - (void) viewDidLoad
@@ -36,10 +34,10 @@
 	if (true) {
 		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 		[webview addGestureRecognizer:recognizer];
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		[webview addGestureRecognizer:recognizer];
 	}
@@ -59,7 +57,7 @@
 		return YES;
 	}
 	
-	[[UIApplication sharedApplication] openURL:request.URL];
+    [[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
 	return NO;
 }
 

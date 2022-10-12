@@ -22,10 +22,6 @@
 @synthesize colorscheme;
 @synthesize leading;
 
-- (void) dealloc {
-	self.fontfamily = nil;
-	[super dealloc];
-}
 
 - (NSString *) gameId {
 	return nil;
@@ -186,7 +182,7 @@
 }
 
 - (GlkWinBufferView *) viewForBufferWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {
-	return [[[TerpGlkWinBufferView alloc] initWithWindow:win frame:box margin:margin] autorelease];
+	return [[TerpGlkWinBufferView alloc] initWithWindow:win frame:box margin:margin];
 }
 
 - (GlkWinGridView *) viewForGridWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {

@@ -8,6 +8,6 @@
 
 @interface HelpViewController : UIViewController <UIWebViewDelegate>
 
-@property (nonatomic, retain) IBOutlet UIWebView *webview;
+@property (nonatomic, strong) IBOutlet UIWebView *webview;
 
 @end

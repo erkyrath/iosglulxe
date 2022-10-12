@@ -27,13 +27,9 @@
 }
 
 - (void) dealloc {
-	self.filename = nil;
-	self.doctitle = nil;
 	if (webview) {
 		webview.delegate = nil;
-		self.webview = nil;
 	}
-	[super dealloc];
 }
 
 - (void) viewDidLoad
@@ -52,7 +48,7 @@
 
 	if (true) {
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		[webview addGestureRecognizer:recognizer];
 	}
@@ -70,7 +66,7 @@
 		return YES;
 	}
 	
-	[[UIApplication sharedApplication] openURL:request.URL];
+    [[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
 	return NO;
 }
 

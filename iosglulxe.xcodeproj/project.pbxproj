@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		C38E9E4026F138B200B49E29 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38E9E3F26F138B200B49E29 /* CoreServices.framework */; };
 		DF19DE0714F18C98007DCB29 /* CmdTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0214F18C98007DCB29 /* CmdTextField.m */; };
 		DF19DE0814F18C98007DCB29 /* InputMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0414F18C98007DCB29 /* InputMenuView.m */; };
 		DF19DE0914F18C98007DCB29 /* IosGlkLibDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0614F18C98007DCB29 /* IosGlkLibDelegate.m */; };
@@ -208,7 +209,6 @@
 		DFA5BD7C1861843D00F11F5F /* Default-New-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7A1861843D00F11F5F /* Default-New-Landscape.png */; };
 		DFA5BD7D1861843D00F11F5F /* Default-New-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */; };
 		DFA5BD7F1861862400F11F5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFA5BD7E1861862400F11F5F /* Default@2x.png */; };
-		DFA813261A3E7404002B2846 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFA813251A3E7404002B2846 /* MobileCoreServices.framework */; };
 		DFAC4C8623BB36120063C565 /* InputMenuDecor.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFAC4C8823BB36120063C565 /* InputMenuDecor.xib */; };
 		DFEE5C791A3A515000B51584 /* ShareFilesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFEE5C781A3A515000B51584 /* ShareFilesVC.xib */; };
 		DFEE5C7C1A3A51A300B51584 /* ShareFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEE5C7A1A3A51A300B51584 /* ShareFilesViewController.m */; };
@@ -231,6 +231,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iosglulxe_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglulxe_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iosglulxe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iosglulxe-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C38E9E3F26F138B200B49E29 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		DF19DE0114F18C98007DCB29 /* CmdTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTextField.h; sourceTree = "<group>"; };
 		DF19DE0214F18C98007DCB29 /* CmdTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTextField.m; sourceTree = "<group>"; };
 		DF19DE0314F18C98007DCB29 /* InputMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputMenuView.h; sourceTree = "<group>"; };
@@ -478,7 +479,6 @@
 		DFA5BD7A1861843D00F11F5F /* Default-New-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-New-Landscape.png"; sourceTree = "<group>"; };
 		DFA5BD7B1861843D00F11F5F /* Default-New-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-New-Portrait.png"; sourceTree = "<group>"; };
 		DFA5BD7E1861862400F11F5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		DFA813251A3E7404002B2846 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		DFAC4C8723BB36120063C565 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/InputMenuDecor.xib; sourceTree = "<group>"; };
 		DFEE5C781A3A515000B51584 /* ShareFilesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareFilesVC.xib; sourceTree = "<group>"; };
 		DFEE5C7A1A3A51A300B51584 /* ShareFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareFilesViewController.m; sourceTree = "<group>"; };
@@ -500,9 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				C38E9E4026F138B200B49E29 /* CoreServices.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				DFA813261A3E7404002B2846 /* MobileCoreServices.framework in Frameworks */,
 				DF41DB101531FADE000B5D00 /* QuartzCore.framework in Frameworks */,
 				DF41DB161531FB43000B5D00 /* MessageUI.framework in Frameworks */,
 			);
@@ -610,12 +610,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C38E9E3F26F138B200B49E29 /* CoreServices.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				DF41DB0F1531FADE000B5D00 /* QuartzCore.framework */,
 				DF41DB151531FB43000B5D00 /* MessageUI.framework */,
-				DFA813251A3E7404002B2846 /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -905,7 +905,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = BK75QRDQ9E;
@@ -1254,6 +1254,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = BK75QRDQ9E;
@@ -1273,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = BK75QRDQ9E;
@@ -1303,6 +1305,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1324,7 +1327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-weak-lSystem";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1349,6 +1352,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1366,7 +1370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-weak-lSystem";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

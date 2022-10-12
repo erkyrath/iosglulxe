@@ -30,23 +30,13 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
 		self.filelists = [NSMutableArray arrayWithCapacity:8];
-		self.dateformatter = [[[RelDateFormatter alloc] init] autorelease];
+		self.dateformatter = [[RelDateFormatter alloc] init];
 		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
 	}
 	return self;
 }
 
-- (void) dealloc {
-	self.highlightname = nil;
-	self.filelists = nil;
-	self.dateformatter = nil;
-	self.tableView = nil;
-	self.sendbutton = nil;
-	self.sharedocic = nil;
-	self.sharetemppath = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
@@ -55,7 +45,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	// Setting two right-bar-buttons like this is an iOS5+ API.
 	
-	self.sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
+	self.sendbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)];
 	self.sendbutton.enabled = NO;
 	
 	UIBarButtonItem *editbutton = [self editButtonItem];
@@ -90,7 +80,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 				if (!label)
 					label = filename;
 				
-				GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+				GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 				thumb.filename = filename;
 				thumb.pathname = pathname;
 				thumb.usage = usage;
@@ -147,7 +137,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 }
 
 - (void) addBlankThumb {
-	GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+	GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
 	thumb.label = NSLocalizedStringFromTable(@"label.no-share-files", @"TerpLocalize", nil);
@@ -178,7 +168,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (!thumb)
 		return;
 	
-	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
+	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 
@@ -220,7 +210,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 			self.sharetemppath = nil;
 		}
 		self.sharedocic = nil;
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"title.noshareapps", @"TerpLocalize", nil) message:NSLocalizedStringFromTable(@"label.noshareapps", @"TerpLocalize", nil) delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) otherButtonTitles:nil] autorelease];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"title.noshareapps", @"TerpLocalize", nil) message:NSLocalizedStringFromTable(@"label.noshareapps", @"TerpLocalize", nil) delegate:nil cancelButtonTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) otherButtonTitles:nil];
 		[alert show];
 	}
 }
@@ -285,7 +275,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	// This is boilerplate and I haven't touched it.
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 	
 	GlkFileThumb *thumb = nil;
@@ -408,7 +398,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (thumb.usage != fileusage_Transcript)
 		return;
 	
-	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
+	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 

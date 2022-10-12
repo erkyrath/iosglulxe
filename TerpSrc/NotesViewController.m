@@ -22,13 +22,6 @@
 @synthesize transcriptcell;
 @synthesize notespath;
 
-- (void) dealloc {
-	self.textview = nil;
-	self.gradview = nil;
-	self.buttontable = nil;
-	self.transcriptcell = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad
 {
@@ -42,7 +35,7 @@
 	
 	if ([buttontable respondsToSelector:@selector(backgroundView)]) {
 		/* This is only available in iOS 3.2 and up */
-		buttontable.backgroundView = [[[UIView alloc] initWithFrame:buttontable.backgroundView.frame] autorelease];
+		buttontable.backgroundView = [[UIView alloc] initWithFrame:buttontable.backgroundView.frame];
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 			buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
 		}
@@ -52,7 +45,7 @@
 	}
 	
 	/* Create the cells... */
-	self.transcriptcell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Notes"] autorelease];
+	self.transcriptcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Notes"];
 	transcriptcell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
 	transcriptcell.textLabel.text = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 	transcriptcell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
@@ -132,10 +125,10 @@
 	if (true) {
 		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 		[textview addGestureRecognizer:recognizer];
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		[textview addGestureRecognizer:recognizer];
 	}
@@ -202,7 +195,7 @@
 
 - (IBAction) handleTranscripts
 {
-	TranscriptViewController *transviewc = [[[TranscriptViewController alloc] initWithNibName:@"TranscriptVC" bundle:nil] autorelease];
+	TranscriptViewController *transviewc = [[TranscriptViewController alloc] initWithNibName:@"TranscriptVC" bundle:nil];
 	[self.navigationController pushViewController:transviewc animated:YES];
 }
 

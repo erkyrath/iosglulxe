@@ -27,13 +27,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	self.thumb = nil;
-	self.textview = nil;
-	self.titlelabel = nil;
-	self.datelabel = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad
 {
@@ -41,7 +34,7 @@
 
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcript", @"TerpLocalize", nil);
 
-	UIBarButtonItem *sendbutton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)] autorelease];
+	UIBarButtonItem *sendbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)];
 	self.navigationItem.rightBarButtonItem = sendbutton;
 
 	titlelabel.text = thumb.label;
@@ -51,7 +44,7 @@
 		datelabel.hidden = YES;
 	}
 	else {
-		RelDateFormatter *dateformatter = [[[RelDateFormatter alloc] init] autorelease];
+		RelDateFormatter *dateformatter = [[RelDateFormatter alloc] init];
 		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
 		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
 		datelabel.text = [dateformatter stringFromDate:thumb.modtime];
@@ -63,7 +56,7 @@
 
 	if (true) {
 		UISwipeGestureRecognizer *recognizer;
-		recognizer = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)] autorelease];
+		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		[textview addGestureRecognizer:recognizer];
 	}
@@ -78,12 +71,12 @@
 	if ([UIActivityViewController class]) {
 		// Available in iOS6+
 		NSArray *ls = [NSArray arrayWithObject:textview.text];
-		UIActivityViewController *actvc = [[[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil] autorelease];
+		UIActivityViewController *actvc = [[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil];
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
 			[self presentViewController:actvc animated:YES completion:nil];
 		}
 		else {
-			UIPopoverController *popover = [[[UIPopoverController alloc] initWithContentViewController:actvc] autorelease];
+			UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:actvc];
 			[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 		}
 		return;

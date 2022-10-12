@@ -21,7 +21,7 @@
 
 @property (nonatomic) int maxwidth;
 /* The following properties are read from multiple threads, so we declare them atomic. */
-@property (retain) NSString *fontfamily;
+@property (strong) NSString *fontfamily;
 @property int fontscale;
 @property int colorscheme;
 @property int leading;

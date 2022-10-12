@@ -17,11 +17,11 @@
 }
 
 @property (nonatomic) int numcolors;
-@property (nonatomic, retain) UIColor *color0;
-@property (nonatomic, retain) UIColor *color1;
-@property (nonatomic, retain) UIColor *color2;
-@property (nonatomic, retain) UIColor *color3;
-@property (nonatomic, retain) UIColor *color4;
+@property (nonatomic, strong) UIColor *color0;
+@property (nonatomic, strong) UIColor *color1;
+@property (nonatomic, strong) UIColor *color2;
+@property (nonatomic, strong) UIColor *color3;
+@property (nonatomic, strong) UIColor *color4;
 
 - (BOOL) hasColors;
 - (void) setUpColorsPreset:(int)val;

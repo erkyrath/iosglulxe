@@ -14,8 +14,8 @@
 
 @interface TerpGlkViewController : IosGlkViewController <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
-@property (nonatomic, retain) IBOutlet SettingsViewController *settingsvc;
+@property (nonatomic, strong) IBOutlet NotesViewController *notesvc;
+@property (nonatomic, strong) IBOutlet SettingsViewController *settingsvc;
 
 + (TerpGlkViewController *) singleton;
 

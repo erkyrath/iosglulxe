@@ -39,33 +39,6 @@
 @synthesize fontnames;
 @synthesize fontbuttons;
 
-- (void) dealloc {
-	self.container = nil;
-	self.fontscontainer = nil;
-	self.colorscontainer = nil;
-	self.colorsbutton = nil;
-	self.fontsbutton = nil;
-	self.brightslider = nil;
-	self.colbut_full = nil;
-	self.colbut_34 = nil;
-	self.colbut_12 = nil;
-	self.sizebut_small = nil;
-	self.sizebut_big = nil;
-	self.leadbut_small = nil;
-	self.leadbut_big = nil;
-	self.fontbutton = nil;
-	self.colorbutton = nil;
-	self.fontbut_sample1 = nil;
-	self.fontbut_sample2 = nil;
-	self.colorbut_bright = nil;
-	self.colorbut_quiet = nil;
-	self.colorbut_dark = nil;
-	
-	self.fontnames = nil;
-	self.fontbuttons = nil;
-	
-	[super dealloc];
-}
 
 - (void) loadContent {
 	NSString *reqSysVer = @"5.0";
@@ -223,7 +196,7 @@
 	if (faderview) {
 		if (/* DISABLES CODE */ (true)) {
 			[UIView animateWithDuration:0.15 
-				animations:^{ faderview.alpha = (isdark ? 1.0 : 0.0); } ];
+                             animations:^{ self->faderview.alpha = (isdark ? 1.0 : 0.0); } ];
 		}
 		else {
 			faderview.alpha = (isdark ? 1.0 : 0.0);
@@ -326,10 +299,10 @@
 		[content addSubview:fontscontainer];
 		[UIView animateWithDuration:0.35 
 						 animations:^{ 
-							 fontscontainer.frame = rect;
-							 container.alpha = 0;
-							 container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
-						 completion: ^(BOOL finished){ [container removeFromSuperview]; } ];
+            self->fontscontainer.frame = rect;
+            self->container.alpha = 0;
+            self->container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [self->container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:fontscontainer];
@@ -348,10 +321,10 @@
 		[content addSubview:colorscontainer];
 		[UIView animateWithDuration:0.35 
 						animations:^{ 
-							colorscontainer.frame = rect;
-							container.alpha = 0;
-							container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); } 
-						 completion: ^(BOOL finished){ [container removeFromSuperview]; } ];
+            self->colorscontainer.frame = rect;
+            self->container.alpha = 0;
+            self->container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [self->container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:colorscontainer];
