@@ -3,4 +3,4 @@
 	url = ../glulxe.git
 [submodule "iosglk"]
 	path = iosglk
-	url = ../iosglk.git
+	url = https://github.com/angstsmurf/iosglk/tree/newarc.git
