@@ -80,12 +80,6 @@
 	keepopenswitch.on = ![defaults boolForKey:@"NoKeepOpen"];
 }
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
-{
-	IosGlkViewController *glkviewc = [IosGlkViewController singleton];
-	return [glkviewc shouldAutorotateToInterfaceOrientation:orientation];
-}
-
 - (IBAction) handleAutoCorrect:(id)sender
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

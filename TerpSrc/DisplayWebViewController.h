@@ -5,10 +5,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
-@interface DisplayWebViewController : UIViewController <UIWebViewDelegate>
+@interface DisplayWebViewController : UIViewController <WKNavigationDelegate>
 
-@property (nonatomic, strong) IBOutlet UIWebView *webview;
+@property (nonatomic, strong) IBOutlet WKWebView *webview;
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *doctitle;
 

@@ -191,8 +191,4 @@
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
-	return [[IosGlkViewController singleton] shouldAutorotateToInterfaceOrientation:orientation];
-}
-
 @end

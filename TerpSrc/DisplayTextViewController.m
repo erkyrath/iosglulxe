@@ -68,24 +68,12 @@
 
 - (void) buttonSend:(id)sender
 {
-	if ([UIActivityViewController class]) {
-		// Available in iOS6+
-		NSArray *ls = [NSArray arrayWithObject:textview.text];
-		UIActivityViewController *actvc = [[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil];
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-			[self presentViewController:actvc animated:YES completion:nil];
-		}
-		else {
-			UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:actvc];
-			[popover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-		}
-		return;
-	}
+    NSArray *ls = [NSArray arrayWithObject:textview.text];
+    UIActivityViewController *actvc = [[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:actvc animated:YES completion:nil];
+    }
+    return;
 }
-
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
-	return [[IosGlkViewController singleton] shouldAutorotateToInterfaceOrientation:orientation];
-}
-
 
 @end

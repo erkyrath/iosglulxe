@@ -28,7 +28,7 @@
 
 - (void) dealloc {
 	if (webview) {
-		webview.delegate = nil;
+		webview.navigationDelegate = nil;
 	}
 }
 
@@ -44,7 +44,7 @@
 	NSURL *url = [NSURL fileURLWithPath:path isDirectory:NO];
 	NSString *html = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
 	[webview loadHTMLString:html baseURL:url];
-	webview.delegate = self;
+	webview.navigationDelegate = self;
 
 	if (true) {
 		UISwipeGestureRecognizer *recognizer;
@@ -60,7 +60,7 @@
 
 /* Ensure that all external URLs are sent to Safari. (UIWebView delegate method.)
  */
-- (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL) webView:(WKWebView *)webView decidePolicyForNavigationAction:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 	if ([request.URL isFileURL]) {
 		/* Let file:... URLs load normally */
 		return YES;
@@ -68,12 +68,6 @@
 	
     [[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
 	return NO;
-}
-
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation
-{
-	IosGlkViewController *glkviewc = [IosGlkViewController singleton];
-	return [glkviewc shouldAutorotateToInterfaceOrientation:orientation];
 }
 
 @end
