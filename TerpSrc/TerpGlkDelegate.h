@@ -26,10 +26,10 @@
 @property int colorscheme;
 @property int leading;
 
-- (NSString *) gameTitle;
-- (NSString *) gamePath;
-- (UIColor *) genBackgroundColor;
-- (UIColor *) genForegroundColor;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *gameTitle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *gamePath;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) UIColor *genBackgroundColor;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) UIColor *genForegroundColor;
 - (FontVariants) fontVariantsForSize:(CGFloat)size label:(NSString *)label;
 
 @end

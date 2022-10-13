@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UIColor *color3;
 @property (nonatomic, strong) UIColor *color4;
 
-- (BOOL) hasColors;
+@property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasColors;
 - (void) setUpColorsPreset:(int)val;
 
 @end

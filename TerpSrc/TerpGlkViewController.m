@@ -132,9 +132,9 @@
 	if ([IosGlkAppDelegate oldstyleui]) {
 		/* Use the old-style drop-shadowed buttons in the navbar. */
 		if (stylebutton)
-			[stylebutton setImage:[UIImage imageNamed:@"baricon-styles-old"]];
+			stylebutton.image = [UIImage imageNamed:@"baricon-styles-old"];
 		if (keyboardbutton)
-			[keyboardbutton setImage:[UIImage imageNamed:@"baricon-edit-old"]];
+			keyboardbutton.image = [UIImage imageNamed:@"baricon-edit-old"];
 	}
 }
 
@@ -152,7 +152,7 @@
 	NSArray *viewcstack = navc.viewControllers;
 	if (!viewcstack || !viewcstack.count)
 		return;
-	UIViewController *rootviewc = [viewcstack objectAtIndex:0];
+	UIViewController *rootviewc = viewcstack[0];
 	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
 	
 	if (rootviewc != notesvc) {

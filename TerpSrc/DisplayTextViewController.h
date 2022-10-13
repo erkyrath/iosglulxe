@@ -15,6 +15,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *datelabel;
 @property (nonatomic, strong) GlkFileThumb *thumb;
 
-- (id) initWithNibName:(NSString *)nibName thumb:(GlkFileThumb *)thumb bundle:(NSBundle *)nibBundle;
+- (instancetype) initWithNibName:(NSString *)nibName thumb:(GlkFileThumb *)thumb bundle:(NSBundle *)nibBundle;
 
 @end

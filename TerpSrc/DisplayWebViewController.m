@@ -15,7 +15,7 @@
 @synthesize filename;
 @synthesize doctitle;
 
-- (id) initWithNibName:(NSString *)nibName filename:(NSString *)fileref title:(NSString *)titleref bundle:(NSBundle *)nibBundle
+- (instancetype) initWithNibName:(NSString *)nibName filename:(NSString *)fileref title:(NSString *)titleref bundle:(NSBundle *)nibBundle
 {
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
@@ -61,7 +61,7 @@
 /* Ensure that all external URLs are sent to Safari. (UIWebView delegate method.)
  */
 - (BOOL) webView:(WKWebView *)webView decidePolicyForNavigationAction:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-	if ([request.URL isFileURL]) {
+	if ((request.URL).fileURL) {
 		/* Let file:... URLs load normally */
 		return YES;
 	}

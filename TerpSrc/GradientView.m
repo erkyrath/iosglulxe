@@ -20,7 +20,7 @@
 	return [CAGradientLayer class];
 }
 
-- (id) initWithCoder:(NSCoder *)decoder {
+- (instancetype) initWithCoder:(NSCoder *)decoder {
 	self = [super initWithCoder:decoder];
 	if (self) {
 	}
@@ -67,37 +67,29 @@
 	
 	switch (numcolors) {
 		case 2:
-			layer.colors = [NSArray arrayWithObjects:
-							(id)color0.CGColor, 
-							(id)color1.CGColor, 
-							nil];
+			layer.colors = @[(id)color0.CGColor, 
+							(id)color1.CGColor];
 			break;
 			
 		case 3:
-			layer.colors = [NSArray arrayWithObjects:
-							(id)color0.CGColor, 
+			layer.colors = @[(id)color0.CGColor, 
 							(id)color1.CGColor, 
-							(id)color2.CGColor, 
-							nil];
+							(id)color2.CGColor];
 			break;
 			
 		case 4:
-			layer.colors = [NSArray arrayWithObjects:
-							(id)color0.CGColor, 
+			layer.colors = @[(id)color0.CGColor, 
 							(id)color1.CGColor, 
 							(id)color2.CGColor, 
-							(id)color3.CGColor, 
-							nil];
+							(id)color3.CGColor];
 			break;
 			
 		case 5:
-			layer.colors = [NSArray arrayWithObjects:
-							(id)color0.CGColor, 
+			layer.colors = @[(id)color0.CGColor, 
 							(id)color1.CGColor, 
 							(id)color2.CGColor, 
 							(id)color3.CGColor, 
-							(id)color4.CGColor, 
-							nil];
+							(id)color4.CGColor];
 			break;
 	}
 }

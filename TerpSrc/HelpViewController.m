@@ -40,7 +40,7 @@
 /* Ensure that all external URLs are sent to Safari. (UIWebView delegate method.)
  */
 - (BOOL) webView:(WKWebView *)webView decidePolicyForNavigationAction:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-	if ([request.URL isFileURL]) {
+	if ((request.URL).fileURL) {
 		/* Let file:... URLs load normally */
 		return YES;
 	}

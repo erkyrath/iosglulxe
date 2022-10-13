@@ -42,7 +42,7 @@
 
 - (void) loadContent {
 	NSString *reqSysVer = @"5.0";
-	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+	NSString *currSysVer = [UIDevice currentDevice].systemVersion;
 	supportsbrightness = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
 	
 	[[NSBundle mainBundle] loadNibNamed:@"PrefsMenuView" owner:self options:nil];
@@ -92,8 +92,8 @@
 	if (fontnames) {
 		NSString *family = glkviewc.terpDelegate.fontfamily;
 		for (int count = 0; count < fontnames.count; count++) {
-			NSString *str = [fontnames objectAtIndex:count];
-			UIButton *button = [fontbuttons objectAtIndex:count];
+			NSString *str = fontnames[count];
+			UIButton *button = fontbuttons[count];
 			button.selected = [family isEqualToString:str];
 		}
 	}
@@ -210,7 +210,7 @@
 	int val = ((UIView *)sender).tag;
 	if (!fontnames || val < 0 || val >= fontnames.count)
 		return;
-	NSString *name = [fontnames objectAtIndex:val];
+	NSString *name = fontnames[val];
 	
 	glkviewc.terpDelegate.fontfamily = name;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

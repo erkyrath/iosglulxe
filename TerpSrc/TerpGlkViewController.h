@@ -19,7 +19,7 @@
 
 + (TerpGlkViewController *) singleton;
 
-- (TerpGlkDelegate *) terpDelegate;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) TerpGlkDelegate *terpDelegate;
 - (IBAction) showPreferences;
 - (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer;
 - (void) handleSwipeRight:(UIGestureRecognizer *)recognizer;

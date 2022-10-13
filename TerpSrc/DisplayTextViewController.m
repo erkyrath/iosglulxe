@@ -17,7 +17,7 @@
 @synthesize datelabel;
 @synthesize thumb;
 
-- (id) initWithNibName:(NSString *)nibName thumb:(GlkFileThumb *)thumbref bundle:(NSBundle *)nibBundle
+- (instancetype) initWithNibName:(NSString *)nibName thumb:(GlkFileThumb *)thumbref bundle:(NSBundle *)nibBundle
 {
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
@@ -45,8 +45,8 @@
 	}
 	else {
 		RelDateFormatter *dateformatter = [[RelDateFormatter alloc] init];
-		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
-		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
+		dateformatter.dateStyle = NSDateFormatterMediumStyle;
+		dateformatter.timeStyle = NSDateFormatterShortStyle;
 		datelabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 
@@ -68,7 +68,7 @@
 
 - (void) buttonSend:(id)sender
 {
-    NSArray *ls = [NSArray arrayWithObject:textview.text];
+    NSArray *ls = @[textview.text];
     UIActivityViewController *actvc = [[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:actvc animated:YES completion:nil];

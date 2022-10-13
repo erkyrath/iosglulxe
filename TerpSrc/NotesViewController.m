@@ -68,7 +68,7 @@
 	}
 	
 	NSString *reqSysVer = @"5.0";
-	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+	NSString *currSysVer = [UIDevice currentDevice].systemVersion;
 	BOOL hasios5 = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
 	
 	UIImage *stripeimg = nil;
@@ -97,7 +97,7 @@
 	if (!notespath) {
 		NSArray *dirlist = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		if (dirlist.count) {
-			NSString *dir = [dirlist objectAtIndex:0];
+			NSString *dir = dirlist[0];
 			self.notespath = [dir stringByAppendingPathComponent:@"PlayerNotes.txt"];
 		}
 	}
@@ -119,7 +119,7 @@
 	if ([IosGlkAppDelegate oldstyleui]) {
 		/* Use the old-style drop-shadowed buttons in the navbar. */
 		if (keyboardbutton)
-			[keyboardbutton setImage:[UIImage imageNamed:@"baricon-edit-old"]];
+			keyboardbutton.image = [UIImage imageNamed:@"baricon-edit-old"];
 	}
 	
 	if (true) {
@@ -150,7 +150,7 @@
 
 - (IBAction) toggleKeyboard
 {
-	if ([textview isFirstResponder]) {
+	if (textview.isFirstResponder) {
 		[textview resignFirstResponder];
 	}
 	else {

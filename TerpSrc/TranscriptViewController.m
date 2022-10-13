@@ -19,13 +19,13 @@
 @synthesize filelist;
 @synthesize dateformatter;
 
-- (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
+- (instancetype) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
 		self.filelist = [NSMutableArray arrayWithCapacity:16];
 		self.dateformatter = [[RelDateFormatter alloc] init];
-		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
-		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
+		dateformatter.dateStyle = NSDateFormatterMediumStyle;
+		dateformatter.timeStyle = NSDateFormatterShortStyle;
 	}
 	return self;
 }
@@ -36,15 +36,15 @@
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 	
-	self.navigationItem.rightBarButtonItem = [self editButtonItem];
+	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
 	NSArray *dirlist = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if (!dirlist) {
-		dirlist = [NSArray array];
+		dirlist = @[];
 	}
-	NSString *basedir = [dirlist objectAtIndex:0];
+	NSString *basedir = dirlist[0];
 	NSString *dirname = [GlkFileRef subDirOfBase:basedir forUsage:fileusage_Transcript gameid:[GlkLibrary singleton].gameId];
 	
 	[filelist removeAllObjects];
@@ -104,7 +104,7 @@
 	
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	
 	return (thumb && !thumb.isfake);
 }
@@ -122,7 +122,7 @@
 	
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	
 	/* Make the cell look right... */
 	
@@ -157,17 +157,17 @@
 		GlkFileThumb *thumb = nil;
 		int row = indexPath.row;
 		if (row >= 0 && row < filelist.count)
-			thumb = [filelist objectAtIndex:row];
+			thumb = filelist[row];
 		if (thumb && !thumb.isfake) {
-			GlkFileThumb *thumb = [filelist objectAtIndex:row];
+			GlkFileThumb *thumb = filelist[row];
 			//NSLog(@"selector: deleting file \"%@\" (%@)", thumb.label, thumb.pathname);
 			BOOL res = [[NSFileManager defaultManager] removeItemAtPath:thumb.pathname error:nil];
 			if (res) {
 				[filelist removeObjectAtIndex:row];
-				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+				[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				if (filelist.count == 0) {
 					[self addBlankThumb];
-					[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+					[tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				}
 			}
 		}
@@ -180,7 +180,7 @@
 	GlkFileThumb *thumb = nil;
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	if (!thumb)
 		return;
 	if (thumb.isfake)

@@ -26,13 +26,13 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 @synthesize filelists;
 @synthesize dateformatter;
 
-- (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
+- (instancetype) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
 	self = [super initWithNibName:nibName bundle:nibBundle];
 	if (self) {
 		self.filelists = [NSMutableArray arrayWithCapacity:8];
 		self.dateformatter = [[RelDateFormatter alloc] init];
-		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
-		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
+		dateformatter.dateStyle = NSDateFormatterMediumStyle;
+		dateformatter.timeStyle = NSDateFormatterShortStyle;
 	}
 	return self;
 }
@@ -48,17 +48,17 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	self.sendbutton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(buttonSend:)];
 	self.sendbutton.enabled = NO;
 	
-	UIBarButtonItem *editbutton = [self editButtonItem];
+	UIBarButtonItem *editbutton = self.editButtonItem;
 	
-	self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:editbutton, sendbutton, nil];
+	self.navigationItem.rightBarButtonItems = @[editbutton, sendbutton];
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
 	NSArray *dirlist = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if (!dirlist) {
-		dirlist = [NSArray array];
+		dirlist = @[];
 	}
-	NSString *basedir = [dirlist objectAtIndex:0];
+	NSString *basedir = dirlist[0];
 	
 	[filelists removeAllObjects];
 	for (int ux = 0; usages[ux] >= 0; ux++) {
@@ -109,9 +109,9 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		int selectsection = 0;
 		int selectrow = 0;
 		for (selectsection=0; selectsection<filelists.count; selectsection++) {
-			NSMutableArray *files = [filelists objectAtIndex:selectsection];
+			NSMutableArray *files = filelists[selectsection];
 			for (selectrow=0; selectrow<files.count; selectrow++) {
-				GlkFileThumb *thumb = [files objectAtIndex:selectrow];
+				GlkFileThumb *thumb = files[selectrow];
 				if (thumb.usage != highlightusage) {
 					// skip this whole section
 					found = NO;
@@ -152,7 +152,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 - (void) buttonView:(id)sender
 {
-	NSIndexPath *indexpath = [tableView indexPathForSelectedRow];
+	NSIndexPath *indexpath = tableView.indexPathForSelectedRow;
 	if (!indexpath)
 		return;
 	
@@ -160,10 +160,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	int sect = indexpath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexpath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	if (!thumb)
 		return;
@@ -174,7 +174,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 - (void) buttonSend:(id)sender
 {
-	NSIndexPath *indexpath = [tableView indexPathForSelectedRow];
+	NSIndexPath *indexpath = tableView.indexPathForSelectedRow;
 	if (!indexpath)
 		return;
 	
@@ -182,10 +182,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	int sect = indexpath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexpath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	if (!thumb)
 		return;
@@ -256,7 +256,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (section < 0 || section >= filelists.count)
 		return 0;
 	
-	NSMutableArray *files = [filelists objectAtIndex:section];
+	NSMutableArray *files = filelists[section];
 	return files.count;
 }
 
@@ -265,12 +265,12 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (section < 0 || section >= filelists.count)
 		return @"???";
 
-	NSMutableArray *files = [filelists objectAtIndex:section];
+	NSMutableArray *files = filelists[section];
 	// The array should be nonempty.
 	if (!files.count)
 		return @"???";
 	
-	GlkFileThumb *thumb = [files objectAtIndex:0];
+	GlkFileThumb *thumb = files[0];
 	return [GlkFileThumb labelForFileUsage:thumb.usage localize:@"placeholders"];
 }
 
@@ -287,10 +287,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	int sect = indexPath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexPath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	
 	/* Make the cell look right... */
@@ -326,10 +326,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	int sect = indexPath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexPath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	
 	return (thumb && !thumb.isfake);
@@ -342,10 +342,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 		int sect = indexPath.section;
 		if (sect >= 0 && sect < filelists.count) {
-			files = [filelists objectAtIndex:sect];
+			files = filelists[sect];
 			int row = indexPath.row;
 			if (row >= 0 && row < files.count)
-				thumb = [files objectAtIndex:row];
+				thumb = files[row];
 		}
 		
 		if (files && thumb && !thumb.isfake) {
@@ -353,7 +353,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 			BOOL res = [[NSFileManager defaultManager] removeItemAtPath:thumb.pathname error:nil];
 			if (res) {
 				[files removeObjectAtIndex:indexPath.row];
-				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+				[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				/*if (filelist.count == 0) {
 					[self addBlankThumb];
 					[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -371,10 +371,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 	int sect = indexPath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexPath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	
 	if (!thumb || thumb.isfake) {
@@ -392,10 +392,10 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	
 	int sect = indexPath.section;
 	if (sect >= 0 && sect < filelists.count) {
-		NSMutableArray *files = [filelists objectAtIndex:sect];
+		NSMutableArray *files = filelists[sect];
 		int row = indexPath.row;
 		if (row >= 0 && row < files.count)
-			thumb = [files objectAtIndex:row];
+			thumb = files[row];
 	}
 	
 	if (!thumb)

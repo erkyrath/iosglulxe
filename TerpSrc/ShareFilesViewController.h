@@ -30,7 +30,7 @@
 @property (nonatomic, strong) NSMutableArray *filelists;
 @property (nonatomic, strong) NSDateFormatter *dateformatter;
 
-- (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle;
+- (instancetype) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle;
 - (void) addBlankThumb;
 
 @end

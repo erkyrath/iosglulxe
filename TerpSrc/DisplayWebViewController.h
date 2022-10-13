@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *filename;
 @property (nonatomic, strong) NSString *doctitle;
 
-- (id) initWithNibName:(NSString *)nibName filename:(NSString *)filename title:(NSString *)title bundle:(NSBundle *)nibBundle;
+- (instancetype) initWithNibName:(NSString *)nibName filename:(NSString *)filename title:(NSString *)title bundle:(NSBundle *)nibBundle;
 
 @end
