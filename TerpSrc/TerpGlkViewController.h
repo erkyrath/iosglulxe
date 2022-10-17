@@ -14,8 +14,8 @@
 
 @interface TerpGlkViewController : IosGlkViewController <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) IBOutlet NotesViewController *notesvc;
-@property (nonatomic, strong) IBOutlet SettingsViewController *settingsvc;
+@property (nonatomic, strong) NotesViewController *notesvc;
+@property (nonatomic, strong) SettingsViewController *settingsvc;
 
 + (TerpGlkViewController *) singleton;
 
@@ -23,5 +23,5 @@
 - (IBAction) showPreferences;
 - (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer;
 - (void) handleSwipeRight:(UIGestureRecognizer *)recognizer;
-
+//- (void) setupBindings:(UITabBarController *)rootNavigationController;
 @end

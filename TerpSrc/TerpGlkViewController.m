@@ -21,9 +21,6 @@
 
 @implementation TerpGlkViewController
 
-@synthesize notesvc;
-@synthesize settingsvc;
-
 + (TerpGlkViewController *) singleton {
 	return (TerpGlkViewController *)([IosGlkAppDelegate singleton].glkviewc);
 }
@@ -78,7 +75,7 @@
 }
 
 - (void) becameInactive {
-	[notesvc saveIfNeeded];
+	[_notesvc saveIfNeeded];
 }
 
 - (void) enteredBackground {
@@ -155,13 +152,13 @@
 	UIViewController *rootviewc = viewcstack[0];
 	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
 	
-	if (rootviewc != notesvc) {
+	if (rootviewc != _notesvc) {
 		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
-		[notesvc.navigationController popToRootViewControllerAnimated:NO];
+		[_notesvc.navigationController popToRootViewControllerAnimated:NO];
 	}
-	if (rootviewc != settingsvc) {
+	if (rootviewc != _settingsvc) {
 		/* If the settingsvc was drilled into a web subview, pop out of there. */
-		[settingsvc.navigationController popToRootViewControllerAnimated:NO];
+		[_settingsvc.navigationController popToRootViewControllerAnimated:NO];
 	}
 }
 
@@ -203,8 +200,8 @@
 	[super keyboardWillBeShown:notification];
 	//NSLog(@"Keyboard will be shown (terp)");
 
-	if (notesvc) {
-		[notesvc adjustToKeyboardBox];
+	if (_notesvc) {
+		[_notesvc adjustToKeyboardBox];
 	}
 }
 
@@ -212,8 +209,8 @@
 	[super keyboardWillBeHidden:notification];
 	//NSLog(@"Keyboard will be hidden (terp)");
 
-	if (notesvc) {
-		[notesvc adjustToKeyboardBox];
+	if (_notesvc) {
+		[_notesvc adjustToKeyboardBox];
 	}
 }
 
@@ -248,5 +245,11 @@
 		self.tabBarController.selectedIndex = val;
 	}
 }
+
+//- (void) setupBindings:(UITabBarController *)rootNavigationController {
+//    rootNavigationController.delegate = self;
+//    _notesvc = (NotesViewController *)rootNavigationController.viewControllers[1];
+//    _settingsvc = (SettingsViewController *)rootNavigationController.viewControllers[2];
+//}
 
 @end

@@ -16,45 +16,40 @@
 
 @implementation NotesViewController
 
-@synthesize textview;
-@synthesize gradview;
-@synthesize buttontable;
-@synthesize transcriptcell;
-@synthesize notespath;
-
-
 - (void) viewDidLoad
 {
 	[super viewDidLoad];
 	
-	textview.delegate = self;
+	_textview.delegate = self;
+
+//	UIEdgeInsets insets = UIEdgeInsetsMake(_buttontable.bounds.size.height, 0, 0, 0);
+//    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+//	_textview.contentInset = insets;
+//	_textview.scrollIndicatorInsets = insets;
 	
-	UIEdgeInsets insets = UIEdgeInsetsMake(buttontable.bounds.size.height, 0, 0, 0);
-	textview.contentInset = insets;
-	textview.scrollIndicatorInsets = insets;
-	
-	if ([buttontable respondsToSelector:@selector(backgroundView)]) {
+	if ([_buttontable respondsToSelector:@selector(backgroundView)]) {
 		/* This is only available in iOS 3.2 and up */
-		buttontable.backgroundView = [[UIView alloc] initWithFrame:buttontable.backgroundView.frame];
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-			buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
-		}
-		else {
-			buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
-		}
+		_buttontable.backgroundView = [[UIView alloc] initWithFrame:_buttontable.backgroundView.frame];
+//		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//			_buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
+//		}
+//		else {
+//			_buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
+//		}
 	}
 	
 	/* Create the cells... */
 	self.transcriptcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Notes"];
-	transcriptcell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
-	transcriptcell.textLabel.text = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
-	transcriptcell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
+//	_transcriptcell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
+    _transcriptcell.backgroundColor = [UIColor colorNamed:@"CustomCellBackground"];
+	_transcriptcell.textLabel.text = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
+//	_transcriptcell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
 	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-		transcriptcell.textLabel.font = [transcriptcell.textLabel.font fontWithSize:17];
-	transcriptcell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		_transcriptcell.textLabel.font = [_transcriptcell.textLabel.font fontWithSize:17];
+	_transcriptcell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	/* Bang on font if Noteworthy is not available. I don't know why Marker Felt needs to be so enormous to fit the same grid as Noteworthy, though. */
-	if ([textview.font.familyName isEqualToString:@"Helvetica"]) {
+	if ([_textview.font.familyName isEqualToString:@"Helvetica"]) {
 		CGFloat fontsize;
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 			fontsize = 21;
@@ -62,10 +57,12 @@
 			fontsize = 25;
 		UIFont *font = [UIFont fontWithName:@"MarkerFelt-Thin" size:fontsize];
 		if (font)
-			textview.font = font;
+			_textview.font = font;
 		else
-			textview.font = [UIFont systemFontOfSize:fontsize];
+			_textview.font = [UIFont systemFontOfSize:fontsize];
 	}
+
+    _textview.textColor = [UIColor blackColor];
 	
 	NSString *reqSysVer = @"5.0";
 	NSString *currSysVer = [UIDevice currentDevice].systemVersion;
@@ -78,9 +75,9 @@
 		else
 			stripeimg = [UIImage imageNamed:@"background-notes"];
 		if (stripeimg)
-			textview.backgroundColor = [UIColor colorWithPatternImage:stripeimg];
+			_textview.backgroundColor = [UIColor colorWithPatternImage:stripeimg];
 		
-		[gradview setUpColorsPreset:1];
+		[_gradview setUpColorsPreset:1];
 	}
 	else {
 		/* Transparent background colors won't load properly. We substitute opaque ones, which handily cover up the missing gradient view. */
@@ -89,12 +86,12 @@
 		else
 			stripeimg = [UIImage imageNamed:@"background-notesopaque"];
 		if (stripeimg)
-			textview.backgroundColor = [UIColor colorWithPatternImage:stripeimg];
+			_textview.backgroundColor = [UIColor colorWithPatternImage:stripeimg];
 	}
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
-	if (!notespath) {
+	if (!_notespath) {
 		NSArray *dirlist = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		if (dirlist.count) {
 			NSString *dir = dirlist[0];
@@ -104,10 +101,10 @@
 	
 	textchanged = NO;
 	
-	if (notespath) {
-		NSString *str = [NSString stringWithContentsOfFile:notespath encoding:NSUTF8StringEncoding error:nil];
+	if (_notespath) {
+		NSString *str = [NSString stringWithContentsOfFile:_notespath encoding:NSUTF8StringEncoding error:nil];
 		if (str)
-			textview.text = str;
+			_textview.text = str;
 	}
 
 	/* Interface Builder currently doesn't allow us to set the voiceover labels for bar button items. We do it in code. */
@@ -127,10 +124,10 @@
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-		[textview addGestureRecognizer:recognizer];
+		[_textview addGestureRecognizer:recognizer];
 		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:mainviewc action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
-		[textview addGestureRecognizer:recognizer];
+		[_textview addGestureRecognizer:recognizer];
 	}
 }
 
@@ -150,40 +147,40 @@
 
 - (IBAction) toggleKeyboard
 {
-	if (textview.isFirstResponder) {
-		[textview resignFirstResponder];
+	if (_textview.isFirstResponder) {
+		[_textview resignFirstResponder];
 	}
 	else {
-		[textview becomeFirstResponder];
+		[_textview becomeFirstResponder];
 	}
+    [self adjustToKeyboardBox];
 }
 
 - (void) adjustToKeyboardBox {
 	CGRect keyboardbox = [IosGlkViewController singleton].keyboardbox;
 	/* This rect is in window coordinates. */
 	
-	if (textview) {
+	if (_textview) {
 		CGFloat offset = 0;
 		
 		if (keyboardbox.size.width > 0 && keyboardbox.size.height > 0) {
-			CGRect box = textview.bounds;
+			CGRect box = _textview.bounds;
 			CGFloat bottom = box.origin.y + box.size.height;
-			CGRect rect = [textview convertRect:keyboardbox fromView:nil];
+			CGRect rect = [_textview convertRect:keyboardbox fromView:nil];
 			if (rect.origin.y < bottom) {
-				offset = bottom - rect.origin.y;
+				offset = rect.origin.y - bottom;
 			}
 		}
-		
-		UIEdgeInsets insets = UIEdgeInsetsMake(buttontable.bounds.size.height, 0, offset, 0);
-		textview.contentInset = insets;
-		textview.scrollIndicatorInsets = insets;
+        _textbottomconstraint.constant = offset;
+        [_textview layoutIfNeeded];
 	}
 }
 
 - (IBAction) handleTranscripts
 {
-	TranscriptViewController *transviewc = [[TranscriptViewController alloc] initWithNibName:@"TranscriptVC" bundle:nil];
-	[self.navigationController pushViewController:transviewc animated:YES];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Transcript" bundle:nil];
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"transcriptnav"];
+    [self.navigationController pushViewController:navc.viewControllers[0] animated:YES];
 }
 
 - (void) saveIfNeeded
@@ -192,18 +189,9 @@
 		return;
 	textchanged = NO;
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(saveIfNeeded) object:nil];
-	if (notespath && textview.text) {
-		[textview.text writeToFile:notespath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	if (_notespath && _textview.text) {
+		[_textview.text writeToFile:_notespath atomically:YES encoding:NSUTF8StringEncoding error:nil];
 	}
-}
-
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView
-{
-	CGRect rect = buttontable.frame;
-	rect.origin.y = -textview.contentOffset.y - rect.size.height;
-	if (rect.origin.y > 0)
-		rect.origin.y = 0;
-	buttontable.frame = rect;
 }
 
 /* UITextView delegate method */
@@ -227,7 +215,7 @@
 {
 	switch (indexpath.row) {
 		case 0:
-			return transcriptcell;
+			return _transcriptcell;
 		default:
 			return nil;
 	}
@@ -237,7 +225,7 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexpath
 {
-	[buttontable deselectRowAtIndexPath:indexpath animated:NO];
+	[_buttontable deselectRowAtIndexPath:indexpath animated:NO];
 	if (indexpath.row == 0)
 		[self handleTranscripts];
 }

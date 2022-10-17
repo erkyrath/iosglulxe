@@ -17,7 +17,7 @@
 @property (nonatomic, strong) IBOutlet UITextView *textview;
 @property (nonatomic, strong) IBOutlet UITableView *buttontable;
 @property (nonatomic, strong) IBOutlet UITableViewCell *transcriptcell;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textbottomconstraint;
 @property (nonatomic, strong) NSString *notespath;
 
 - (IBAction) toggleKeyboard;

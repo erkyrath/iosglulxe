@@ -26,20 +26,14 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 @synthesize filelists;
 @synthesize dateformatter;
 
-- (instancetype) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
-	self = [super initWithNibName:nibName bundle:nibBundle];
-	if (self) {
-		self.filelists = [NSMutableArray arrayWithCapacity:8];
-		self.dateformatter = [[RelDateFormatter alloc] init];
-		dateformatter.dateStyle = NSDateFormatterMediumStyle;
-		dateformatter.timeStyle = NSDateFormatterShortStyle;
-	}
-	return self;
-}
-
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+
+    self.filelists = [NSMutableArray arrayWithCapacity:8];
+    self.dateformatter = [[RelDateFormatter alloc] init];
+    dateformatter.dateStyle = NSDateFormatterMediumStyle;
+    dateformatter.timeStyle = NSDateFormatterShortStyle;
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.sharefiles", @"TerpLocalize", nil);
 	
@@ -168,8 +162,13 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 	if (!thumb)
 		return;
 	
-	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
-	[self.navigationController pushViewController:viewc animated:YES];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DisplayText" bundle:nil];
+
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"ViewTextNav"];
+    DisplayTextViewController *viewc = (DisplayTextViewController *)navc.viewControllers[0];
+    viewc.thumb = thumb;
+
+    [self presentViewController:navc animated:YES completion:nil];
 }
 
 - (void) buttonSend:(id)sender
@@ -300,21 +299,21 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = @"(null)";
-		cell.textLabel.textColor = [UIColor blackColor];
+//		cell.textLabel.textColor = [UIColor blackColor];
 		cell.detailTextLabel.text = @"?";
 	}
 	else if (thumb.isfake) {
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.textLabel.text = thumb.label;
-		cell.textLabel.textColor = [UIColor lightGrayColor];
+//		cell.textLabel.textColor = [UIColor lightGrayColor];
 		cell.detailTextLabel.text = @"";
 	}
 	else {
 		cell.accessoryType = ((thumb.usage == fileusage_Transcript) ? UITableViewCellAccessoryDetailDisclosureButton : UITableViewCellAccessoryNone);
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = thumb.label;
-		cell.textLabel.textColor = [UIColor blackColor];
+//		cell.textLabel.textColor = [UIColor blackColor];
 		cell.detailTextLabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 	
@@ -402,9 +401,14 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		return;
 	if (thumb.usage != fileusage_Transcript)
 		return;
-	
-	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
-	[self.navigationController pushViewController:viewc animated:YES];
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DisplayText" bundle:nil];
+
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"ViewTextNav"];
+    DisplayTextViewController *viewc = (DisplayTextViewController *)navc.viewControllers[0];
+    viewc.thumb = thumb;
+
+    [self.navigationController pushViewController:viewc animated:YES];
 }
 
 @end

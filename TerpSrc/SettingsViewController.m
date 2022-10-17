@@ -29,14 +29,14 @@
 	if ([tableview respondsToSelector:@selector(backgroundView)]) {
 		/* This is only available in iOS 3.2 and up */
 		tableview.backgroundView = [[UIView alloc] initWithFrame:tableview.backgroundView.frame];
-		tableview.backgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
+        tableview.backgroundView.backgroundColor = [UIColor colorNamed:@"CustomTableBackground"];
 	}
 	
 	/* Create the cells... */
 	self.licensecell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
-	licensecell.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
+	licensecell.backgroundColor = [UIColor colorNamed:@"CustomCellBackground"];
 	licensecell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.license", @"TerpLocalize", nil);
-	licensecell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
+	licensecell.textLabel.textColor = [UIColor colorNamed:@"CustomCellText"];
 	licensecell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	self.sharefilescell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
@@ -46,6 +46,7 @@
 	sharefilescell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
 	self.autocorrectcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Settings"];
+
 	autocorrectcell.backgroundColor = licensecell.backgroundColor;
 	autocorrectcell.textLabel.text = NSLocalizedStringFromTable(@"settings.cell.autocorrect", @"TerpLocalize", nil);
 	autocorrectcell.textLabel.textColor = licensecell.textLabel.textColor;
@@ -99,7 +100,15 @@
 - (void) handleLicenses
 {
 	NSString *title = NSLocalizedStringFromTable(@"settings.title.license", @"TerpLocalize", nil);
-	DisplayWebViewController *viewc = [[DisplayWebViewController alloc] initWithNibName:@"WebDocVC" filename:@"license" title:title bundle:nil];
+
+    UIStoryboard* sb = [UIStoryboard storyboardWithName:@"MainStoryboard"
+                                                 bundle:nil];
+    
+    DisplayWebViewController* viewc = (DisplayWebViewController *)[sb instantiateViewControllerWithIdentifier:@"WebDoc"];
+
+    viewc.filename = @"license";
+    viewc.doctitle = title;
+
 	[self.navigationController pushViewController:viewc animated:YES];
 }
 
@@ -110,7 +119,11 @@
 
 - (void) handleShareFilesHighlightUsage:(int)usage name:(NSString *)filename
 {
-	ShareFilesViewController *viewc = [[ShareFilesViewController alloc] initWithNibName:@"ShareFilesVC" bundle:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"ShareFiles" bundle:nil];
+
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"ShareFilesNav"];
+    ShareFilesViewController *viewc = (ShareFilesViewController *)navc.viewControllers[0];
+
 	BOOL animated = YES;
 	if (filename) {
 		// It so happens that if filename exists, this is an arriving file (and the caller is displayGlkFileUsage). Don't animate in that case.
@@ -118,6 +131,7 @@
 		viewc.highlightusage = usage;
 		viewc.highlightname = filename;
 	}
+
 	[self.navigationController pushViewController:viewc animated:animated];
 }
 

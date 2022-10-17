@@ -19,20 +19,14 @@
 @synthesize filelist;
 @synthesize dateformatter;
 
-- (instancetype) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
-	self = [super initWithNibName:nibName bundle:nibBundle];
-	if (self) {
-		self.filelist = [NSMutableArray arrayWithCapacity:16];
-		self.dateformatter = [[RelDateFormatter alloc] init];
-		dateformatter.dateStyle = NSDateFormatterMediumStyle;
-		dateformatter.timeStyle = NSDateFormatterShortStyle;
-	}
-	return self;
-}
-
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+
+    self.filelist = [NSMutableArray arrayWithCapacity:16];
+    self.dateformatter = [[RelDateFormatter alloc] init];
+    dateformatter.dateStyle = NSDateFormatterMediumStyle;
+    dateformatter.timeStyle = NSDateFormatterShortStyle;
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 	
@@ -131,21 +125,21 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = @"(null)";
-		cell.textLabel.textColor = [UIColor blackColor];
+//		cell.textLabel.textColor = [UIColor blackColor];
 		cell.detailTextLabel.text = @"?";
 	}
 	else if (thumb.isfake) {
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.textLabel.text = thumb.label;
-		cell.textLabel.textColor = [UIColor lightGrayColor];
+//		cell.textLabel.textColor = [UIColor lightGrayColor];
 		cell.detailTextLabel.text = @"";
 	}
 	else {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = thumb.label;
-		cell.textLabel.textColor = [UIColor blackColor];
+//		cell.textLabel.textColor = [UIColor blackColor];
 		cell.detailTextLabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 	
@@ -187,8 +181,14 @@
 		return;
 		
 	/* The user has selected a file. */
-	DisplayTextViewController *viewc = [[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil];
-	[self.navigationController pushViewController:viewc animated:YES];
+
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DisplayText" bundle:nil];
+
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"ViewTextNav"];
+    DisplayTextViewController *viewc = (DisplayTextViewController *)navc.viewControllers[0];
+    viewc.thumb = thumb;
+
+    [self.navigationController pushViewController:viewc animated:YES];
 }
 
 @end

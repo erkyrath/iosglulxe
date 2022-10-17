@@ -39,16 +39,16 @@
 
 	titlelabel.text = thumb.label;
 	
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-		/* No room for this on the iphone layout */
-		datelabel.hidden = YES;
-	}
-	else {
+//	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//		/* No room for this on the iphone layout */
+//		datelabel.hidden = YES;
+//	}
+//	else {
 		RelDateFormatter *dateformatter = [[RelDateFormatter alloc] init];
 		dateformatter.dateStyle = NSDateFormatterMediumStyle;
 		dateformatter.timeStyle = NSDateFormatterShortStyle;
 		datelabel.text = [dateformatter stringFromDate:thumb.modtime];
-	}
+//	}
 
 	NSString *str = [NSString stringWithContentsOfFile:thumb.pathname encoding:NSUTF8StringEncoding error:nil];
 	if (str)
