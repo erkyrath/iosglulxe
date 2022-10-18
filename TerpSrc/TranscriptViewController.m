@@ -125,21 +125,21 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = NSLocalizedString(@"(null)", nil);
-//		cell.textLabel.textColor = [UIColor blackColor];
+		cell.textLabel.textColor = [UIColor colorNamed:@"CustomText"];
 		cell.detailTextLabel.text = @"?";
 	}
 	else if (thumb.isfake) {
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		cell.textLabel.text = thumb.label;
-//		cell.textLabel.textColor = [UIColor lightGrayColor];
+		cell.textLabel.textColor = [UIColor lightGrayColor];
 		cell.detailTextLabel.text = @"";
 	}
 	else {
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = thumb.label;
-//		cell.textLabel.textColor = [UIColor blackColor];
+		cell.textLabel.textColor = [UIColor colorNamed:@"CustomText"];
 		cell.detailTextLabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 	
