@@ -217,7 +217,7 @@
 		case 0:
 			return _transcriptcell;
 		default:
-			return nil;
+            abort();
 	}
 }
 

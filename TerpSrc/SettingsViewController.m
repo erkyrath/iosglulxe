@@ -185,7 +185,7 @@
 				case 1:
 					return autocorrectcell;
 				default:
-					return nil;
+                    abort();
 			}
 			
 		case SECTION_FILES:
@@ -193,7 +193,7 @@
 				case 0:
 					return sharefilescell;
 				default:
-					return nil;
+                    abort();
 			}
 			
 		case SECTION_LICENSE:
@@ -201,11 +201,11 @@
 				case 0:
 					return licensecell;
 				default:
-					return nil;
+                    abort();
 			}
 			
 		default:
-			return nil;
+            abort();
 	}
 }
 

@@ -305,7 +305,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 		// shouldn't happen
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		cell.textLabel.text = @"(null)";
+		cell.textLabel.text = NSLocalizedString(@"(null)", nil);
 //		cell.textLabel.textColor = [UIColor blackColor];
 		cell.detailTextLabel.text = @"?";
 	}
