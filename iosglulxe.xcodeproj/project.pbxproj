@@ -33,7 +33,6 @@
 		DF3868F115F7D2030070AADB /* TerpGameOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868EE15F7D2030070AADB /* TerpGameOverView.m */; };
 		DF3868F215F7D2030070AADB /* DisplayWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868F015F7D2030070AADB /* DisplayWebViewController.m */; };
 		DF3868F515F7D2880070AADB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3868F415F7D2880070AADB /* SettingsViewController.m */; };
-		DF3868F915F7DD1E0070AADB /* NotesVC~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3868FB15F7DD1E0070AADB /* NotesVC~ipad.xib */; };
 		DF3868FC15F7DD4D0070AADB /* PrefsMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3868FE15F7DD4D0070AADB /* PrefsMenuView.xib */; };
 		DF3868FF15F7DD510070AADB /* PrefsMenuView~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF38690115F7DD510070AADB /* PrefsMenuView~ipad.xib */; };
 		DF38690D15F7DDCC0070AADB /* TerpLocalize.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF38690615F7DDCC0070AADB /* TerpLocalize.strings */; };
@@ -305,7 +304,6 @@
 		DF78C99923BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/PrefsMenuView~ipad.xib"; sourceTree = "<group>"; };
 		DF78C99A23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../iosglk/Resources/Base.lproj/GameOverView.xib; sourceTree = "<group>"; };
 		DF78C99B23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FatalGameOverView.xib; sourceTree = "<group>"; };
-		DF78C99E23BB27FC004D3102 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/NotesVC~ipad.xib"; sourceTree = "<group>"; };
 		DF9E959915F9938600907F8C /* iosstart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosstart.h; sourceTree = "<group>"; };
 		DFA5BD6E1860F4D000F11F5F /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
 		DFA5BD6F1860F4D000F11F5F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 				DF38690115F7DD510070AADB /* PrefsMenuView~ipad.xib */,
 				DF9E959A15FB0B6600907F8C /* GameOverView.xib */,
 				DF38690815F7DDCC0070AADB /* FatalGameOverView.xib */,
-				DF3868FB15F7DD1E0070AADB /* NotesVC~ipad.xib */,
 				DF38691215F7DE1C0070AADB /* Localizable.strings */,
 				DF38690615F7DDCC0070AADB /* TerpLocalize.strings */,
 			);
@@ -677,7 +674,6 @@
 				DF41DAA31531F63F000B5D00 /* MoreBoxView.xib in Resources */,
 				DF41DAA41531F63F000B5D00 /* PaletteMenuView.xib in Resources */,
 				DF41DAA51531F63F000B5D00 /* PopBoxView.xib in Resources */,
-				DF3868F915F7DD1E0070AADB /* NotesVC~ipad.xib in Resources */,
 				DFA5BD7F1861862400F11F5F /* Default@2x.png in Resources */,
 				DF3868FC15F7DD4D0070AADB /* PrefsMenuView.xib in Resources */,
 				DF3868FF15F7DD510070AADB /* PrefsMenuView~ipad.xib in Resources */,
@@ -806,14 +802,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DF3868FB15F7DD1E0070AADB /* NotesVC~ipad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DF78C99E23BB27FC004D3102 /* Base */,
-			);
-			name = "NotesVC~ipad.xib";
-			sourceTree = "<group>";
-		};
 		DF3868FE15F7DD4D0070AADB /* PrefsMenuView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

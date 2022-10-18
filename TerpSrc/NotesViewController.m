@@ -22,6 +22,8 @@
 	
 	_textview.delegate = self;
 
+    BOOL isPhone = (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone);
+
 //	UIEdgeInsets insets = UIEdgeInsetsMake(_buttontable.bounds.size.height, 0, 0, 0);
 //    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
 //	_textview.contentInset = insets;
@@ -30,7 +32,7 @@
 	if ([_buttontable respondsToSelector:@selector(backgroundView)]) {
 		/* This is only available in iOS 3.2 and up */
 		_buttontable.backgroundView = [[UIView alloc] initWithFrame:_buttontable.backgroundView.frame];
-//		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//		if (isPhone) {
 //			_buttontable.backgroundView.backgroundColor = [UIColor colorWithRed:1.0 green:0.98 blue:0.92 alpha:1];
 //		}
 //		else {
@@ -44,14 +46,17 @@
     _transcriptcell.backgroundColor = [UIColor colorNamed:@"CustomCellBackground"];
 	_transcriptcell.textLabel.text = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 //	_transcriptcell.textLabel.textColor = [UIColor colorWithRed:0.35 green:0.215 blue:0 alpha:1];
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (isPhone)
 		_transcriptcell.textLabel.font = [_transcriptcell.textLabel.font fontWithSize:17];
 	_transcriptcell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	
+
+    if (!isPhone)
+        _textview.font = [_textview.font fontWithSize:16];
+
 	/* Bang on font if Noteworthy is not available. I don't know why Marker Felt needs to be so enormous to fit the same grid as Noteworthy, though. */
 	if ([_textview.font.familyName isEqualToString:@"Helvetica"]) {
 		CGFloat fontsize;
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		if (isPhone)
 			fontsize = 21;
 		else
 			fontsize = 25;
@@ -64,12 +69,8 @@
 
     _textview.textColor = [UIColor blackColor];
 	
-	NSString *reqSysVer = @"5.0";
-	NSString *currSysVer = [UIDevice currentDevice].systemVersion;
-	BOOL hasios5 = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
-	
 	UIImage *stripeimg = nil;
-	if (hasios5) {
+	if (@available(iOS 5, *)) {
 		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 			stripeimg = [UIImage imageNamed:@"background-notes-s"];
 		else
@@ -81,7 +82,7 @@
 	}
 	else {
 		/* Transparent background colors won't load properly. We substitute opaque ones, which handily cover up the missing gradient view. */
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		if (isPhone)
 			stripeimg = [UIImage imageNamed:@"background-notesopaque-s"];
 		else
 			stripeimg = [UIImage imageNamed:@"background-notesopaque"];
