@@ -68,7 +68,8 @@
 		fontfamily = @"Georgia";
 	self.terpDelegate.fontfamily = fontfamily;
 	
-	self.navigationController.navigationBar.barStyle = (self.terpDelegate.hasDarkTheme ? UIBarStyleBlack : UIBarStyleDefault);
+//	self.navigationController.navigationBar.barStyle = (self.terpDelegate.hasDarkTheme ? UIBarStyleBlack : UIBarStyleDefault);
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 	
 	// Yes, this is in two places.
 	self.frameview.backgroundColor = [self.terpDelegate genBackgroundColor];

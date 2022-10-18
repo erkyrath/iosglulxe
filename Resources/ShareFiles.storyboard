@@ -4,6 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,18 +13,31 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="ShareFilesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="vBT-oB-zJN">
+                    <view key="view" contentMode="scaleToFill" id="I5J-ty-NFc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <connections>
-                            <outlet property="dataSource" destination="Y6W-OH-hqX" id="kh4-7p-htd"/>
-                            <outlet property="delegate" destination="Y6W-OH-hqX" id="k5f-CV-t5H"/>
-                        </connections>
-                    </tableView>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dxN-vJ-x8t">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="1Fv-Dl-08L"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="dVJ-oQ-nW1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="plf-gh-Tru"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="plf-gh-Tru" firstAttribute="bottom" secondItem="dxN-vJ-x8t" secondAttribute="bottom" id="8Bj-8K-CoP"/>
+                            <constraint firstItem="dxN-vJ-x8t" firstAttribute="top" secondItem="plf-gh-Tru" secondAttribute="top" id="8kd-Fr-pAz"/>
+                            <constraint firstItem="dxN-vJ-x8t" firstAttribute="leading" secondItem="plf-gh-Tru" secondAttribute="leading" id="DzG-vF-zDJ"/>
+                            <constraint firstItem="plf-gh-Tru" firstAttribute="trailing" secondItem="dxN-vJ-x8t" secondAttribute="trailing" id="YIQ-6c-o5K"/>
+                        </constraints>
+                    </view>
                     <navigationItem key="navigationItem" id="wi4-8j-CDZ"/>
                     <connections>
-                        <outlet property="tableView" destination="vBT-oB-zJN" id="11A-Go-zTR"/>
+                        <outlet property="tableView" destination="dxN-vJ-x8t" id="yu6-pU-rIV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -48,4 +63,9 @@
             <point key="canvasLocation" x="43.076923076923073" y="18.48341232227488"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

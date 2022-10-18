@@ -17,7 +17,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qsq-tJ-jBd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="rCU-og-OYH" kind="relationship" relationship="viewControllers" id="orU-i4-YZq"/>
@@ -39,6 +39,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xwq-0h-0dv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -59,7 +60,7 @@
                         <subviews>
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qT-Cz-trf" userLabel="Glk Frameview" customClass="GlkFrameView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="594"/>
-                                <color key="backgroundColor" red="0.74344569439999997" green="0.74344569439999997" blue="0.74344569439999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sJK-ys-wLQ"/>
@@ -171,6 +172,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cvi-2W-81d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -190,6 +192,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7m7-8A-v8F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -298,6 +301,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nDP-EU-Yui">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
