@@ -195,8 +195,9 @@
 	
 	if (faderview) {
 		if (/* DISABLES CODE */ (true)) {
+            PrefsMenuView __weak *weakSelf = self;
 			[UIView animateWithDuration:0.15 
-                             animations:^{ self->faderview.alpha = (isdark ? 1.0 : 0.0); } ];
+                             animations:^{ weakSelf.faderview.alpha = (isdark ? 1.0 : 0.0); } ];
 		}
 		else {
 			faderview.alpha = (isdark ? 1.0 : 0.0);
@@ -297,12 +298,13 @@
 		CGRect rect = fontscontainer.frame;
 		fontscontainer.frame = CGRectMake(rect.origin.x, rect.origin.y+curheight, rect.size.width, rect.size.height);
 		[content addSubview:fontscontainer];
+        PrefsMenuView __weak *weakSelf = self;
 		[UIView animateWithDuration:0.35 
 						 animations:^{ 
-            self->fontscontainer.frame = rect;
-            self->container.alpha = 0;
-            self->container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
-                         completion: ^(BOOL finished){ [self->container removeFromSuperview]; } ];
+            weakSelf.fontscontainer.frame = rect;
+            weakSelf.container.alpha = 0;
+            weakSelf.container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [weakSelf.container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:fontscontainer];
@@ -319,12 +321,13 @@
 		CGRect rect = colorscontainer.frame;
 		colorscontainer.frame = CGRectMake(rect.origin.x, rect.origin.y+curheight, rect.size.width, rect.size.height);
 		[content addSubview:colorscontainer];
+        PrefsMenuView __weak *weakSelf = self;
 		[UIView animateWithDuration:0.35 
 						animations:^{ 
-            self->colorscontainer.frame = rect;
-            self->container.alpha = 0;
-            self->container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
-                         completion: ^(BOOL finished){ [self->container removeFromSuperview]; } ];
+            weakSelf.colorscontainer.frame = rect;
+            weakSelf.container.alpha = 0;
+            weakSelf.container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [weakSelf.container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:colorscontainer];

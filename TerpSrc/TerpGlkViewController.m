@@ -246,10 +246,4 @@
 	}
 }
 
-//- (void) setupBindings:(UITabBarController *)rootNavigationController {
-//    rootNavigationController.delegate = self;
-//    _notesvc = (NotesViewController *)rootNavigationController.viewControllers[1];
-//    _settingsvc = (SettingsViewController *)rootNavigationController.viewControllers[2];
-//}
-
 @end
