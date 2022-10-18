@@ -214,6 +214,13 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"button.drat", @"TerpLocalize", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {}]];
 
+        UIPopoverPresentationController *popoverController = alert.popoverPresentationController;
+        if (popoverController) {
+            popoverController.sourceView = self.view;
+            popoverController.sourceRect = CGRectMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds), 0, 0);
+            popoverController.permittedArrowDirections = 0;
+        }
+
         // Present alert sheet.
         [self presentViewController:alert animated:YES completion:nil];
 	}
