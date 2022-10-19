@@ -13,10 +13,16 @@
 
 @synthesize webview;
 
+- (void) dealloc {
+	if (webview) {
+		webview.navigationDelegate = nil;
+	}
+}
+
 - (void) viewDidLoad
 {
 	[super viewDidLoad];
-	
+
 	NSBundle *bundle = [NSBundle mainBundle];
 	// Do this the annoying iOS3-compatible way
 	NSString *path = [bundle pathForResource:@"index" ofType:@"html" inDirectory:@"WebSite"];
@@ -44,7 +50,7 @@
 		/* Let file:... URLs load normally */
 		return YES;
 	}
-	
+
     [[UIApplication sharedApplication] openURL:request.URL options:@{} completionHandler:nil];
 	return NO;
 }
