@@ -147,7 +147,7 @@
 		C32DA12828F95AEE00DAAA9F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C38E9E3F26F138B200B49E29 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		C39419FC28FCBC3E00747658 /* GlkFileSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GlkFileSelect.storyboard; sourceTree = "<group>"; };
+		C39419FC28FCBC3E00747658 /* GlkFileSelect.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = GlkFileSelect.storyboard; path = iosglk/Resources/GlkFileSelect.storyboard; sourceTree = SOURCE_ROOT; };
 		C3AE08BA28FD5C640028BD2F /* Transcript.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transcript.storyboard; sourceTree = "<group>"; };
 		C3AE08BC28FD60500028BD2F /* DisplayText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayText.storyboard; sourceTree = "<group>"; };
 		C3AE08C128FD72CF0028BD2F /* ShareFiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareFiles.storyboard; sourceTree = "<group>"; };
