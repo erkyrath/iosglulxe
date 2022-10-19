@@ -23,5 +23,4 @@
 - (IBAction) showPreferences;
 - (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer;
 - (void) handleSwipeRight:(UIGestureRecognizer *)recognizer;
-//- (void) setupBindings:(UITabBarController *)rootNavigationController;
 @end

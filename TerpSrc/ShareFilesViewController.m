@@ -28,7 +28,7 @@ static int usages[] = { fileusage_SavedGame, fileusage_Transcript, fileusage_Dat
 
 
 - (void) viewDidLoad {
-	[super viewDidLoad];
+    [super viewDidLoad];
 
     self.filelists = [NSMutableArray arrayWithCapacity:8];
     self.dateformatter = [[RelDateFormatter alloc] init];

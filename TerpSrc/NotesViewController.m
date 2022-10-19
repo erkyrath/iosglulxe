@@ -71,7 +71,7 @@
 	
 	UIImage *stripeimg = nil;
 	if (@available(iOS 5, *)) {
-		if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+		if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 			stripeimg = [UIImage imageNamed:@"background-notes-s"];
 		else
 			stripeimg = [UIImage imageNamed:@"background-notes"];

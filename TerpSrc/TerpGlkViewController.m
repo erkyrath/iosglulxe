@@ -35,7 +35,7 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
 	/* Set some reasonable defaults, if none have ever been set. */
-	if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPhone) {
+	if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
 		/* On the iPad, use a 3/4 column and bump the leading a little. */
 		if (![defaults objectForKey:@"FrameMaxWidth"])
 			[defaults setInteger:1 forKey:@"FrameMaxWidth"];
@@ -188,7 +188,7 @@
 }
 
 - (IBAction) toggleKeyboard {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
 		/* Can't have the prefs menu up at the same time as the keyboard -- the iPhone screen is too small. */
 		if (frameview.menuview && [frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
 			[frameview removePopMenuAnimated:YES];
@@ -216,7 +216,7 @@
 }
 
 - (IBAction) showPreferences {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
 		/* Can't have the prefs menu up at the same time as the keyboard */
 		[self hideKeyboard];
 	}

@@ -244,7 +244,7 @@
 /* This is invoked from both the VM and UI threads.
  */
 - (void) prepareStyles:(StyleSet *)styles forWindowType:(glui32)wintype rock:(glui32)rock {
-	BOOL isiphone = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
+	BOOL isiphone = (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone);
 	
 	NSString *fontfam = self.fontfamily;
 	
@@ -319,7 +319,7 @@
 
 - (CGRect) adjustFrame:(CGRect)rect {
 	/* Decode the maxwidth value into a pixel width. 0 means full-width. */
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 		return rect;
 	
 	CGFloat limit = 0;
@@ -346,7 +346,7 @@
 }
 
 - (UIEdgeInsets) viewMarginForWindow:(GlkWindowState *)win rect:(CGRect)rect framebounds:(CGRect)framebounds {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 		return UIEdgeInsetsZero;
 	
 	if ([win isKindOfClass:[GlkWindowBufferState class]]) {

@@ -39,7 +39,7 @@
 
 	titlelabel.text = thumb.label;
 	
-//	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
 //		/* No room for this on the iphone layout */
 //		datelabel.hidden = YES;
 //	}
@@ -70,7 +70,7 @@
 {
     NSArray *ls = @[textview.text];
     UIActivityViewController *actvc = [[UIActivityViewController alloc] initWithActivityItems:ls applicationActivities:nil];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+    if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         [self presentViewController:actvc animated:YES completion:nil];
     }
     return;
