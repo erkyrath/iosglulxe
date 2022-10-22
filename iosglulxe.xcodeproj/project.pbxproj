@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		C3106F22290412EB00EE9BCE /* GlkEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = C3106F21290412EB00EE9BCE /* GlkEventState.m */; };
 		C32DA12928F95AEE00DAAA9F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12828F95AEE00DAAA9F /* Media.xcassets */; };
 		C32DA12B28F95B0600DAAA9F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */; };
 		C38E9E4026F138B200B49E29 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38E9E3F26F138B200B49E29 /* CoreServices.framework */; };
@@ -78,7 +79,7 @@
 		DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9DFF1369129200AC9A95 /* GlkDispatchLayer.m */; };
 		DF4B9E4013691A0600AC9A95 /* Game.ulx in Resources */ = {isa = PBXBuildFile; fileRef = DF4B9E3F13691A0600AC9A95 /* Game.ulx */; };
 		DF4B9E4B13691DC300AC9A95 /* iosstart.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4B9E4A13691DC300AC9A95 /* iosstart.m */; };
-		DF4CB9D11368FF9800CED834 /* GlkAppWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */; };
+		DF4CB9D11368FF9800CED834 /* GlkAppWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DF4CB9D21368FF9800CED834 /* GlkFileSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C01368FF9800CED834 /* GlkFileSelectViewController.m */; };
 		DF4CB9D31368FF9800CED834 /* GlkFrameView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C21368FF9800CED834 /* GlkFrameView.m */; };
 		DF4CB9D41368FF9800CED834 /* GlkWinBufferView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9C41368FF9800CED834 /* GlkWinBufferView.m */; };
@@ -144,6 +145,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* iosglulxe_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iosglulxe_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* iosglulxe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iosglulxe-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C3106F20290412EB00EE9BCE /* GlkEventState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlkEventState.h; sourceTree = "<group>"; };
+		C3106F21290412EB00EE9BCE /* GlkEventState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlkEventState.m; sourceTree = "<group>"; };
 		C32DA12828F95AEE00DAAA9F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C38E9E3F26F138B200B49E29 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -488,6 +491,8 @@
 				DF4CB9C01368FF9800CED834 /* GlkFileSelectViewController.m */,
 				DF4CB9BD1368FF9800CED834 /* GlkAppWrapper.h */,
 				DF4CB9BE1368FF9800CED834 /* GlkAppWrapper.m */,
+				C3106F20290412EB00EE9BCE /* GlkEventState.h */,
+				C3106F21290412EB00EE9BCE /* GlkEventState.m */,
 				DF4CB9C11368FF9800CED834 /* GlkFrameView.h */,
 				DF4CB9C21368FF9800CED834 /* GlkFrameView.m */,
 				DF4CB9C31368FF9800CED834 /* GlkWinBufferView.h */,
@@ -783,6 +788,7 @@
 				DF41DAF01531F6D3000B5D00 /* TextSelectView.m in Sources */,
 				DF41DAF71531F6F8000B5D00 /* GlkAccessTypes.m in Sources */,
 				DF41DAF81531F6F8000B5D00 /* GlkLibraryState.m in Sources */,
+				C3106F22290412EB00EE9BCE /* GlkEventState.m in Sources */,
 				DF41DAF91531F6F8000B5D00 /* GlkWindowState.m in Sources */,
 				DF41DB081531F7BF000B5D00 /* DisplayTextViewController.m in Sources */,
 				DF41DB091531F7BF000B5D00 /* GradientView.m in Sources */,
