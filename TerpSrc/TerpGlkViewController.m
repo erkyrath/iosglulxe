@@ -197,24 +197,6 @@
 	[super toggleKeyboard];
 }
 
-- (void) keyboardWillBeShown:(NSNotification*)notification {
-	[super keyboardWillBeShown:notification];
-	//NSLog(@"Keyboard will be shown (terp)");
-
-	if (_notesvc) {
-		[_notesvc adjustToKeyboardBox];
-	}
-}
-
-- (void) keyboardWillBeHidden:(NSNotification*)notification {
-	[super keyboardWillBeHidden:notification];
-	//NSLog(@"Keyboard will be hidden (terp)");
-
-	if (_notesvc) {
-		[_notesvc adjustToKeyboardBox];
-	}
-}
-
 - (IBAction) showPreferences {
 	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
 		/* Can't have the prefs menu up at the same time as the keyboard */

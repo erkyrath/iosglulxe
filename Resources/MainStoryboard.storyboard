@@ -119,13 +119,13 @@
                                 <rect key="frame" x="0.0" y="82" width="414" height="605"/>
                                 <color key="backgroundColor" red="0.94746839999999999" green="0.91692304609999997" blue="0.73587924240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-BC-mGU">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-BC-mGU" customClass="UnderlinedTextView">
                                 <rect key="frame" x="0.0" y="82" width="414" height="605"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">My journey began...
 (You can take notes on this page.)</string>
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
                         </subviews>
@@ -137,12 +137,12 @@
                             <constraint firstItem="bTM-no-Wfn" firstAttribute="trailing" secondItem="6TF-pB-ZCb" secondAttribute="trailing" id="Grx-Zh-CEV"/>
                             <constraint firstItem="2fm-BC-mGU" firstAttribute="top" secondItem="6TF-pB-ZCb" secondAttribute="bottom" id="MPb-9m-6jD"/>
                             <constraint firstItem="2fm-BC-mGU" firstAttribute="leading" secondItem="bTM-no-Wfn" secondAttribute="leading" id="Tkl-2X-tGc"/>
-                            <constraint firstItem="2fm-BC-mGU" firstAttribute="bottom" secondItem="bTM-no-Wfn" secondAttribute="bottom" id="XDs-xk-HdE"/>
                             <constraint firstItem="bTM-no-Wfn" firstAttribute="top" secondItem="6TF-pB-ZCb" secondAttribute="top" id="YVg-l9-5p6"/>
                             <constraint firstItem="2fm-BC-mGU" firstAttribute="trailing" secondItem="bTM-no-Wfn" secondAttribute="trailing" id="bLW-b5-XYe"/>
                             <constraint firstItem="6TF-pB-ZCb" firstAttribute="leading" secondItem="bTM-no-Wfn" secondAttribute="leading" id="i7F-3L-v6P"/>
                             <constraint firstItem="bFB-9C-eBX" firstAttribute="leading" secondItem="bTM-no-Wfn" secondAttribute="leading" id="kkg-BD-dqj"/>
                             <constraint firstItem="bFB-9C-eBX" firstAttribute="bottom" secondItem="bTM-no-Wfn" secondAttribute="bottom" id="l43-AN-pLa"/>
+                            <constraint firstItem="bTM-no-Wfn" firstAttribute="bottom" secondItem="2fm-BC-mGU" secondAttribute="bottom" id="nft-Gi-LYV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Notes" id="ffp-6V-2wr">
@@ -155,7 +155,6 @@
                     <connections>
                         <outlet property="buttontable" destination="6TF-pB-ZCb" id="Wgc-9y-sb9"/>
                         <outlet property="gradview" destination="bFB-9C-eBX" id="6ev-LL-cHO"/>
-                        <outlet property="textbottomconstraint" destination="XDs-xk-HdE" id="fo1-HW-fLJ"/>
                         <outlet property="textview" destination="2fm-BC-mGU" id="lrl-um-Uuq"/>
                     </connections>
                 </viewController>
