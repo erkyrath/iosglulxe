@@ -67,10 +67,12 @@
 	if (!fontfamily)
 		fontfamily = @"Georgia";
 	self.terpDelegate.fontfamily = fontfamily;
-	
-//	self.navigationController.navigationBar.barStyle = (self.view.hasDarkTheme ? UIBarStyleBlack : UIBarStyleDefault);
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-	
+
+    self.navigationController.navigationBar.barTintColor = ((UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? [UIColor blackColor] : [UIColor whiteColor]));
+    NSMutableDictionary<NSAttributedStringKey, id> *attr = self.navigationController.navigationBar.titleTextAttributes.mutableCopy;
+    attr[NSForegroundColorAttributeName] = ((UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? [UIColor whiteColor] : [UIColor blackColor]));
+    self.navigationController.navigationBar.titleTextAttributes = attr;
+
 	// Yes, this is in two places.
 	self.frameview.backgroundColor = [self.terpDelegate genBackgroundColor];
 }
@@ -145,6 +147,10 @@
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
         [frameview updateWindowStyles];
+        NSMutableDictionary<NSAttributedStringKey, id> *attr = self.navigationController.navigationBar.titleTextAttributes.mutableCopy;
+        attr[NSForegroundColorAttributeName] = ((UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? [UIColor whiteColor] : [UIColor blackColor]));
+        self.navigationController.navigationBar.titleTextAttributes = attr;
+        self.navigationController.navigationBar.barTintColor = ((UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? [UIColor blackColor] : [UIColor whiteColor]));
     }
 }
 
