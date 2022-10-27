@@ -35,7 +35,7 @@
         CGFloat topInset = self.textContainerInset.top;
         
         UITextPosition *start = [self closestPositionToPoint:rect.origin];
-        CGFloat y = topInset - 4;
+        CGFloat y = topInset - 3;
 
     if (!_animating) {
         // Get the bottom of the topmost visible line, if any
@@ -98,7 +98,7 @@
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
     CGRect frame = self.bounds;
 
-    frame.origin.y = lastY - 4; // No idea why we have to subtract 4 here
+    frame.origin.y = lastY - 5; // No idea why we have to subtract 5 here
     pathLayer.frame = frame;
     pathLayer.strokeColor = [UIColor colorNamed:@"CustomNoteLines"].CGColor;
     pathLayer.lineWidth = 1.0;
