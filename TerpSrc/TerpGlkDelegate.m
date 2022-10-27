@@ -218,12 +218,12 @@
 - (UIColor *) genForegroundColor {
 	switch (self.colorscheme) {
 		case 1: /* quiet */
-			return [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+            return [UIColor colorNamed:@"CustomTerpTextQuiet"];
 		case 2: /* dark */
-			return [UIColor colorWithRed:0.75 green:0.75 blue:0.7 alpha:1];
+            NSLog(@"dark is deprecated");
 		case 0: /* bright */
 		default:
-			return [UIColor blackColor];
+			return [UIColor colorNamed:@"CustomTerpTextBright"];
 	}
 }
 
@@ -232,12 +232,10 @@
 - (UIColor *) genBackgroundColor {
 	switch (self.colorscheme) {
 		case 1: /* quiet */
-			return [UIColor colorWithRed:0.9 green:0.85 blue:0.7 alpha:1];
-		case 2: /* dark */
-			return [UIColor blackColor];
+			return [UIColor colorNamed:@"CustomTerpBGQuiet"];
 		case 0: /* bright */
 		default:
-			return [UIColor colorWithRed:1 green:1 blue:0.95 alpha:1];
+            return [UIColor colorNamed:@"CustomTerpBGBright"];
 	}
 }
 
@@ -271,17 +269,16 @@
 
 		switch (self.colorscheme) {
 			case 1: /* quiet */
-				styles.backgroundcolor = [UIColor colorWithRed:0.75 green:0.7 blue:0.5 alpha:1];
-				styles.colors[style_Normal] = [UIColor colorWithRed:0.15 green:0.1 blue:0.0 alpha:1];
+                styles.backgroundcolor = [UIColor colorNamed:@"CustomTerpGridBGQuiet"];
+                styles.colors[style_Normal] = [UIColor colorNamed:@"CustomTerpTextQuiet"];
 				break;
 			case 2: /* dark */
-				styles.backgroundcolor =  [UIColor colorWithRed:0.55 green:0.55 blue:0.5 alpha:1];
-				styles.colors[style_Normal] = [UIColor blackColor];
+                NSLog(@"dark is deprecated");
 				break;
 			case 0: /* bright */
 			default:
-				styles.backgroundcolor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
-				styles.colors[style_Normal] = [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+                styles.backgroundcolor = [UIColor colorNamed:@"CustomTerpGridBGBright"];
+                styles.colors[style_Normal] = [UIColor colorNamed:@"CustomTerpTextBright"];
 				break;
 		}
 	}
@@ -305,10 +302,6 @@
 		styles.backgroundcolor = self.genBackgroundColor;
 		styles.colors[style_Normal] = self.genForegroundColor;
 	}
-}
-
-- (BOOL) hasDarkTheme {
-	return (colorscheme == 2);
 }
 
 /* This is invoked from both the VM and UI threads.

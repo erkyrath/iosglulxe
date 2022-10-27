@@ -15,7 +15,7 @@
 	self = [super initWithWindow:winref frame:box margin:margin];
 	if (self) {
 		TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
-		BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+		BOOL isdark = glkviewc.hasDarkTheme;
 		self.textview.indicatorStyle = (isdark ? UIScrollViewIndicatorStyleWhite : UIScrollViewIndicatorStyleDefault);
 	}
 	return self;
@@ -25,7 +25,7 @@
 	[super uncacheLayoutAndStyles];
 
 	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
-	BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+	BOOL isdark = glkviewc.hasDarkTheme;
 	self.textview.indicatorStyle = (isdark ? UIScrollViewIndicatorStyleWhite : UIScrollViewIndicatorStyleDefault);
 }
 

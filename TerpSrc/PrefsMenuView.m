@@ -34,7 +34,6 @@
 @synthesize fontbut_sample2;
 @synthesize colorbut_bright;
 @synthesize colorbut_quiet;
-@synthesize colorbut_dark;
 @synthesize supportsbrightness;
 @synthesize fontnames;
 @synthesize fontbuttons;
@@ -51,15 +50,14 @@
 	UIImage *checkimage = [UIImage imageNamed:@"checkmark"];
 	[colorbut_bright setSelectImage:checkimage];
 	[colorbut_quiet setSelectImage:checkimage];
-	[colorbut_dark setSelectImage:checkimage];
-	
+
 	checkimage = [UIImage imageNamed:@"checkmark-s"];
 	[colbut_full setSelectImage:checkimage];
 	[colbut_34 setSelectImage:checkimage];
 	[colbut_12 setSelectImage:checkimage];
 	 
 	if (faderview) {
-		faderview.alpha = ((glkviewc.glkdelegate.hasDarkTheme) ? 1.0 : 0.0);
+		faderview.alpha = ((glkviewc.hasDarkTheme) ? 1.0 : 0.0);
 		faderview.hidden = NO;
 	}
 	
@@ -87,8 +85,12 @@
 	int colorscheme = glkviewc.terpDelegate.colorscheme;
 	colorbut_bright.selected = (colorbut_bright.tag == colorscheme);
 	colorbut_quiet.selected = (colorbut_quiet.tag == colorscheme);
-	colorbut_dark.selected = (colorbut_dark.tag == colorscheme);
 
+    if (glkviewc.hasDarkTheme) {
+        [colorbut_bright setTitle: NSLocalizedStringFromTable(@"prefs.button.dark", @"TerpLocalize", nil) forState:UIControlStateNormal];
+    } else {
+        [colorbut_bright setTitle:NSLocalizedStringFromTable(@"prefs.button.bright", @"TerpLocalize", nil) forState:UIControlStateNormal];
+    }
 	if (fontnames) {
 		NSString *family = glkviewc.terpDelegate.fontfamily;
 		for (int count = 0; count < fontnames.count; count++) {
@@ -104,6 +106,14 @@
 	else {
 		brightslider.hidden = YES;
 	}
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+        TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
+        [glkviewc showPreferences];
+        [glkviewc showPreferences];
+    }
 }
 
 - (IBAction) handleColumnWidth:(id)sender {
@@ -186,11 +196,11 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:val forKey:@"ColorScheme"];
 	
-	BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+	BOOL isdark = glkviewc.hasDarkTheme;
 	
 	[self updateButtons];
 	glkviewc.navigationController.navigationBar.barStyle = (isdark ? UIBarStyleBlack : UIBarStyleDefault);
-	glkviewc.frameview.backgroundColor = glkviewc.terpDelegate.genBackgroundColor;
+	glkviewc.frameview.backgroundColor = [glkviewc.terpDelegate genBackgroundColor];
 	[glkviewc.frameview updateWindowStyles];
 	
 	if (faderview) {

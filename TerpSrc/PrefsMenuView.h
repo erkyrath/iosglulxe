@@ -31,7 +31,6 @@
 @property (nonatomic, strong) IBOutlet MButton *fontbut_sample2;
 @property (nonatomic, strong) IBOutlet MButton *colorbut_bright;
 @property (nonatomic, strong) IBOutlet MButton *colorbut_quiet;
-@property (nonatomic, strong) IBOutlet MButton *colorbut_dark;
 
 @property (nonatomic) BOOL supportsbrightness;
 @property (nonatomic, strong) NSArray *fontnames;

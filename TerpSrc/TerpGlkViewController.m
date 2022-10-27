@@ -68,7 +68,7 @@
 		fontfamily = @"Georgia";
 	self.terpDelegate.fontfamily = fontfamily;
 	
-//	self.navigationController.navigationBar.barStyle = (self.terpDelegate.hasDarkTheme ? UIBarStyleBlack : UIBarStyleDefault);
+//	self.navigationController.navigationBar.barStyle = (self.view.hasDarkTheme ? UIBarStyleBlack : UIBarStyleDefault);
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 	
 	// Yes, this is in two places.
@@ -140,6 +140,12 @@
 	CGRect rect = frameview.bounds;
 	TerpGameOverView *menuview = [[TerpGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect];
 	[frameview postPopMenu:menuview];
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+        [frameview updateWindowStyles];
+    }
 }
 
 /* UITabBarController delegate method */
