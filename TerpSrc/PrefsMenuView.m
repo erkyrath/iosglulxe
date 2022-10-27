@@ -109,8 +109,10 @@
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
     if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
         TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
+        // We hide and show the view again to get a new view with updated colors
         [glkviewc showPreferences];
         [glkviewc showPreferences];
     }
