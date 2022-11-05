@@ -86,12 +86,6 @@
 	if (keyboardbutton && [keyboardbutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
 		[keyboardbutton setAccessibilityLabel:NSLocalizedStringFromTable(@"label.keyboard", @"TerpLocalize", nil)];
 	}
-
-	if ([IosGlkAppDelegate oldstyleui]) {
-		/* Use the old-style drop-shadowed buttons in the navbar. */
-		if (keyboardbutton)
-			keyboardbutton.image = [UIImage imageNamed:@"baricon-edit-old"];
-	}
 	
 	if (true) {
 		TerpGlkViewController *mainviewc = [TerpGlkViewController singleton];

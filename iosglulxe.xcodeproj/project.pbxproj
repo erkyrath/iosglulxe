@@ -89,7 +89,6 @@
 		DF4CB9D71368FF9800CED834 /* IosGlkAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */; };
 		DF4CB9D81368FF9800CED834 /* IosGlkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */; };
 		DF4CB9D91368FF9800CED834 /* RelDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */; };
-		DF4CB9DA1368FF9800CED834 /* StyledTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9D01368FF9800CED834 /* StyledTextView.m */; };
 		DF4CB9DF1368FFBE00CED834 /* gi_dispa.c in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9DC1368FFBE00CED834 /* gi_dispa.c */; };
 		DF4CB9E91368FFF000CED834 /* GlkEventLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E11368FFF000CED834 /* GlkEventLayer.m */; };
 		DF4CB9EA1368FFF000CED834 /* GlkFileRefLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DF4CB9E21368FFF000CED834 /* GlkFileRefLayer.m */; };
@@ -255,8 +254,6 @@
 		DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IosGlkViewController.m; sourceTree = "<group>"; };
 		DF4CB9CD1368FF9800CED834 /* RelDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelDateFormatter.h; sourceTree = "<group>"; };
 		DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelDateFormatter.m; sourceTree = "<group>"; };
-		DF4CB9CF1368FF9800CED834 /* StyledTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledTextView.h; sourceTree = "<group>"; };
-		DF4CB9D01368FF9800CED834 /* StyledTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledTextView.m; sourceTree = "<group>"; };
 		DF4CB9DC1368FFBE00CED834 /* gi_dispa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gi_dispa.c; sourceTree = "<group>"; };
 		DF4CB9DD1368FFBE00CED834 /* gi_dispa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gi_dispa.h; sourceTree = "<group>"; };
 		DF4CB9DE1368FFBE00CED834 /* glk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glk.h; sourceTree = "<group>"; };
@@ -508,8 +505,6 @@
 				DF4CB9C81368FF9800CED834 /* GlkWinGridView.m */,
 				DF4CB9CD1368FF9800CED834 /* RelDateFormatter.h */,
 				DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */,
-				DF4CB9CF1368FF9800CED834 /* StyledTextView.h */,
-				DF4CB9D01368FF9800CED834 /* StyledTextView.m */,
 				DF19DE0314F18C98007DCB29 /* InputMenuView.h */,
 				DF19DE0414F18C98007DCB29 /* InputMenuView.m */,
 				DF41DAE81531F6D3000B5D00 /* MoreBoxView.h */,
@@ -744,7 +739,6 @@
 				DF4CB9D71368FF9800CED834 /* IosGlkAppDelegate.m in Sources */,
 				DF4CB9D81368FF9800CED834 /* IosGlkViewController.m in Sources */,
 				DF4CB9D91368FF9800CED834 /* RelDateFormatter.m in Sources */,
-				DF4CB9DA1368FF9800CED834 /* StyledTextView.m in Sources */,
 				DF4CB9DF1368FFBE00CED834 /* gi_dispa.c in Sources */,
 				DF4CB9E91368FFF000CED834 /* GlkEventLayer.m in Sources */,
 				DF4CB9EA1368FFF000CED834 /* GlkFileRefLayer.m in Sources */,

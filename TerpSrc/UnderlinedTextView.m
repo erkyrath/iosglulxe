@@ -27,15 +27,15 @@
 
 - (void)drawRect:(CGRect)rect {
 
-        if (lineHeight == 0)
-            [self getLineHeight];
-        
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        CGContextSetStrokeColorWithColor(ctx, [UIColor colorNamed:@"CustomNoteLines"].CGColor);
-        CGFloat topInset = self.textContainerInset.top;
-        
-        UITextPosition *start = [self closestPositionToPoint:rect.origin];
-        CGFloat y = topInset - 3;
+    if (lineHeight == 0)
+        [self getLineHeight];
+
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    CGContextSetStrokeColorWithColor(ctx, [UIColor colorNamed:@"CustomNoteLines"].CGColor);
+    CGFloat topInset = self.textContainerInset.top;
+
+    UITextPosition *start = [self closestPositionToPoint:rect.origin];
+    CGFloat y = topInset - 3;
 
     if (!_animating) {
         // Get the bottom of the topmost visible line, if any

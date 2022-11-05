@@ -101,11 +101,11 @@
 		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 		recognizer.delegate = self;
-		[frameview addGestureRecognizer:recognizer];
+		[self.frameview addGestureRecognizer:recognizer];
 		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight:)];
 		recognizer.direction = UISwipeGestureRecognizerDirectionRight;
 		recognizer.delegate = self;
-		[frameview addGestureRecognizer:recognizer];
+		[self.frameview addGestureRecognizer:recognizer];
 	}
 	
 	/* Set the title of the game tab. */
@@ -128,26 +128,18 @@
 	if (keyboardbutton && [keyboardbutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
 		[keyboardbutton setAccessibilityLabel:NSLocalizedStringFromTable(@"label.keyboard", @"TerpLocalize", nil)];
 	}
-	
-	if ([IosGlkAppDelegate oldstyleui]) {
-		/* Use the old-style drop-shadowed buttons in the navbar. */
-		if (stylebutton)
-			stylebutton.image = [UIImage imageNamed:@"baricon-styles-old"];
-		if (keyboardbutton)
-			keyboardbutton.image = [UIImage imageNamed:@"baricon-edit-old"];
-	}
 }
 
 - (void) postGameOver {
-	CGRect rect = frameview.bounds;
-	TerpGameOverView *menuview = [[TerpGameOverView alloc] initWithFrame:frameview.bounds centerInFrame:rect];
-	[frameview postPopMenu:menuview];
+	CGRect rect = self.frameview.bounds;
+	TerpGameOverView *menuview = [[TerpGameOverView alloc] initWithFrame:self.frameview.bounds centerInFrame:rect];
+	[self.frameview postPopMenu:menuview];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
-        [frameview updateWindowStyles];
+        [self.frameview updateWindowStyles];
         NSMutableDictionary<NSAttributedStringKey, id> *attr = self.navigationController.navigationBar.titleTextAttributes.mutableCopy;
         attr[NSForegroundColorAttributeName] = ((UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? [UIColor whiteColor] : [UIColor blackColor]));
         self.navigationController.navigationBar.titleTextAttributes = attr;
@@ -179,13 +171,13 @@
 /* UIGestureRecognizer delegate method */
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
 	/* Turn off tab-swiping if an input menu is open. */
-	if (!frameview)
+	if (!self.frameview)
 		return NO;
-	if (frameview.menuview)
+	if (self.frameview.menuview)
 		return NO;
 	/* Reject the swipe if it's on a window's text-selection rectangle. */
 	if (self.textselecttag) {
-		GlkWindowView *winv = [frameview windowViewForTag:textselecttag];
+		GlkWindowView *winv = [self.frameview windowViewForTag:self.textselecttag];
 		if (winv) {
 			CGRect rect = winv.textSelectArea;
 			if (rect.size.width > 0 && rect.size.height > 0) {
@@ -203,8 +195,8 @@
 - (IBAction) toggleKeyboard {
 	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
 		/* Can't have the prefs menu up at the same time as the keyboard -- the iPhone screen is too small. */
-		if (frameview.menuview && [frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
-			[frameview removePopMenuAnimated:YES];
+		if (self.frameview.menuview && [self.frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
+			[self.frameview removePopMenuAnimated:YES];
 		}
 	}
 	[super toggleKeyboard];
@@ -216,14 +208,14 @@
 		[self hideKeyboard];
 	}
 	
-	if (frameview.menuview && [frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
-		[frameview removePopMenuAnimated:YES];
+	if (self.frameview.menuview && [self.frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
+		[self.frameview removePopMenuAnimated:YES];
 		return;
 	}
 	
 	CGRect rect = CGRectMake(4, 0, 40, 4);
-	PrefsMenuView *menuview = [[PrefsMenuView alloc] initWithFrame:frameview.bounds buttonFrame:rect belowButton:YES];
-	[frameview postPopMenu:menuview];
+	PrefsMenuView *menuview = [[PrefsMenuView alloc] initWithFrame:self.frameview.bounds buttonFrame:rect belowButton:YES];
+	[self.frameview postPopMenu:menuview];
 }
 
 - (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer {

@@ -5,7 +5,6 @@
  */
 
 #import "TerpGlkWindows.h"
-#import "StyledTextView.h"
 #import "TerpGlkViewController.h"
 #import "TerpGlkDelegate.h"
 

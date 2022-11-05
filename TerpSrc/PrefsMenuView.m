@@ -10,7 +10,6 @@
 #import "TerpGlkDelegate.h"
 #import "GlkFrameView.h"
 #import "GlkWinBufferView.h"
-#import "StyledTextView.h"
 #import "MButton.h"
 
 @implementation PrefsMenuView
