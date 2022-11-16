@@ -13,7 +13,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fwB-g5-g6a">
             <objects>
-                <tabBarController id="kfb-07-RX0" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kfb-07-RX0" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qsq-tJ-jBd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,7 +33,7 @@
         <!--Game Nav Controller-->
         <scene sceneID="Vzf-in-bZq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rCU-og-OYH" userLabel="Game Nav Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="GameNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rCU-og-OYH" userLabel="Game Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Game" image="tabicon-game" id="BRu-RG-fDA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xwq-0h-0dv">
@@ -57,12 +57,12 @@
         <!--Terp Glk View Controller-->
         <scene sceneID="5qj-IM-CNY">
             <objects>
-                <viewController id="gTF-6X-cJr" customClass="TerpGlkViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wy5-gw-ttJ" userLabel="Game view">
+                <viewController storyboardIdentifier="TerpGlkViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gTF-6X-cJr" customClass="TerpGlkViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="GameView" id="wy5-gw-ttJ" userLabel="Game view">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qT-Cz-trf" userLabel="Glk Frameview" customClass="GlkFrameView">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" restorationIdentifier="GlkFrameView" translatesAutoresizingMaskIntoConstraints="NO" id="7qT-Cz-trf" userLabel="Glk Frameview" customClass="GlkFrameView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                             </view>
                         </subviews>
@@ -101,12 +101,12 @@
         <!--My Notes-->
         <scene sceneID="zYn-A8-ccs">
             <objects>
-                <viewController id="JB7-NK-hLs" customClass="NotesViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8w1-vD-wX8">
+                <viewController storyboardIdentifier="NotesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JB7-NK-hLs" customClass="NotesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="NotesView" id="8w1-vD-wX8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6TF-pB-ZCb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ButtonTable" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="38" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6TF-pB-ZCb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="38"/>
                                 <color key="backgroundColor" name="CustomCellBackground"/>
                                 <constraints>
@@ -117,11 +117,11 @@
                                     <outlet property="delegate" destination="JB7-NK-hLs" id="JS3-Id-zqL"/>
                                 </connections>
                             </tableView>
-                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFB-9C-eBX" customClass="GradientView">
+                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="GradientView" translatesAutoresizingMaskIntoConstraints="NO" id="bFB-9C-eBX" customClass="GradientView">
                                 <rect key="frame" x="0.0" y="82" width="414" height="605"/>
                                 <color key="backgroundColor" red="0.94746839999999999" green="0.91692304609999997" blue="0.73587924240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-BC-mGU" customClass="UnderlinedTextView">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="UnderlinedText" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-BC-mGU" customClass="UnderlinedTextView">
                                 <rect key="frame" x="0.0" y="82" width="414" height="605"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">My journey began...
@@ -167,7 +167,7 @@
         <!--Notes Nav Controller-->
         <scene sceneID="mWj-zq-qjO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NFM-oK-CDI" userLabel="Notes Nav Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NotesNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NFM-oK-CDI" userLabel="Notes Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notes" image="tabicon-notes" id="ebh-oJ-Hp4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cvi-2W-81d">
@@ -187,7 +187,7 @@
         <!--Help Nav Controller-->
         <scene sceneID="Jlh-X3-cR8">
             <objects>
-                <navigationController title="Help" automaticallyAdjustsScrollViewInsets="NO" id="fUw-VV-PNv" userLabel="Help Nav Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HelpNavController" title="Help" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fUw-VV-PNv" userLabel="Help Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Help" image="tabicon-help" id="Nnc-ZW-F2q" userLabel="Help"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7m7-8A-v8F">
@@ -207,12 +207,12 @@
         <!--Help-->
         <scene sceneID="6xD-rP-pTC">
             <objects>
-                <viewController id="yM9-YV-d2d" userLabel="Help" customClass="HelpViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BON-bp-WeD">
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yM9-YV-d2d" userLabel="Help" customClass="HelpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="HelpView" id="BON-bp-WeD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-kB-C7u">
+                            <wkWebView contentMode="scaleToFill" restorationIdentifier="WebView" translatesAutoresizingMaskIntoConstraints="NO" id="JoM-kB-C7u">
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <color key="backgroundColor" red="0.78823530669999997" green="0.75686275960000005" blue="0.58823531870000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -243,7 +243,7 @@
         <!--Settings-->
         <scene sceneID="nvG-Ck-Ou5">
             <objects>
-                <viewController id="bvh-oG-caj" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bvh-oG-caj" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jri-Zf-ZtQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
         <!--Settings Nav Controller-->
         <scene sceneID="08H-DC-Sk6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zvG-Qf-IVu" userLabel="Settings Nav Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsNavController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zvG-Qf-IVu" userLabel="Settings Nav Controller" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="tabicon-settings" id="peT-s9-hZ2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nDP-EU-Yui">
@@ -316,7 +316,7 @@
         <!--Display Web View Controller-->
         <scene sceneID="a1L-sg-Lof">
             <objects>
-                <viewController storyboardIdentifier="WebDoc" id="2Lu-85-3JA" customClass="DisplayWebViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebDoc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2Lu-85-3JA" customClass="DisplayWebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGN-a7-iuc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

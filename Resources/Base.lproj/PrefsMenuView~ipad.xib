@@ -31,7 +31,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" contentMode="scaleToFill" id="1" userLabel="Container" customClass="PrefsContainerView">
+        <view opaque="NO" contentMode="scaleToFill" restorationIdentifier="PrefsMenuContainer" id="1" userLabel="Container" customClass="PrefsContainerView">
             <rect key="frame" x="0.0" y="0.0" width="172" height="263"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -202,7 +202,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="52" y="42"/>
         </view>
-        <view opaque="NO" contentMode="scaleToFill" id="38" userLabel="Fonts Container" customClass="PrefsContainerView">
+        <view opaque="NO" contentMode="scaleToFill" restorationIdentifier="FontsContainer" id="38" userLabel="Fonts Container" customClass="PrefsContainerView">
             <rect key="frame" x="0.0" y="0.0" width="172" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -242,7 +242,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="52" y="241"/>
         </view>
-        <view opaque="NO" contentMode="scaleToFill" id="44" userLabel="Colors Container" customClass="PrefsContainerView">
+        <view opaque="NO" contentMode="scaleToFill" restorationIdentifier="ColorsContainer" id="44" userLabel="Colors Container" customClass="PrefsContainerView">
             <rect key="frame" x="0.0" y="0.0" width="172" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

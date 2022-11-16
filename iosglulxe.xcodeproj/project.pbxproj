@@ -21,6 +21,8 @@
 		C3AE08BD28FD60500028BD2F /* DisplayText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE08BC28FD60500028BD2F /* DisplayText.storyboard */; };
 		C3AE08C228FD72CF0028BD2F /* ShareFiles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3AE08C128FD72CF0028BD2F /* ShareFiles.storyboard */; };
 		C3DAA5A428F769CA00ED5400 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3DAA5A328F769C900ED5400 /* WebKit.framework */; };
+		C3EA47D72923F47600D726BC /* GlkWindowViewUIState.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA47D62923F47600D726BC /* GlkWindowViewUIState.m */; };
+		C3EA47DA2923F4C400D726BC /* IosGlkSceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EA47D92923F4C400D726BC /* IosGlkSceneDelegate.m */; };
 		C3FE6DBB28F832E400C42039 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3FE6DBA28F832E400C42039 /* MainStoryboard.storyboard */; };
 		DF19DE0714F18C98007DCB29 /* CmdTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0214F18C98007DCB29 /* CmdTextField.m */; };
 		DF19DE0814F18C98007DCB29 /* InputMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF19DE0414F18C98007DCB29 /* InputMenuView.m */; };
@@ -157,6 +159,10 @@
 		C3AE08BC28FD60500028BD2F /* DisplayText.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DisplayText.storyboard; sourceTree = "<group>"; };
 		C3AE08C128FD72CF0028BD2F /* ShareFiles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShareFiles.storyboard; sourceTree = "<group>"; };
 		C3DAA5A328F769C900ED5400 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C3EA47D52923F47600D726BC /* GlkWindowViewUIState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkWindowViewUIState.h; sourceTree = "<group>"; };
+		C3EA47D62923F47600D726BC /* GlkWindowViewUIState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkWindowViewUIState.m; sourceTree = "<group>"; };
+		C3EA47D82923F4C400D726BC /* IosGlkSceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IosGlkSceneDelegate.h; sourceTree = "<group>"; };
+		C3EA47D92923F4C400D726BC /* IosGlkSceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IosGlkSceneDelegate.m; sourceTree = "<group>"; };
 		C3FE6DBA28F832E400C42039 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		DF19DE0114F18C98007DCB29 /* CmdTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdTextField.h; sourceTree = "<group>"; };
 		DF19DE0214F18C98007DCB29 /* CmdTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmdTextField.m; sourceTree = "<group>"; };
@@ -487,6 +493,8 @@
 				DF19DE0614F18C98007DCB29 /* IosGlkLibDelegate.m */,
 				DF4CB9C91368FF9800CED834 /* IosGlkAppDelegate.h */,
 				DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */,
+				C3EA47D82923F4C400D726BC /* IosGlkSceneDelegate.h */,
+				C3EA47D92923F4C400D726BC /* IosGlkSceneDelegate.m */,
 				DF4CB9CB1368FF9800CED834 /* IosGlkViewController.h */,
 				DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */,
 				DF4CB9BF1368FF9800CED834 /* GlkFileSelectViewController.h */,
@@ -503,6 +511,8 @@
 				DF4CB9C61368FF9800CED834 /* GlkWindowView.m */,
 				DF4CB9C71368FF9800CED834 /* GlkWinGridView.h */,
 				DF4CB9C81368FF9800CED834 /* GlkWinGridView.m */,
+				C3EA47D52923F47600D726BC /* GlkWindowViewUIState.h */,
+				C3EA47D62923F47600D726BC /* GlkWindowViewUIState.m */,
 				DF4CB9CD1368FF9800CED834 /* RelDateFormatter.h */,
 				DF4CB9CE1368FF9800CED834 /* RelDateFormatter.m */,
 				DF19DE0314F18C98007DCB29 /* InputMenuView.h */,
@@ -774,6 +784,7 @@
 				DF4CBA2F1369009500CED834 /* vm.c in Sources */,
 				DF6BCEBF1369062600442D6F /* gi_blorb.c in Sources */,
 				DF6BCEDA13690BA400442D6F /* main.c in Sources */,
+				C3EA47D72923F47600D726BC /* GlkWindowViewUIState.m in Sources */,
 				DF4B9E001369129200AC9A95 /* GlkBlorbLayer.m in Sources */,
 				DF4B9E011369129200AC9A95 /* GlkDispatchLayer.m in Sources */,
 				DF4B9E4B13691DC300AC9A95 /* iosstart.m in Sources */,
@@ -794,6 +805,7 @@
 				DF41DB091531F7BF000B5D00 /* GradientView.m in Sources */,
 				DF41DB0A1531F7BF000B5D00 /* HelpViewController.m in Sources */,
 				DF41DB0C1531F7BF000B5D00 /* NotesViewController.m in Sources */,
+				C3EA47DA2923F4C400D726BC /* IosGlkSceneDelegate.m in Sources */,
 				DF41DB0D1531F7BF000B5D00 /* PrefsMenuView.m in Sources */,
 				DF41DB0E1531F7BF000B5D00 /* TranscriptViewController.m in Sources */,
 				DF41DB191531FCCF000B5D00 /* TerpGlkWindows.m in Sources */,

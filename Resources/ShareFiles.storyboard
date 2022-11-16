@@ -12,7 +12,7 @@
         <!--Share Files View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="ShareFilesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareFilesViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ShareFilesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I5J-ty-NFc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,7 +47,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oK4-z8-Dra">
             <objects>
-                <navigationController storyboardIdentifier="ShareFilesNav" automaticallyAdjustsScrollViewInsets="NO" id="TQm-3S-Sa9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ShareFilesNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TQm-3S-Sa9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="crE-p0-yeH">
                         <rect key="frame" x="0.0" y="47" width="390" height="44"/>

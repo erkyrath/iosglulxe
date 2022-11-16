@@ -13,19 +13,19 @@
         <!--Display Text View Controller-->
         <scene sceneID="Hwu-a0-YAs">
             <objects>
-                <viewController id="VnR-Ou-nGG" customClass="DisplayTextViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k3J-lP-nG8">
+                <viewController storyboardIdentifier="DisplayTextViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VnR-Ou-nGG" customClass="DisplayTextViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="DisplayTextView" id="k3J-lP-nG8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" text="Transcript text" translatesAutoresizingMaskIntoConstraints="NO" id="M08-nP-ZT0">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="UITextView" alwaysBounceVertical="YES" editable="NO" text="Transcript text" translatesAutoresizingMaskIntoConstraints="NO" id="M08-nP-ZT0">
                                 <rect key="frame" x="0.0" y="117" width="390" height="693"/>
                                 <color key="backgroundColor" name="CustomCellBackground"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-aW-bv2" userLabel="TopBar">
+                            <view contentMode="scaleToFill" restorationIdentifier="TopBar" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-aW-bv2" userLabel="TopBar">
                                 <rect key="frame" x="-1" y="91" width="391" height="26"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jDF-0e-V59">
