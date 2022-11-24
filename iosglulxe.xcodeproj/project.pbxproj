@@ -63,7 +63,6 @@
 		DF41DAA51531F63F000B5D00 /* PopBoxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF41DAA01531F63F000B5D00 /* PopBoxView.xib */; };
 		DF41DAEE1531F6D3000B5D00 /* MoreBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAE91531F6D3000B5D00 /* MoreBoxView.m */; };
 		DF41DAEF1531F6D3000B5D00 /* PopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAEB1531F6D3000B5D00 /* PopMenuView.m */; };
-		DF41DAF01531F6D3000B5D00 /* TextSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAED1531F6D3000B5D00 /* TextSelectView.m */; };
 		DF41DAF71531F6F8000B5D00 /* GlkAccessTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAF21531F6F8000B5D00 /* GlkAccessTypes.m */; };
 		DF41DAF81531F6F8000B5D00 /* GlkLibraryState.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAF41531F6F8000B5D00 /* GlkLibraryState.m */; };
 		DF41DAF91531F6F8000B5D00 /* GlkWindowState.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41DAF61531F6F8000B5D00 /* GlkWindowState.m */; };
@@ -211,8 +210,6 @@
 		DF41DAE91531F6D3000B5D00 /* MoreBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreBoxView.m; sourceTree = "<group>"; };
 		DF41DAEA1531F6D3000B5D00 /* PopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopMenuView.h; sourceTree = "<group>"; };
 		DF41DAEB1531F6D3000B5D00 /* PopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopMenuView.m; sourceTree = "<group>"; };
-		DF41DAEC1531F6D3000B5D00 /* TextSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextSelectView.h; sourceTree = "<group>"; };
-		DF41DAED1531F6D3000B5D00 /* TextSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextSelectView.m; sourceTree = "<group>"; };
 		DF41DAF11531F6F8000B5D00 /* GlkAccessTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkAccessTypes.h; sourceTree = "<group>"; };
 		DF41DAF21531F6F8000B5D00 /* GlkAccessTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlkAccessTypes.m; sourceTree = "<group>"; };
 		DF41DAF31531F6F8000B5D00 /* GlkLibraryState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlkLibraryState.h; sourceTree = "<group>"; };
@@ -521,8 +518,6 @@
 				DF41DAE91531F6D3000B5D00 /* MoreBoxView.m */,
 				DF41DAEA1531F6D3000B5D00 /* PopMenuView.h */,
 				DF41DAEB1531F6D3000B5D00 /* PopMenuView.m */,
-				DF41DAEC1531F6D3000B5D00 /* TextSelectView.h */,
-				DF41DAED1531F6D3000B5D00 /* TextSelectView.m */,
 				DF19DE0114F18C98007DCB29 /* CmdTextField.h */,
 				DF19DE0214F18C98007DCB29 /* CmdTextField.m */,
 				DF1D85C615D9BB3400C17282 /* GameOverView.h */,
@@ -796,7 +791,6 @@
 				DF19DE1214F18DB9007DCB29 /* TerpGlkViewController.m in Sources */,
 				DF41DAEE1531F6D3000B5D00 /* MoreBoxView.m in Sources */,
 				DF41DAEF1531F6D3000B5D00 /* PopMenuView.m in Sources */,
-				DF41DAF01531F6D3000B5D00 /* TextSelectView.m in Sources */,
 				DF41DAF71531F6F8000B5D00 /* GlkAccessTypes.m in Sources */,
 				DF41DAF81531F6F8000B5D00 /* GlkLibraryState.m in Sources */,
 				C3106F22290412EB00EE9BCE /* GlkEventState.m in Sources */,
