@@ -134,6 +134,8 @@
 	CGRect rect = self.frameview.bounds;
 	TerpGameOverView *menuview = [[TerpGameOverView alloc] initWithFrame:self.frameview.bounds centerInFrame:rect];
 	[self.frameview postPopMenu:menuview];
+
+    [GlkWinBufferView speakString:NSLocalizedString(iosglk_can_restart_cleanly() ? @"The game has ended. You can start over from the beginning." : @"The game has encountered a serious error. Please press the Home button to leave the app.", nil)];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -157,7 +159,7 @@
 		return;
 	UIViewController *rootviewc = viewcstack[0];
 	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
-	
+
 	if (rootviewc != _notesvc) {
 		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
 		[_notesvc.navigationController popToRootViewControllerAnimated:NO];
