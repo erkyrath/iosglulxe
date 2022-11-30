@@ -31,9 +31,9 @@
 
 - (void) didFinishLaunching {
 	[super didFinishLaunching];
-	
+
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
+
 	/* Set some reasonable defaults, if none have ever been set. */
 	if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
 		/* On the iPad, use a 3/4 column and bump the leading a little. */
@@ -45,24 +45,24 @@
 	else {
 		/* On the iPhone, leave everything as-is. */
 	}
-	
+
 	int maxwidth = [defaults integerForKey:@"FrameMaxWidth"];
 	self.terpDelegate.maxwidth = maxwidth;
-	
+
 	/* Font-scale values are arbitrarily between 1 and 5. We default to 3. */
 	int fontscale = [defaults integerForKey:@"FontScale"];
 	if (fontscale == 0)
 		fontscale = 3;
 	self.terpDelegate.fontscale = fontscale;
-	
+
 	/* Leading is between 0 and 5. */
 	int leading = [defaults integerForKey:@"FontLeading"];
 	self.terpDelegate.leading = leading;
-	
+
 	/* Color-scheme values are 0 to 2. */
 	int colorscheme = [defaults integerForKey:@"ColorScheme"];
 	self.terpDelegate.colorscheme = colorscheme;
-	
+
 	NSString *fontfamily = [defaults stringForKey:@"FontFamily"];
 	if (!fontfamily)
 		fontfamily = @"Georgia";
@@ -83,7 +83,7 @@
 
 - (void) enteredBackground {
 	[super enteredBackground];
-	
+
 	/* If the interpreter hit a "fatal error" state, and we're just waiting around to tell the user about it, we want the Home button to shut down the app. That is, the user can kill the app by backgrounding it. */
 	GlkLibrary *library = [GlkLibrary singleton];
 	if (library && library.vmexited && !iosglk_can_restart_cleanly()) {
@@ -93,9 +93,9 @@
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
-	
+
 	self.frameview.backgroundColor = [self.terpDelegate genBackgroundColor];
-	
+
 	if (true) {
 		UISwipeGestureRecognizer *recognizer;
 		recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft:)];
@@ -107,7 +107,7 @@
 		recognizer.delegate = self;
 		[self.frameview addGestureRecognizer:recognizer];
 	}
-	
+
 	/* Set the title of the game tab. */
 	NSString *maintitle = self.navigationItem.title;
 	if (maintitle.length <= 2) {
@@ -118,7 +118,7 @@
 			maintitle = NSLocalizedStringFromTable(@"title.game", @"TerpLocalize", nil);
 		self.navigationItem.title = maintitle;
 	}
-	
+
 	/* Interface Builder currently doesn't allow us to set the voiceover labels for bar button items. We do it in code. */
 	UIBarButtonItem *stylebutton = self.navigationItem.leftBarButtonItem;
 	if (stylebutton && [stylebutton respondsToSelector:@selector(setAccessibilityLabel:)]) {
@@ -149,40 +149,6 @@
     }
 }
 
-///* UITabBarController delegate method */
-//- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewc {
-//    NSLog(@"tabBarController:didSelectViewController:");
-//	if (![viewc isKindOfClass:[UINavigationController class]])
-//		return;
-//	UINavigationController *navc = (UINavigationController *)viewc;
-//	NSArray *viewcstack = navc.viewControllers;
-//	if (!viewcstack || !viewcstack.count)
-//		return;
-//	UIViewController *rootviewc = viewcstack[0];
-//	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
-//
-//	if (rootviewc != _notesvc) {
-//		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
-//		[_notesvc.navigationController popToRootViewControllerAnimated:NO];
-//	}
-//	if (rootviewc != _settingsvc) {
-//		/* If the settingsvc was drilled into a web subview, pop out of there. */
-//		[_settingsvc.navigationController popToRootViewControllerAnimated:NO];
-//	}
-//}
-//
-//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-//    NSLog(@"tabBarController:shouldSelectViewController:");
-//    NSUInteger index = tabBarController.selectedIndex;
-//    NSLog(@"tabBarController.selectedIndex: %ld", index);
-//    if (index == 1) {
-//        // load data appropriate for coming from the 2nd tab
-//    } else if (index == 2) {
-//        // load data appropriate for coming from the 3rd tab
-//    }
-//    return YES;
-//}
-
 /* UIGestureRecognizer delegate method */
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
 	/* Turn off tab-swiping if an input menu is open. */
@@ -208,12 +174,12 @@
 		/* Can't have the prefs menu up at the same time as the keyboard */
 		[self hideKeyboard];
 	}
-	
+
 	if (self.frameview.menuview && [self.frameview.menuview isKindOfClass:[PrefsMenuView class]]) {
 		[self.frameview removePopMenuAnimated:YES];
 		return;
 	}
-	
+
 	CGRect rect = CGRectMake(4, 0, 40, 4);
 	PrefsMenuView *menuview = [[PrefsMenuView alloc] initWithFrame:self.frameview.bounds buttonFrame:rect belowButton:YES];
 	[self.frameview postPopMenu:menuview];

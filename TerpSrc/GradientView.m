@@ -20,14 +20,6 @@
 	return [CAGradientLayer class];
 }
 
-- (instancetype) initWithCoder:(NSCoder *)decoder {
-	self = [super initWithCoder:decoder];
-	if (self) {
-	}
-	return self;
-}
-
-
 - (BOOL) hasColors {
 	if (numcolors == 0)
 		return NO;
