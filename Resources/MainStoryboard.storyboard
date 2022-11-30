@@ -28,7 +28,7 @@
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bs-0p-4mJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <customObject id="PWZ-RB-u5J" customClass="IosGlkTabBarControllerDelegate">
+                <customObject id="PWZ-RB-u5J" customClass="TerpGlkTabBarControllerDelegate">
                     <connections>
                         <outlet property="tabBarController" destination="kfb-07-RX0" id="ypr-M4-7Eb"/>
                     </connections>

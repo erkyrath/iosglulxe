@@ -15,6 +15,7 @@
 		C32DA12928F95AEE00DAAA9F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12828F95AEE00DAAA9F /* Media.xcassets */; };
 		C32DA12B28F95B0600DAAA9F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */; };
 		C342359E293711C70054CB78 /* IosGlkTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C342359D293711C70054CB78 /* IosGlkTabBarControllerDelegate.m */; };
+		C34235A1293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C34235A0293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.m */; };
 		C3810F44290719AE009838B8 /* UnderlinedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3810F43290719AE009838B8 /* UnderlinedTextView.m */; };
 		C38E9E4026F138B200B49E29 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38E9E3F26F138B200B49E29 /* CoreServices.framework */; };
 		C39419FD28FCBC3E00747658 /* GlkFileSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39419FC28FCBC3E00747658 /* GlkFileSelect.storyboard */; };
@@ -153,6 +154,8 @@
 		C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C342359C293711C70054CB78 /* IosGlkTabBarControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IosGlkTabBarControllerDelegate.h; sourceTree = "<group>"; };
 		C342359D293711C70054CB78 /* IosGlkTabBarControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IosGlkTabBarControllerDelegate.m; sourceTree = "<group>"; };
+		C342359F293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TerpGlkTabBarControllerDelegate.h; sourceTree = "<group>"; };
+		C34235A0293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TerpGlkTabBarControllerDelegate.m; sourceTree = "<group>"; };
 		C3810F42290719AE009838B8 /* UnderlinedTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnderlinedTextView.h; sourceTree = "<group>"; };
 		C3810F43290719AE009838B8 /* UnderlinedTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnderlinedTextView.m; sourceTree = "<group>"; };
 		C38E9E3F26F138B200B49E29 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -456,6 +459,8 @@
 			children = (
 				DF19DE0F14F18DB9007DCB29 /* TerpGlkViewController.h */,
 				DF19DE1014F18DB9007DCB29 /* TerpGlkViewController.m */,
+				C342359F293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.h */,
+				C34235A0293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.m */,
 				DF19DE0D14F18DB9007DCB29 /* TerpGlkDelegate.h */,
 				DF19DE0E14F18DB9007DCB29 /* TerpGlkDelegate.m */,
 				DF41DB171531FCCE000B5D00 /* TerpGlkWindows.h */,
@@ -799,6 +804,7 @@
 				DF41DAEF1531F6D3000B5D00 /* PopMenuView.m in Sources */,
 				DF41DAF71531F6F8000B5D00 /* GlkAccessTypes.m in Sources */,
 				DF41DAF81531F6F8000B5D00 /* GlkLibraryState.m in Sources */,
+				C34235A1293767AF0054CB78 /* TerpGlkTabBarControllerDelegate.m in Sources */,
 				C3106F22290412EB00EE9BCE /* GlkEventState.m in Sources */,
 				DF41DAF91531F6F8000B5D00 /* GlkWindowState.m in Sources */,
 				DF41DB081531F7BF000B5D00 /* DisplayTextViewController.m in Sources */,
