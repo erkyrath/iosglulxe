@@ -1,16 +1,16 @@
-//
-//  TerpGlkTabBarControllerDelegate.m
-//  iosglulxe
-//
-//  Created by Administrator on 2022-11-30.
-//
+/* TerpTabBarControllerDelegate.m: Interpreter-specific subclass of
+ the IosGlk tab bar controller delegate
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
+ Designed by Andrew Plotkin <erkyrath@eblong.com>
+ http://eblong.com/zarf/glk/
+ */
 
 #import "NotesViewController.h"
 #import "SettingsViewController.h"
 
-#import "TerpGlkTabBarControllerDelegate.h"
+#import "TerpTabBarControllerDelegate.h"
 
-@implementation TerpGlkTabBarControllerDelegate
+@implementation TerpTabBarControllerDelegate
 
 
 - (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewc {

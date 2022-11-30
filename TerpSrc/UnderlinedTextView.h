@@ -1,9 +1,8 @@
-//
-//  UnderlinedTextView.h
-//  iosglulxe
-//
-//  Created by Administrator on 2022-10-24.
-//
+/* UnderlinedTextView.h: A UITextView subclass with underlined text
+ for IosGlulxe, an IosGlk port of the Glulxe interpreter.
+ Designed by Andrew Plotkin <erkyrath@eblong.com>
+ http://eblong.com/zarf/glk/
+ */
 
 #import <UIKit/UIKit.h>
 
