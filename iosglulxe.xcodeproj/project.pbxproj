@@ -14,6 +14,7 @@
 		C3106F22290412EB00EE9BCE /* GlkEventState.m in Sources */ = {isa = PBXBuildFile; fileRef = C3106F21290412EB00EE9BCE /* GlkEventState.m */; };
 		C32DA12928F95AEE00DAAA9F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12828F95AEE00DAAA9F /* Media.xcassets */; };
 		C32DA12B28F95B0600DAAA9F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */; };
+		C342359E293711C70054CB78 /* IosGlkTabBarControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C342359D293711C70054CB78 /* IosGlkTabBarControllerDelegate.m */; };
 		C3810F44290719AE009838B8 /* UnderlinedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3810F43290719AE009838B8 /* UnderlinedTextView.m */; };
 		C38E9E4026F138B200B49E29 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38E9E3F26F138B200B49E29 /* CoreServices.framework */; };
 		C39419FD28FCBC3E00747658 /* GlkFileSelect.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39419FC28FCBC3E00747658 /* GlkFileSelect.storyboard */; };
@@ -150,6 +151,8 @@
 		C3106F21290412EB00EE9BCE /* GlkEventState.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlkEventState.m; sourceTree = "<group>"; };
 		C32DA12828F95AEE00DAAA9F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		C32DA12A28F95B0600DAAA9F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		C342359C293711C70054CB78 /* IosGlkTabBarControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IosGlkTabBarControllerDelegate.h; sourceTree = "<group>"; };
+		C342359D293711C70054CB78 /* IosGlkTabBarControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IosGlkTabBarControllerDelegate.m; sourceTree = "<group>"; };
 		C3810F42290719AE009838B8 /* UnderlinedTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnderlinedTextView.h; sourceTree = "<group>"; };
 		C3810F43290719AE009838B8 /* UnderlinedTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnderlinedTextView.m; sourceTree = "<group>"; };
 		C38E9E3F26F138B200B49E29 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -492,6 +495,8 @@
 				DF4CB9CA1368FF9800CED834 /* IosGlkAppDelegate.m */,
 				C3EA47D82923F4C400D726BC /* IosGlkSceneDelegate.h */,
 				C3EA47D92923F4C400D726BC /* IosGlkSceneDelegate.m */,
+				C342359C293711C70054CB78 /* IosGlkTabBarControllerDelegate.h */,
+				C342359D293711C70054CB78 /* IosGlkTabBarControllerDelegate.m */,
 				DF4CB9CB1368FF9800CED834 /* IosGlkViewController.h */,
 				DF4CB9CC1368FF9800CED834 /* IosGlkViewController.m */,
 				DF4CB9BF1368FF9800CED834 /* GlkFileSelectViewController.h */,
@@ -734,6 +739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C342359E293711C70054CB78 /* IosGlkTabBarControllerDelegate.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				DF4CB9D11368FF9800CED834 /* GlkAppWrapper.m in Sources */,
 				DF4CB9D21368FF9800CED834 /* GlkFileSelectViewController.m in Sources */,

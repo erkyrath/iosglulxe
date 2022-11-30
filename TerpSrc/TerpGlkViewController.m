@@ -149,26 +149,39 @@
     }
 }
 
-/* UITabBarController delegate method */
-- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewc {
-	if (![viewc isKindOfClass:[UINavigationController class]])
-		return;
-	UINavigationController *navc = (UINavigationController *)viewc;
-	NSArray *viewcstack = navc.viewControllers;
-	if (!viewcstack || !viewcstack.count)
-		return;
-	UIViewController *rootviewc = viewcstack[0];
-	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
-
-	if (rootviewc != _notesvc) {
-		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
-		[_notesvc.navigationController popToRootViewControllerAnimated:NO];
-	}
-	if (rootviewc != _settingsvc) {
-		/* If the settingsvc was drilled into a web subview, pop out of there. */
-		[_settingsvc.navigationController popToRootViewControllerAnimated:NO];
-	}
-}
+///* UITabBarController delegate method */
+//- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewc {
+//    NSLog(@"tabBarController:didSelectViewController:");
+//	if (![viewc isKindOfClass:[UINavigationController class]])
+//		return;
+//	UINavigationController *navc = (UINavigationController *)viewc;
+//	NSArray *viewcstack = navc.viewControllers;
+//	if (!viewcstack || !viewcstack.count)
+//		return;
+//	UIViewController *rootviewc = viewcstack[0];
+//	//NSLog(@"### tabBarController did select %@ (%@)", navc, rootviewc);
+//
+//	if (rootviewc != _notesvc) {
+//		/* If the notesvc was drilled into the transcripts view or subviews, pop out of there. */
+//		[_notesvc.navigationController popToRootViewControllerAnimated:NO];
+//	}
+//	if (rootviewc != _settingsvc) {
+//		/* If the settingsvc was drilled into a web subview, pop out of there. */
+//		[_settingsvc.navigationController popToRootViewControllerAnimated:NO];
+//	}
+//}
+//
+//- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+//    NSLog(@"tabBarController:shouldSelectViewController:");
+//    NSUInteger index = tabBarController.selectedIndex;
+//    NSLog(@"tabBarController.selectedIndex: %ld", index);
+//    if (index == 1) {
+//        // load data appropriate for coming from the 2nd tab
+//    } else if (index == 2) {
+//        // load data appropriate for coming from the 3rd tab
+//    }
+//    return YES;
+//}
 
 /* UIGestureRecognizer delegate method */
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
