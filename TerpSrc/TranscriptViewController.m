@@ -19,38 +19,26 @@
 @synthesize filelist;
 @synthesize dateformatter;
 
-- (id) initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle {
-	self = [super initWithNibName:nibName bundle:nibBundle];
-	if (self) {
-		self.filelist = [NSMutableArray arrayWithCapacity:16];
-		self.dateformatter = [[[RelDateFormatter alloc] init] autorelease];
-		[dateformatter setDateStyle:NSDateFormatterMediumStyle];
-		[dateformatter setTimeStyle:NSDateFormatterShortStyle];
-	}
-	return self;
-}
-
-- (void) dealloc {
-	self.filelist = nil;
-	self.dateformatter = nil;
-	self.tableView = nil;
-	[super dealloc];
-}
 
 - (void) viewDidLoad {
 	[super viewDidLoad];
+
+    self.filelist = [NSMutableArray arrayWithCapacity:16];
+    self.dateformatter = [[RelDateFormatter alloc] init];
+    dateformatter.dateStyle = NSDateFormatterMediumStyle;
+    dateformatter.timeStyle = NSDateFormatterShortStyle;
 	
 	self.navigationItem.title = NSLocalizedStringFromTable(@"title.transcripts", @"TerpLocalize", nil);
 	
-	self.navigationItem.rightBarButtonItem = [self editButtonItem];
+	self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	
 	/* We use an old-fashioned way of locating the Documents directory. (The NSManager method for this is iOS 4.0 and later.) */
 	
 	NSArray *dirlist = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	if (!dirlist) {
-		dirlist = [NSArray array];
+		dirlist = @[];
 	}
-	NSString *basedir = [dirlist objectAtIndex:0];
+	NSString *basedir = dirlist[0];
 	NSString *dirname = [GlkFileRef subDirOfBase:basedir forUsage:fileusage_Transcript gameid:[GlkLibrary singleton].gameId];
 	
 	[filelist removeAllObjects];
@@ -69,7 +57,7 @@
 			if (!label)
 				label = filename;
 			
-			GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+			GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 			thumb.filename = filename;
 			thumb.pathname = pathname;
 			thumb.usage = fileusage_Transcript;
@@ -87,7 +75,7 @@
 }
 
 - (void) addBlankThumb {
-	GlkFileThumb *thumb = [[[GlkFileThumb alloc] init] autorelease];
+	GlkFileThumb *thumb = [[GlkFileThumb alloc] init];
 	thumb.isfake = YES;
 	thumb.modtime = [NSDate date];
 	thumb.label = NSLocalizedStringFromTable(@"label.no-transcripts", @"TerpLocalize", nil);
@@ -110,7 +98,7 @@
 	
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	
 	return (thumb && !thumb.isfake);
 }
@@ -121,14 +109,14 @@
 	// This is boilerplate and I haven't touched it.
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
 	}
 	
 	GlkFileThumb *thumb = nil;
 	
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	
 	/* Make the cell look right... */
 	
@@ -136,8 +124,8 @@
 		// shouldn't happen
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-		cell.textLabel.text = @"(null)";
-		cell.textLabel.textColor = [UIColor blackColor];
+		cell.textLabel.text = NSLocalizedString(@"(null)", nil);
+		cell.textLabel.textColor = [UIColor colorNamed:@"CustomText"];
 		cell.detailTextLabel.text = @"?";
 	}
 	else if (thumb.isfake) {
@@ -151,7 +139,7 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 		cell.textLabel.text = thumb.label;
-		cell.textLabel.textColor = [UIColor blackColor];
+		cell.textLabel.textColor = [UIColor colorNamed:@"CustomText"];
 		cell.detailTextLabel.text = [dateformatter stringFromDate:thumb.modtime];
 	}
 	
@@ -163,17 +151,17 @@
 		GlkFileThumb *thumb = nil;
 		int row = indexPath.row;
 		if (row >= 0 && row < filelist.count)
-			thumb = [filelist objectAtIndex:row];
+			thumb = filelist[row];
 		if (thumb && !thumb.isfake) {
-			GlkFileThumb *thumb = [filelist objectAtIndex:row];
+			GlkFileThumb *thumb = filelist[row];
 			//NSLog(@"selector: deleting file \"%@\" (%@)", thumb.label, thumb.pathname);
 			BOOL res = [[NSFileManager defaultManager] removeItemAtPath:thumb.pathname error:nil];
 			if (res) {
 				[filelist removeObjectAtIndex:row];
-				[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+				[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				if (filelist.count == 0) {
 					[self addBlankThumb];
-					[tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+					[tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 				}
 			}
 		}
@@ -186,19 +174,21 @@
 	GlkFileThumb *thumb = nil;
 	int row = indexPath.row;
 	if (row >= 0 && row < filelist.count)
-		thumb = [filelist objectAtIndex:row];
+		thumb = filelist[row];
 	if (!thumb)
 		return;
 	if (thumb.isfake)
 		return;
 		
 	/* The user has selected a file. */
-	DisplayTextViewController *viewc = [[[DisplayTextViewController alloc] initWithNibName:@"DisplayTextVC" thumb:thumb bundle:nil] autorelease];
-	[self.navigationController pushViewController:viewc animated:YES];
-}
 
-- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)orientation {
-	return [[IosGlkViewController singleton] shouldAutorotateToInterfaceOrientation:orientation];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DisplayText" bundle:nil];
+
+    UINavigationController *navc = [sb instantiateViewControllerWithIdentifier:@"ViewTextNav"];
+    DisplayTextViewController *viewc = (DisplayTextViewController *)navc.viewControllers[0];
+    viewc.thumb = thumb;
+
+    [self.navigationController pushViewController:viewc animated:YES];
 }
 
 @end

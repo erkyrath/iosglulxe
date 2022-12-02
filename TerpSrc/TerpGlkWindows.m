@@ -5,17 +5,16 @@
  */
 
 #import "TerpGlkWindows.h"
-#import "StyledTextView.h"
 #import "TerpGlkViewController.h"
 #import "TerpGlkDelegate.h"
 
 @implementation TerpGlkWinBufferView
 
-- (id) initWithWindow:(GlkWindowState *)winref frame:(CGRect)box margin:(UIEdgeInsets)margin {
+- (instancetype) initWithWindow:(GlkWindowState *)winref frame:(CGRect)box margin:(UIEdgeInsets)margin {
 	self = [super initWithWindow:winref frame:box margin:margin];
 	if (self) {
 		TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
-		BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+		BOOL isdark = glkviewc.hasDarkTheme;
 		self.textview.indicatorStyle = (isdark ? UIScrollViewIndicatorStyleWhite : UIScrollViewIndicatorStyleDefault);
 	}
 	return self;
@@ -25,7 +24,7 @@
 	[super uncacheLayoutAndStyles];
 
 	TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
-	BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+	BOOL isdark = glkviewc.hasDarkTheme;
 	self.textview.indicatorStyle = (isdark ? UIScrollViewIndicatorStyleWhite : UIScrollViewIndicatorStyleDefault);
 }
 

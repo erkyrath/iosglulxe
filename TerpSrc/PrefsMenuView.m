@@ -10,7 +10,6 @@
 #import "TerpGlkDelegate.h"
 #import "GlkFrameView.h"
 #import "GlkWinBufferView.h"
-#import "StyledTextView.h"
 #import "MButton.h"
 
 @implementation PrefsMenuView
@@ -34,42 +33,14 @@
 @synthesize fontbut_sample2;
 @synthesize colorbut_bright;
 @synthesize colorbut_quiet;
-@synthesize colorbut_dark;
 @synthesize supportsbrightness;
 @synthesize fontnames;
 @synthesize fontbuttons;
 
-- (void) dealloc {
-	self.container = nil;
-	self.fontscontainer = nil;
-	self.colorscontainer = nil;
-	self.colorsbutton = nil;
-	self.fontsbutton = nil;
-	self.brightslider = nil;
-	self.colbut_full = nil;
-	self.colbut_34 = nil;
-	self.colbut_12 = nil;
-	self.sizebut_small = nil;
-	self.sizebut_big = nil;
-	self.leadbut_small = nil;
-	self.leadbut_big = nil;
-	self.fontbutton = nil;
-	self.colorbutton = nil;
-	self.fontbut_sample1 = nil;
-	self.fontbut_sample2 = nil;
-	self.colorbut_bright = nil;
-	self.colorbut_quiet = nil;
-	self.colorbut_dark = nil;
-	
-	self.fontnames = nil;
-	self.fontbuttons = nil;
-	
-	[super dealloc];
-}
 
 - (void) loadContent {
 	NSString *reqSysVer = @"5.0";
-	NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+	NSString *currSysVer = [UIDevice currentDevice].systemVersion;
 	supportsbrightness = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending);
 	
 	[[NSBundle mainBundle] loadNibNamed:@"PrefsMenuView" owner:self options:nil];
@@ -78,15 +49,14 @@
 	UIImage *checkimage = [UIImage imageNamed:@"checkmark"];
 	[colorbut_bright setSelectImage:checkimage];
 	[colorbut_quiet setSelectImage:checkimage];
-	[colorbut_dark setSelectImage:checkimage];
-	
+
 	checkimage = [UIImage imageNamed:@"checkmark-s"];
 	[colbut_full setSelectImage:checkimage];
 	[colbut_34 setSelectImage:checkimage];
 	[colbut_12 setSelectImage:checkimage];
 	 
 	if (faderview) {
-		faderview.alpha = ((glkviewc.glkdelegate.hasDarkTheme) ? 1.0 : 0.0);
+		faderview.alpha = ((glkviewc.hasDarkTheme) ? 1.0 : 0.0);
 		faderview.hidden = NO;
 	}
 	
@@ -114,13 +84,17 @@
 	int colorscheme = glkviewc.terpDelegate.colorscheme;
 	colorbut_bright.selected = (colorbut_bright.tag == colorscheme);
 	colorbut_quiet.selected = (colorbut_quiet.tag == colorscheme);
-	colorbut_dark.selected = (colorbut_dark.tag == colorscheme);
 
+    if (glkviewc.hasDarkTheme) {
+        [colorbut_bright setTitle: NSLocalizedStringFromTable(@"prefs.button.dark", @"TerpLocalize", nil) forState:UIControlStateNormal];
+    } else {
+        [colorbut_bright setTitle:NSLocalizedStringFromTable(@"prefs.button.bright", @"TerpLocalize", nil) forState:UIControlStateNormal];
+    }
 	if (fontnames) {
 		NSString *family = glkviewc.terpDelegate.fontfamily;
 		for (int count = 0; count < fontnames.count; count++) {
-			NSString *str = [fontnames objectAtIndex:count];
-			UIButton *button = [fontbuttons objectAtIndex:count];
+			NSString *str = fontnames[count];
+			UIButton *button = fontbuttons[count];
 			button.selected = [family isEqualToString:str];
 		}
 	}
@@ -131,6 +105,16 @@
 	else {
 		brightslider.hidden = YES;
 	}
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+        TerpGlkViewController *glkviewc = [TerpGlkViewController singleton];
+        // We hide and show the view again to get a new view with updated colors
+        [glkviewc showPreferences];
+        [glkviewc showPreferences];
+    }
 }
 
 - (IBAction) handleColumnWidth:(id)sender {
@@ -213,17 +197,18 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setInteger:val forKey:@"ColorScheme"];
 	
-	BOOL isdark = glkviewc.terpDelegate.hasDarkTheme;
+	BOOL isdark = glkviewc.hasDarkTheme;
 	
 	[self updateButtons];
 	glkviewc.navigationController.navigationBar.barStyle = (isdark ? UIBarStyleBlack : UIBarStyleDefault);
-	glkviewc.frameview.backgroundColor = glkviewc.terpDelegate.genBackgroundColor;
+	glkviewc.frameview.backgroundColor = [glkviewc.terpDelegate genBackgroundColor];
 	[glkviewc.frameview updateWindowStyles];
 	
 	if (faderview) {
 		if (/* DISABLES CODE */ (true)) {
+            PrefsMenuView __weak *weakSelf = self;
 			[UIView animateWithDuration:0.15 
-				animations:^{ faderview.alpha = (isdark ? 1.0 : 0.0); } ];
+                             animations:^{ weakSelf.faderview.alpha = (isdark ? 1.0 : 0.0); } ];
 		}
 		else {
 			faderview.alpha = (isdark ? 1.0 : 0.0);
@@ -237,7 +222,7 @@
 	int val = ((UIView *)sender).tag;
 	if (!fontnames || val < 0 || val >= fontnames.count)
 		return;
-	NSString *name = [fontnames objectAtIndex:val];
+	NSString *name = fontnames[val];
 	
 	glkviewc.terpDelegate.fontfamily = name;
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -324,12 +309,13 @@
 		CGRect rect = fontscontainer.frame;
 		fontscontainer.frame = CGRectMake(rect.origin.x, rect.origin.y+curheight, rect.size.width, rect.size.height);
 		[content addSubview:fontscontainer];
+        PrefsMenuView __weak *weakSelf = self;
 		[UIView animateWithDuration:0.35 
 						 animations:^{ 
-							 fontscontainer.frame = rect;
-							 container.alpha = 0;
-							 container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
-						 completion: ^(BOOL finished){ [container removeFromSuperview]; } ];
+            weakSelf.fontscontainer.frame = rect;
+            weakSelf.container.alpha = 0;
+            weakSelf.container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [weakSelf.container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:fontscontainer];
@@ -346,12 +332,13 @@
 		CGRect rect = colorscontainer.frame;
 		colorscontainer.frame = CGRectMake(rect.origin.x, rect.origin.y+curheight, rect.size.width, rect.size.height);
 		[content addSubview:colorscontainer];
+        PrefsMenuView __weak *weakSelf = self;
 		[UIView animateWithDuration:0.35 
 						animations:^{ 
-							colorscontainer.frame = rect;
-							container.alpha = 0;
-							container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); } 
-						 completion: ^(BOOL finished){ [container removeFromSuperview]; } ];
+            weakSelf.colorscontainer.frame = rect;
+            weakSelf.container.alpha = 0;
+            weakSelf.container.frame = CGRectMake(oldrect.origin.x, oldrect.origin.y-oldrect.size.height, oldrect.size.width, oldrect.size.height); }
+                         completion: ^(BOOL finished){ [weakSelf.container removeFromSuperview]; } ];
 	}
 	else {
 		[content addSubview:colorscontainer];

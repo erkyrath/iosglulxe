@@ -10,18 +10,16 @@
 @class NotesViewController;
 @class SettingsViewController;
 @class TerpGlkDelegate;
-@class GlkFileRefPrompt;
 
-@interface TerpGlkViewController : IosGlkViewController <UITabBarControllerDelegate, UIGestureRecognizerDelegate>
+@interface TerpGlkViewController : IosGlkViewController <UIGestureRecognizerDelegate>
 
-@property (nonatomic, retain) IBOutlet NotesViewController *notesvc;
-@property (nonatomic, retain) IBOutlet SettingsViewController *settingsvc;
+@property (nonatomic, strong) NotesViewController *notesvc;
+@property (nonatomic, strong) SettingsViewController *settingsvc;
 
 + (TerpGlkViewController *) singleton;
 
-- (TerpGlkDelegate *) terpDelegate;
+@property (NS_NONATOMIC_IOSONLY, readonly, strong) TerpGlkDelegate *terpDelegate;
 - (IBAction) showPreferences;
 - (void) handleSwipeLeft:(UIGestureRecognizer *)recognizer;
 - (void) handleSwipeRight:(UIGestureRecognizer *)recognizer;
-
 @end

@@ -22,10 +22,6 @@
 @synthesize colorscheme;
 @synthesize leading;
 
-- (void) dealloc {
-	self.fontfamily = nil;
-	[super dealloc];
-}
 
 - (NSString *) gameId {
 	return nil;
@@ -37,15 +33,15 @@
   | (((glui32)c3) << 8)     \
   | (((glui32)c4)) )
 
-/* Check whether the given file is a Glulx save file matching our game. 
- 
+/* Check whether the given file is a Glulx save file matching our game.
+
 	This replicates the Quetzal-parsing code in glulxe. It's a stable algorithm and I don't want to go chopping additional entry points into the interpreter.
  */
 - (GlkSaveFormat) checkGlkSaveFileFormat:(NSString *)path {
 	NSFileHandle *fhan = [NSFileHandle fileHandleForReadingAtPath:path];
 	if (!fhan)
 		return saveformat_Unreadable;
-	
+
 	// Let's do this using a block.
 	BOOL (^Read4)(glui32 *) = ^(glui32 *val) {
 		NSData *dat = [fhan readDataOfLength:4];
@@ -57,16 +53,16 @@
 		*val = ((bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8) | (bytes[3]));
 		return YES;
 	};
-	
+
 	BOOL res;
 	glui32 val;
-	
+
 	res = Read4(&val);
 	if (!res || val != IFFID('F', 'O', 'R', 'M')) {
 		[fhan closeFile];
 		return saveformat_UnknownFormat;
 	}
-	
+
 	glui32 filelen;
 	res = Read4(&filelen);
 	if (!res) {
@@ -74,13 +70,13 @@
 		return saveformat_UnknownFormat;
 	}
 	glui32 filestart = fhan.offsetInFile;
-	
+
 	res = Read4(&val);
 	if (!res || val != IFFID('I', 'F', 'Z', 'S')) {
 		[fhan closeFile];
 		return saveformat_UnknownFormat;
 	}
-	
+
 	GlkSaveFormat result = saveformat_UnknownFormat;
 
 	while (fhan.offsetInFile < filestart+filelen) {
@@ -98,7 +94,7 @@
 			break;
 		}
 		chunkstart = fhan.offsetInFile;
-		
+
 		if (chunktype == IFFID('I', 'F', 'h', 'd')) {
 			/* Read the value, compare to the game file. If it matches, we're good. */
 			NSData *dat = [fhan readDataOfLength:chunklen];
@@ -107,7 +103,7 @@
 				break;
 			}
 			result = saveformat_UnknownFormat;
-			NSFileHandle *gamehan = [NSFileHandle fileHandleForReadingAtPath:[self gamePath]];
+			NSFileHandle *gamehan = [NSFileHandle fileHandleForReadingAtPath:self.gamePath];
 			if (gamehan) {
 				int len = dat.length;
 				NSData *gamedat = [gamehan readDataOfLength:len];
@@ -136,13 +132,13 @@
 				break;
 			}
 		}
-		
+
 		if (chunkstart+chunklen != fhan.offsetInFile) {
 			/* Funny chunk length. */
 			result = saveformat_UnknownFormat;
 			break;
 		}
-		
+
 		if ((chunklen & 1) != 0) {
 			/* Skip the mandatory byte after an odd-length chunk. */
 			NSData *dat = [fhan readDataOfLength:1];
@@ -152,7 +148,7 @@
 			}
 		}
 	}
-	
+
 	[fhan closeFile];
 
 	return result;
@@ -164,7 +160,7 @@
 	UITabBarController *tabbc = terpvc.tabBarController;
 	if (!tabbc)
 		return;
-	
+
 	if (tabbc.selectedViewController != terpvc.settingsvc.navigationController) {
 		// Switch to the settings view.
 		tabbc.selectedViewController = terpvc.settingsvc.navigationController;
@@ -186,7 +182,7 @@
 }
 
 - (GlkWinBufferView *) viewForBufferWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {
-	return [[[TerpGlkWinBufferView alloc] initWithWindow:win frame:box margin:margin] autorelease];
+	return [[TerpGlkWinBufferView alloc] initWithWindow:win frame:box margin:margin];
 }
 
 - (GlkWinGridView *) viewForGridWindow:(GlkWindowState *)win frame:(CGRect)box margin:(UIEdgeInsets)margin {
@@ -222,12 +218,12 @@
 - (UIColor *) genForegroundColor {
 	switch (self.colorscheme) {
 		case 1: /* quiet */
-			return [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+            return [UIColor colorNamed:@"CustomTerpTextQuiet"];
 		case 2: /* dark */
-			return [UIColor colorWithRed:0.75 green:0.75 blue:0.7 alpha:1];
+            NSLog(@"dark is deprecated");
 		case 0: /* bright */
 		default:
-			return [UIColor blackColor];
+			return [UIColor colorNamed:@"CustomTerpTextBright"];
 	}
 }
 
@@ -236,26 +232,24 @@
 - (UIColor *) genBackgroundColor {
 	switch (self.colorscheme) {
 		case 1: /* quiet */
-			return [UIColor colorWithRed:0.9 green:0.85 blue:0.7 alpha:1];
-		case 2: /* dark */
-			return [UIColor blackColor];
+			return [UIColor colorNamed:@"CustomTerpBGQuiet"];
 		case 0: /* bright */
 		default:
-			return [UIColor colorWithRed:1 green:1 blue:0.95 alpha:1];
+            return [UIColor colorNamed:@"CustomTerpBGBright"];
 	}
 }
 
 /* This is invoked from both the VM and UI threads.
  */
 - (void) prepareStyles:(StyleSet *)styles forWindowType:(glui32)wintype rock:(glui32)rock {
-	BOOL isiphone = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone);
-	
+	BOOL isiphone = (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone);
+
 	NSString *fontfam = self.fontfamily;
-	
+
 	if (wintype == wintype_TextGrid) {
 		styles.margins = UIEdgeInsetsMake(6, 6, 6, 6);
 		styles.leading = self.leading;
-		
+
 		CGFloat statusfontsize;
 		if (isiphone) {
 			statusfontsize = 9+self.fontscale;
@@ -263,7 +257,7 @@
 		else {
 			statusfontsize = 11+self.fontscale;
 		}
-		
+
 		FontVariants variants = [StyleSet fontVariantsForSize:statusfontsize name:@"Courier", nil];
 		styles.fonts[style_Normal] = variants.normal;
 		styles.fonts[style_Emphasized] = variants.italic;
@@ -272,20 +266,19 @@
 		styles.fonts[style_Subheader] = variants.bold;
 		styles.fonts[style_Alert] = variants.italic;
 		styles.fonts[style_Note] = variants.italic;
-		
+
 		switch (self.colorscheme) {
 			case 1: /* quiet */
-				styles.backgroundcolor = [UIColor colorWithRed:0.75 green:0.7 blue:0.5 alpha:1];
-				styles.colors[style_Normal] = [UIColor colorWithRed:0.15 green:0.1 blue:0.0 alpha:1];
+                styles.backgroundcolor = [UIColor colorNamed:@"CustomTerpGridBGQuiet"];
+                styles.colors[style_Normal] = [UIColor colorNamed:@"CustomTerpTextQuiet"];
 				break;
 			case 2: /* dark */
-				styles.backgroundcolor =  [UIColor colorWithRed:0.55 green:0.55 blue:0.5 alpha:1];
-				styles.colors[style_Normal] = [UIColor blackColor];
+                NSLog(@"dark is deprecated");
 				break;
 			case 0: /* bright */
 			default:
-				styles.backgroundcolor = [UIColor colorWithRed:0.85 green:0.8 blue:0.6 alpha:1];
-				styles.colors[style_Normal] = [UIColor colorWithRed:0.25 green:0.2 blue:0.0 alpha:1];
+                styles.backgroundcolor = [UIColor colorNamed:@"CustomTerpGridBGBright"];
+                styles.colors[style_Normal] = [UIColor colorNamed:@"CustomTerpTextBright"];
 				break;
 		}
 	}
@@ -296,7 +289,7 @@
 		CGFloat statusfontsize = 11+self.fontscale;
 
 		FontVariants variants = [self fontVariantsForSize:statusfontsize label:fontfam];
-		
+
 		styles.fonts[style_Normal] = variants.normal;
 		styles.fonts[style_Emphasized] = variants.italic;
 		styles.fonts[style_Preformatted] = [UIFont fontWithName:@"Courier" size:14];
@@ -305,14 +298,10 @@
 		styles.fonts[style_Input] = variants.bold;
 		styles.fonts[style_Alert] = variants.italic;
 		styles.fonts[style_Note] = variants.italic;
-		
+
 		styles.backgroundcolor = self.genBackgroundColor;
 		styles.colors[style_Normal] = self.genForegroundColor;
 	}
-}
-
-- (BOOL) hasDarkTheme {
-	return (colorscheme == 2);
 }
 
 /* This is invoked from both the VM and UI threads.
@@ -323,9 +312,9 @@
 
 - (CGRect) adjustFrame:(CGRect)rect {
 	/* Decode the maxwidth value into a pixel width. 0 means full-width. */
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 		return rect;
-	
+
 	CGFloat limit = 0;
 	switch (maxwidth) {
 		case 0:
@@ -338,10 +327,10 @@
 			limit = 0.6667 * rect.size.width;
 			break;
 	}
-	
+
 	// I hate odd widths
 	limit = ((int)floorf(limit)) & (~1);
-	
+
 	if (limit > 64 && rect.size.width > limit) {
 		rect.origin.x = (rect.origin.x+0.5*rect.size.width) - 0.5*limit;
 		rect.size.width = limit;
@@ -350,9 +339,9 @@
 }
 
 - (UIEdgeInsets) viewMarginForWindow:(GlkWindowState *)win rect:(CGRect)rect framebounds:(CGRect)framebounds {
-	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+	if (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone)
 		return UIEdgeInsetsZero;
-	
+
 	if ([win isKindOfClass:[GlkWindowBufferState class]]) {
 		CGFloat left = rect.origin.x - framebounds.origin.x;
 		CGFloat right = (framebounds.origin.x+framebounds.size.width) - (rect.origin.x+rect.size.width);
@@ -360,7 +349,7 @@
 			return UIEdgeInsetsMake(0, left, 0, right);
 		}
 	}
-	
+
 	return UIEdgeInsetsZero;
 }
 
